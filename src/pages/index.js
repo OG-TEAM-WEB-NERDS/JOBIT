@@ -1,6 +1,8 @@
+import { DesignSystem } from '../components';
+
 const Home = () => (
-  <main>
-    <div>Home page</div>
+  <main className="container mx-auto py-4">
+    <DesignSystem />
   </main>
 );
 
