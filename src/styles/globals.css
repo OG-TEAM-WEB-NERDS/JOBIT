@@ -1,27 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  html {
+    @apply font-main;
   }
-}
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-black-1;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  h1 {
+    @apply font-bold text-4xl;
+  }
+
+  h2 {
+    @apply font-bold text-2xl;
+  }
+
+  h3 {
+    @apply font-semibold text-2xl;
+  }
+
+  h4 {
+    @apply font-bold text-xl;
+  }
+
+  h5 {
+    @apply font-semibold text-xl;
+  }
+
+  .btn {
+    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white border-2 border-primary;
+  }
+
+  .btn-secondary {
+    @apply bg-natural-5 text-natural-2 border-2 border-natural-5 hover:bg-natural-3 hover:border-natural-3;
+  }
+
+  .btn-outlined {
+    @apply bg-transparent;
+  }
+
+  .btn-outlined.btn-primary {
+    @apply text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-outlined.btn-secondary {
+    @apply border-natural-2;
+  }
 }
