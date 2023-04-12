@@ -26,7 +26,7 @@ const DesignSystem = () => (
       <div className="font-bold bg-natural-6 h-16 w-full flex justify-center items-center">Natural 6</div>
     </div>
 
-    <div className="flex gap-4">
+    <div className="flex gap-4 flex-wrap">
       <button type="button" className="btn btn-primary">Primary button</button>
       <button type="button" className="btn btn-secondary">Secondary button</button>
       <button type="button" className="btn btn-primary btn-outlined">Outlined primary button</button>
