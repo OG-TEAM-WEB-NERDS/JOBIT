@@ -1,7 +1,7 @@
-const Button = ({ type = 'button', small, handleClick, primary, secondary, outlined, children }) => (
+const Button = ({ isSubmit, handleClick, primary, secondary, outlined, children }) => (
   <button
-    type={type === 'submit' ? 'submit' : 'button'}
-    className={`group btn ${primary && 'btn-primary'} ${secondary && 'btn-secondary'} ${outlined && 'btn-outlined'} ${small && 'text-xs'}`}
+    type={isSubmit ? 'submit' : 'button'}
+    className={`group btn ${primary && 'btn-primary'} ${secondary && 'btn-secondary'} ${outlined && 'btn-outlined'}`}
     onClick={handleClick}
   >
     {children}
