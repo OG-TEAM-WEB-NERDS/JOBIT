@@ -60,8 +60,7 @@ const DesignSystem = () => (
       <Button primary outlined><BellIcon /></Button>
       <Button secondary outlined><BellIcon /></Button>
     </div>
-
-  </div>
+   </div> 
 );
 
 export default DesignSystem;
