@@ -45,31 +45,17 @@ const Navbar = () => {
   const [active, setActive] = useState('Overview');
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log({ theme });
-
   return (
     <nav className="flexBetween w-full z-10 p-4 flex-row border-b bg-white border-natural-6">
       <div className="hidden md:flex ml-2">
-        {isOpen ? (
-          <Image
-            src={plus}
-            style={{ objectFit: 'contain' }}
-            width={25}
-            height={25}
-            alt="close"
-            onClick={() => setIsOpen(false)}
-            className="rotate-45"
-          />
-        ) : (
-          <Image
-            src={hamburger}
-            style={{ objectFit: 'contain' }}
-            width={25}
-            height={25}
-            alt="menu"
-            onClick={() => setIsOpen(true)}
-          />
-        )}
+        <Image
+          src={isOpen ? plus : hamburger}
+          style={{ objectFit: 'contain' }}
+          width={25}
+          height={25}
+          alt={isOpen ? 'close' : 'menu'}
+          onClick={() => setIsOpen((prev) => !prev)}
+        />
 
         {isOpen && (
           <div className="fixed w-2/3 inset-0 top-16 dark:bg-nft-dark bg-white z-10 nav-h flex justify-between flex-row">
