@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Button, BellIcon } from '.';
+import { Button } from '.';
+import { BellIcon } from './icons';
 
 const DesignSystem = () => (
   <div className="flex flex-col gap-8">
@@ -59,8 +60,7 @@ const DesignSystem = () => (
       <Button primary outlined><BellIcon /></Button>
       <Button secondary outlined><BellIcon /></Button>
     </div>
-
-  </div>
+   </div> 
 );
 
 export default DesignSystem;
