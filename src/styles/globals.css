@@ -33,15 +33,27 @@
   }
 
   .btn {
-    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold;
+    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2;
+  }
+
+  .btn svg {
+    @apply w-4 h-4
   }
 
   .btn-primary {
-    @apply bg-primary text-white border-2 border-primary;
+    @apply bg-primary text-white border-2 border-primary hover:bg-primary-hover hover:border-primary-hover;
+  }
+
+  .btn-primary svg path {
+    @apply fill-white;
   }
 
   .btn-secondary {
-    @apply bg-natural-5 text-natural-2 border-2 border-natural-5 hover:bg-natural-3 hover:border-natural-3;
+    @apply bg-natural-4 text-natural-2 border-2 border-natural-4 hover:bg-natural-3 hover:border-natural-3;
+  }
+
+  .btn-secondary svg path {
+    @apply fill-natural-2;
   }
 
   .btn-outlined {
@@ -49,11 +61,19 @@
   }
 
   .btn-outlined.btn-primary {
-    @apply text-primary hover:bg-primary hover:text-white;
+    @apply text-primary hover:text-white;
+  }
+
+  .btn-outlined.btn-primary svg path {
+    @apply transition duration-300 fill-primary;
+  }
+
+  .btn-outlined.btn-primary:hover svg path {
+    @apply fill-white;
   }
 
   .btn-outlined.btn-secondary {
-    @apply border-natural-2;
+    @apply border-natural-3;
   }
 }
 
@@ -109,3 +129,4 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
+

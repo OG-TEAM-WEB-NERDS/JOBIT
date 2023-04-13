@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Button } from '.';
+import { BellIcon } from './icons';
+
 const DesignSystem = () => (
   <div className="flex flex-col gap-8">
     <div className="flex flex-col gap-4">
@@ -26,13 +29,38 @@ const DesignSystem = () => (
       <div className="font-bold bg-natural-6 h-16 w-full flex justify-center items-center">Natural 6</div>
     </div>
 
-    <div className="flex gap-4 flex-wrap">
-      <button type="button" className="btn btn-primary">Primary button</button>
-      <button type="button" className="btn btn-secondary">Secondary button</button>
-      <button type="button" className="btn btn-primary btn-outlined">Outlined primary button</button>
-      <button type="button" className="btn btn-secondary btn-outlined">Outlined secondary button</button>
+    <h2>Standard buttons</h2>
+    <div className="flex flex-wrap gap-4">
+      <Button primary>Primary button</Button>
+      <Button secondary>Secondary button</Button>
+      <Button primary outlined>Outlined primary button</Button>
+      <Button secondary outlined>Outlined secondary button</Button>
     </div>
-  </div>
+
+    <h2>Icon left buttons</h2>
+    <div className="flex flex-wrap gap-4">
+      <Button primary><BellIcon />Primary button</Button>
+      <Button secondary><BellIcon />Secondary button</Button>
+      <Button primary outlined><BellIcon />Outlined primary button</Button>
+      <Button secondary outlined><BellIcon />Outlined secondary button</Button>
+    </div>
+
+    <h2>Icon right buttons</h2>
+    <div className="flex flex-wrap gap-4">
+      <Button primary>Primary button<BellIcon /></Button>
+      <Button secondary>Secondary button<BellIcon /></Button>
+      <Button primary outlined>Outlined primary button<BellIcon /></Button>
+      <Button secondary outlined>Outlined secondary button<BellIcon /></Button>
+    </div>
+
+    <h2>Icon buttons</h2>
+    <div className="flex flex-wrap gap-4">
+      <Button primary><BellIcon /></Button>
+      <Button secondary><BellIcon /></Button>
+      <Button primary outlined><BellIcon /></Button>
+      <Button secondary outlined><BellIcon /></Button>
+    </div>
+   </div> 
 );
 
 export default DesignSystem;

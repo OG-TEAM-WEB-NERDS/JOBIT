@@ -9,4 +9,3 @@ const Button = ({ isSubmit, handleClick, primary, secondary, outlined, children 
 );
 
 export default Button;
-
