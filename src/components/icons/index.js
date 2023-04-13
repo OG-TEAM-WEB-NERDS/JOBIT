@@ -26,6 +26,7 @@ export { default as LinkIcon } from './LinkIcon';
 export { default as ListIcon } from './ListIcon';
 export { default as MinusIcon } from './MinusIcon';
 export { default as MoonIcon } from './MoonIcon';
+export { default as MoreIcon } from './MoreIcon';
 export { default as PencilIcon } from './PencilIcon';
 export { default as PeopleIcon } from './PeopleIcon';
 export { default as PinIcon } from './PinIcon';

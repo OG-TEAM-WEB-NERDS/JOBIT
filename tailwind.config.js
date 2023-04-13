@@ -10,6 +10,9 @@ module.exports = {
       fontFamily: {
         main: "'Manrope', sans-serif",
       },
+      fontSize: {
+        xxs: '0.6rem',
+      },
       colors: {
         primary: '#0BAB7C',
         'primary-hover': '#0B996E',
