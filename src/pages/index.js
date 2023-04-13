@@ -1,4 +1,4 @@
-import { appleLogo, hamburger } from '../assets';
+import { appleLogo, mailchimpLogo, gitlabLogo, hamburger } from '../assets';
 import {
   DesignSystem,
   LatestJobPosts,
@@ -28,9 +28,9 @@ const Dashboard = () => (
     <h2>Featured Companies</h2>
     <div className="grid grid-cols-3 w-full">
       <div className="flex flex-col md:flex-row gap-8 col-span-2">
-        <FeaturedCompanyCard logo={appleLogo} rating={4.5} />
-        <FeaturedCompanyCard logo={appleLogo} rating={3.2} />
-        <FeaturedCompanyCard logo={appleLogo} rating={2.6} />
+        <FeaturedCompanyCard logo={appleLogo} rating={4.5} employerName="Apple Inc." location="New York, USA" vacancies={5} reviewCount={19000} />
+        <FeaturedCompanyCard logo={mailchimpLogo} rating={3.2} employerName="Apple Inc." location="New York, USA" vacancies={1} reviewCount={21500} />
+        <FeaturedCompanyCard logo={gitlabLogo} rating={2.6} employerName="Apple Inc." location="New York, USA" vacancies={0} reviewCount={7000} />
       </div>
     </div>
   </main>
