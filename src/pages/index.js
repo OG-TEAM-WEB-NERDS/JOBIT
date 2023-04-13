@@ -7,10 +7,10 @@ import {
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <section className="container mx-auto px-6 py-8">
-    <h3 className="font-bold ">
+  <main className="py-8">
+    <h1 className="font-bold ">
       Welcome to the Job Search Platform for Developers
-    </h3>
+    </h1>
     <p className="text-natural-2 text-base my-2">{getDate()}</p>
     {/* <DesignSystem /> */}
 
@@ -19,7 +19,7 @@ const Dashboard = () => (
       <LatestJobPosts />
       <RecommendedJobPosts />
     </div>
-  </section>
+  </main>
 );
 
 export default Dashboard;

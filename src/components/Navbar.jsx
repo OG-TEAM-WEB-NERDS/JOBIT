@@ -46,7 +46,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="flexBetween w-full z-10 p-4 flex-row border-b bg-white border-natural-6">
+    <nav className="flexBetween w-full z-10 py-6 flex-row border-b bg-white border-natural-6">
       <div className="hidden md:flex ml-2">
         <Image
           src={isOpen ? plus : hamburger}
@@ -66,7 +66,7 @@ const Navbar = () => {
         )}
       </div>
 
-      <div className="flex flex-row justify-start py-4 px-8 md:hidden">
+      <div className="flex flex-row justify-start md:hidden">
         <Link href="/">
           <div className="flexCenter cursor-pointer">
             <Image
