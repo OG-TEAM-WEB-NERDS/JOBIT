@@ -8,7 +8,7 @@ const FeaturedCompanyCard = ({ logo, rating = 3, employerName = 'Company', locat
 
   return (
     <div className="bg-white p-4 rounded-xl flex flex-col space-y-8 w-full">
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-3">
         <Image
           src={logo}
           width={60}
