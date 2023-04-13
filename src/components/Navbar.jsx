@@ -91,6 +91,7 @@ const Navbar = () => {
             style={{ objectFit: 'contain' }}
             width={20}
             height={20}
+            alt="Light mode"
           />
           <input
             type="checkbox"
@@ -109,6 +110,7 @@ const Navbar = () => {
             style={{ objectFit: 'contain' }}
             width={20}
             height={20}
+            alt="Dark mode"
           />
         </div>
       </div>
