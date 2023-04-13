@@ -1,11 +1,12 @@
-const Button = ({ btnName, classStyles, handleClick }) => (
+const Button = ({ isSubmit, handleClick, primary, secondary, outlined, children }) => (
   <button
-    type="button"
-    className={`nft-gradient text-sm minlg:text-lg py-2 px-6 minlg:px-8 font-poppins font-semibold text-white ${classStyles}`}
+    type={isSubmit ? 'submit' : 'button'}
+    className={`group btn ${primary && 'btn-primary'} ${secondary && 'btn-secondary'} ${outlined && 'btn-outlined'}`}
     onClick={handleClick}
   >
-    {btnName}
+    {children}
   </button>
 );
 
 export default Button;
+

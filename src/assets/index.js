@@ -1,13 +1,6 @@
-import logo from './Logo.svg';
-import sun from './Sun.svg';
-import moon from './Moon.svg';
-import hamburger from './Hamburger.svg';
-import plus from './Plus.svg';
+export { default as logo } from './Logo.svg';
+export { default as sun } from './Sun.svg';
+export { default as moon } from './Moon.svg';
+export { default as hamburger } from './Hamburger.svg';
+export { default as plus } from './Plus.svg';
 
-export default {
-  logo,
-  sun,
-  moon,
-  hamburger,
-  plus,
-};
