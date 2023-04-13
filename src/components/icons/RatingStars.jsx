@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RatingStars = ({ id, rating = 5 }) => {
+const RatingStars = ({ rating = 5 }) => {
   const maskWidth = (rating / 5) * 87;
 
   return (
