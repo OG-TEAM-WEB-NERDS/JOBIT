@@ -9,7 +9,7 @@ import '../styles/globals.css';
 const App = ({ Component, pageProps }) => (
   <ThemeProvider attribute="class">
     <div className="bg-white min-h-screen">
-      <Navbar />
+      <Navbar />;
       <Component {...pageProps} />;
     </div>
 
