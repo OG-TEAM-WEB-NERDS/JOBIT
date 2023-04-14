@@ -1,8 +1,4 @@
-import {
-  DesignSystem,
-  LatestJobPosts,
-  RecommendedJobPosts,
-} from '../components';
+import { LatestJobPosts, RecommendedJobPosts } from '../components';
 import FeaturedJobPosts from '../components/FeaturedCompanies';
 
 import { getDate } from '../utils';
