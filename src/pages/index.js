@@ -8,11 +8,11 @@ import FeaturedJobPosts from '../components/FeaturedCompanies';
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <section className=" px-10 py-6 ">
-    <h3 className="font-bold">
+  <section className=" px-10 py-6 text-center md:text-left">
+    <h3 className="font-bold text-sm md:text-lg">
       Welcome to the Job Search Platform for Developers
     </h3>
-    <p className="text-natural-2 text-base my-2">{getDate()}</p>
+    <p className="text-natural-2 text-sm my-2 md:text-lg">{getDate()}</p>
     {/* <DesignSystem /> */}
 
     {/* layout */}
@@ -21,7 +21,7 @@ const Dashboard = () => (
         <LatestJobPosts />
         <FeaturedJobPosts />
       </div>
-      <div className="md:w-1/3 mx-2 px-2">
+      <div className="md:w-1/3 mx-2 px-2 my-3">
         <RecommendedJobPosts />
       </div>
     </div>
