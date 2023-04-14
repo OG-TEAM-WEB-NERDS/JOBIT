@@ -5,12 +5,12 @@ import JobCard from './shared/JobCard';
 const LatestJobPosts = () => (
   <div>
     {/* title */}
-    <div className="flex justify-between ">
-      <h5 className="my-2">Latest Job Posts</h5>
-      <button>See All</button>
+    <div className="flex justify-between mx-4">
+      <h4 className="text-sm">Latest Job Posts</h4>
+      <button className="text-sm">See All</button>
     </div>
     {/* jobs */}
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-between">
       {jobs.data.map((job, i) => (
         <JobCard key={i} />
       ))}

@@ -7,11 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '48p': '48%',
+      },
       fontFamily: {
         main: "'Manrope', sans-serif",
       },
       fontSize: {
-        xxs: '0.6rem',
+        xxs: '0.8rem',
+        xxxs: '0.6rem',
       },
       colors: {
         primary: '#0BAB7C',
