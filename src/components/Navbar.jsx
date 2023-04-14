@@ -44,8 +44,6 @@ const Navbar = () => {
   const [active, setActive] = useState('Overview');
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log({ theme });
-
   return (
     <nav className="flexBetween fixed w-full z-10 p-4 flex-row border-b bg-white border-natural-6">
 
@@ -114,7 +112,6 @@ const Navbar = () => {
                 />
               </div>
             </div>
-
           </div>
         )}
       </div>
@@ -131,8 +128,10 @@ const Navbar = () => {
             height={20}
             alt="sun"
           />
-          <input type="checkbox" className="checkbox" id="checkbox" onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')} />
-          <label htmlFor="checkbox" className="flexBetween w-8 h-4 rounded-2xl p-1 bg-white relative label">
+          <label
+            htmlFor="checkbox"
+            className="flexBetween w-8 h-4 rounded-2xl p-1 bg-white relative label"
+          >
             <div className="w-3 h-3 absolute bg-primary rounded-full ball" />
           </label>
           <Image
@@ -144,7 +143,6 @@ const Navbar = () => {
           />
         </div>
       </div>
-
     </nav>
   );
 };
