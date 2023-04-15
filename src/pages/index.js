@@ -1,10 +1,6 @@
-import { appleLogo, mailchimpLogo, gitlabLogo, hamburger } from '../assets';
-import {
-  DesignSystem,
-  LatestJobPosts,
-  RecommendedJobPosts,
-  FeaturedCompanyCard,
-} from '../components';
+import { LatestJobPosts, RecommendedJobPosts, FeaturedCompanyCard } from '../components';
+
+import { appleLogo, mailchimpLogo, gitlabLogo } from '../assets';
 
 import { getDate } from '../utils';
 
