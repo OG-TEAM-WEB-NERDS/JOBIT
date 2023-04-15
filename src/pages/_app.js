@@ -8,13 +8,15 @@ import '../styles/globals.css';
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider attribute="class">
-
-    <div className="bg-white min-h-screen">
-      <Navbar />;
+    <div className="bg-natural-6 min-h-screen">
+      <Navbar />
       <Component {...pageProps} />;
     </div>
 
-    <Script src="https://kit.fontawesome.com/7d15c82b1b.js" crossorigin="anonymous" />
+    <Script
+      src="https://kit.fontawesome.com/7d15c82b1b.js"
+      crossorigin="anonymous"
+    />
   </ThemeProvider>
 );
 

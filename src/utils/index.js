@@ -23,7 +23,9 @@ export const getDate = () => {
     'November',
     'December',
   ];
-  const dayOfWeek = daysOfWeek[today.getDay()];
+
+  const dayToday = today.getDay() || '1';
+  const dayOfWeek = daysOfWeek[dayToday];
   const dayOfMonth = today.getDate();
   const monthOfYear = monthsOfYear[today.getMonth()];
   const year = today.getFullYear();
