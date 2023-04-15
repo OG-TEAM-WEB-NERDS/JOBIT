@@ -7,7 +7,7 @@ const FeaturedCompanyCard = ({ logo, rating = 3, employerName = 'Company', locat
   const formattedReviewCount = `${(reviewCount / 1000).toFixed(1)}k`;
 
   return (
-    <div className="bg-white p-4 rounded-xl flex flex-col space-y-8 w-full">
+    <div className="bg-white dark:bg-black-2 p-4 rounded-xl flex flex-col space-y-8 w-full">
       <div className="flex items-center space-x-3">
         <Image
           src={logo}
