@@ -16,18 +16,18 @@ const FeaturedCompanyCard = ({ logo, rating = 3, employerName = 'Company', locat
           alt={employerName}
         />
         <div className="flex flex-col space-y-1">
-          <div className="font-bold text-xl">{employerName}</div>
+          <h4>{employerName}</h4>
           <div className="flex items-center space-x-2">
             <div className="flex">
               <RatingStars rating={rating} />
             </div>
-            <div className="text-natural-2 font-bold text-base">{formattedReviewCount}</div>
+            <p className="text-natural-2 font-bold text-base">{formattedReviewCount}</p>
           </div>
         </div>
       </div>
       <div className="flex flex-col space-y-2">
-        <div className="flex gap-2 text-natural-2 font-bold"><PinIcon />{location}</div>
-        <div className="flex gap-2 text-natural-2 font-bold"><BriefcaseIcon />{vacancies === 0 ? 'No' : vacancies} Job {vacancies === 1 ? 'Vacancy' : 'Vacancies'}</div>
+        <p className="flex gap-2 text-natural-2 font-bold"><PinIcon />{location}</p>
+        <p className="flex gap-2 text-natural-2 font-bold"><BriefcaseIcon />{vacancies === 0 ? 'No' : vacancies} Job {vacancies === 1 ? 'Vacancy' : 'Vacancies'}</p>
       </div>
       <Button secondary fullWidth>See All</Button>
     </div>
