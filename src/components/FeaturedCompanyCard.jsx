@@ -14,7 +14,7 @@ const FeaturedCompanyCard = ({
   const formattedReviewCount = `${(reviewCount / 1000).toFixed(1)}k`;
 
   return (
-    <div className="bg-white p-4 rounded-xl flex flex-col space-y-8 w-full mr-3">
+    <div className="bg-white p-4 rounded-xl flex flex-col space-y-8 w-full mr-3 last:mr-0">
       <div className="flex items-center space-x-3">
         <Image src={logo} width={60} height={60} alt={employerName} />
         <div className="flex flex-col space-y-1">
