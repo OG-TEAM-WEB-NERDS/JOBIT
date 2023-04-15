@@ -1,17 +1,15 @@
 import { LatestJobPosts, RecommendedJobPosts } from '../components';
-import FeaturedJobPosts from '../components/FeaturedCompanies';
+// import FeaturedJobPosts from '../components/FeaturedCompanies';
 
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <section className=" px-10 py-6 text-center md:text-left">
+  <main className="py-8 flex flex-col space-y-10">
+  {/* <section className=" px-10 py-6 text-center md:text-left">
     <h3 className="font-bold text-sm md:text-lg">
       Welcome to the Job Search Platform for Developers
     </h3>
     <p className="text-natural-2 text-sm my-2 md:text-lg">{getDate()}</p>
-    {/* <DesignSystem /> */}
-
-    {/* layout */}
     <div className="flex flex-col justify-between md:flex-row mt-3 ">
       <div className="flex flex-col md:w-2/3 ">
         <LatestJobPosts />
@@ -19,9 +17,31 @@ const Dashboard = () => (
       </div>
       <div className="md:w-1/3 mx-2 px-2 my-3 md:my-0">
         <RecommendedJobPosts />
+      </div> */}
+    <div className="flex flex-col">
+      <h1 className="font-bold ">
+        Welcome to the Job Search Platform for Developers
+      </h1>
+      <p className="text-natural-2 text-base my-2">{getDate()}</p>
+    </div>
+    {/* <DesignSystem /> */}
+
+    {/* layout */}
+
+    <div className="flex flex-col justify-between md:flex-row">
+      <LatestJobPosts />
+      <RecommendedJobPosts />
+    </div>
+
+    <h2>Featured Companies</h2>
+    <div className="grid grid-cols-3 w-full">
+      <div className="flex flex-col md:flex-row gap-8 col-span-2">
+        <FeaturedCompanyCard logo={appleLogo} rating={4.5} employerName="Apple Inc." location="New York, USA" vacancies={5} reviewCount={19000} />
+        <FeaturedCompanyCard logo={mailchimpLogo} rating={3.2} employerName="Mailchimp" location="New York, USA" vacancies={1} reviewCount={21500} />
+        <FeaturedCompanyCard logo={gitlabLogo} rating={2.6} employerName="Gitlab" location="New York, USA" vacancies={0} reviewCount={7000} />
       </div>
     </div>
-  </section>
+  </main>
 );
 
 export default Dashboard;
