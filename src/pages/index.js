@@ -9,7 +9,7 @@ import {
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <main className="py-8 flex flex-col space-y-10">
+  <main className="py-28 flex flex-col space-y-10">
     <div className="flex flex-col">
       <h1 className="font-bold ">
         Welcome to the Job Search Platform for Developers
