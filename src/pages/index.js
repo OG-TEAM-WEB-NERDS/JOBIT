@@ -1,17 +1,10 @@
-import { LatestJobPosts, RecommendedJobPosts, FeaturedCompanyCard } from '../components';
+import { LatestJobPosts, RecommendedJobPosts, FeaturedCompanyCard, Heading } from '../components';
 
 import { appleLogo, mailchimpLogo, gitlabLogo } from '../assets';
 
-import { getDate } from '../utils';
-
 const Dashboard = () => (
   <main className="py-28 flex flex-col space-y-10">
-    <div className="flex flex-col">
-      <h1 className="font-bold ">
-        Welcome to the Job Search Platform for Developers
-      </h1>
-      <p className="text-natural-2 text-base my-2">{getDate()}</p>
-    </div>
+    <Heading heading="Welcome to the Job Search Platform for Developers" />
     {/* <DesignSystem /> */}
 
     {/* layout */}
