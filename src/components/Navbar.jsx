@@ -99,9 +99,7 @@ const Navbar = () => {
                     type="checkbox"
                     className="checkbox"
                     id="checkbox"
-                    onChange={() =>
-                      setTheme(theme === 'light' ? 'dark' : 'light')
-                    }
+                    onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                   />
                   <label
                     htmlFor="checkbox"
