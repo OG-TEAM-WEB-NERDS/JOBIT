@@ -8,8 +8,13 @@
   html {
     @apply font-main;
   }
+
+  body {
+    @apply bg-natural-6 dark:bg-black-1
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply text-black-1;
+    @apply text-black-1 dark:text-white;
   }
 
   h1 {
@@ -33,7 +38,7 @@
   }
 
   .btn {
-    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2;
+    @apply transition duration-300 px-4 py-3 rounded-lg font-semibold flex items-center gap-2;
   }
 
   .btn svg {
@@ -49,7 +54,7 @@
   }
 
   .btn-secondary {
-    @apply bg-natural-4 text-natural-2 border-2 border-natural-4 hover:bg-natural-3 hover:border-natural-3;
+    @apply bg-natural-4 dark:bg-black-3 text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-1 dark:hover:border-black-1;
   }
 
   .btn-secondary svg path {
@@ -112,7 +117,7 @@
 }
 
 /*  target the elemenent after the label*/
-.checkbox:checked + .label .ball{
+.dark .ball{
   transform: translateX(16px);
 }
 
@@ -129,4 +134,3 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-

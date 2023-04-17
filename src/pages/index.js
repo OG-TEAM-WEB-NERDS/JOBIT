@@ -1,10 +1,9 @@
 import { LatestJobPosts, RecommendedJobPosts } from '../components';
 import FeaturedJobPosts from '../components/FeaturedCompanies';
-
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <section className=" px-10 py-6 text-center md:text-left">
+  <section className="py-6 text-center md:text-left">
     <h3 className="font-bold text-sm md:text-lg">
       Welcome to the Job Search Platform for Developers
     </h3>

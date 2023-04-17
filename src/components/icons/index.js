@@ -8,6 +8,7 @@ export { default as BriefcaseIcon } from './BriefcaseIcon';
 export { default as CalenderIcon } from './CalenderIcon';
 export { default as ChecklistIcon } from './ChecklistIcon';
 export { default as ClockIcon } from './ClockIcon';
+export { default as CrossIcon } from './CrossIcon';
 export { default as DollarCircleIcon } from './DollarCircleIcon';
 export { default as EditIcon } from './EditIcon';
 export { default as EmailIcon } from './EmailIcon';
