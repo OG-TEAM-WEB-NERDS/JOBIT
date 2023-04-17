@@ -43,8 +43,6 @@ const Navbar = () => {
   const [active, setActive] = useState('Overview');
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(active);
-
   return (
     <nav className="fixed w-full z-10 py-6 border-b bg-white dark:bg-black-1 border-natural-6 dark:border-black-3 inset-x-0">
 
