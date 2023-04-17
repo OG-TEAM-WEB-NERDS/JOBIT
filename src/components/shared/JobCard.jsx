@@ -47,7 +47,7 @@ const JobCard = () => {
       {/* footer */}
       <div className="flex justify-between items-center my-4">
         <p>$15/20k/month</p>
-        <button className="bg-primary text-white rounded-md px-2 py-1">
+        <button className="bg-primary text-white rounded-md px-2 py-2 text-sm">
           Apply now
         </button>
       </div>
