@@ -5,7 +5,7 @@ import jobs from '../../samples/search';
 const SuggestedJobsCard = () => {
   const job = jobs.data[0];
   return (
-    <article className="flex bg-natural-6 my-4  px-6 py-4 w-full rounded-xl">
+    <article className="flex bg-natural-6 dark:bg-black-2 my-4  px-6 py-4 w-full rounded-xl">
       {/* image */}
       <div>
         <Image

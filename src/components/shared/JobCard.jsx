@@ -8,7 +8,7 @@ import Badge from './Badge';
 const JobCard = () => {
   const job = jobs.data[0];
   return (
-    <article className="flex flex-col bg-white my-4  px-6 py-4 w-full md:w-48p">
+    <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-48p">
       {/* card header */}
       <div className="flex justify-between">
         <div className="flex justify-center mt-2 w-14 h-14 bg-natural-6">
