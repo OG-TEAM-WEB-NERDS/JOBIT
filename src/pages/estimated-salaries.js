@@ -4,7 +4,7 @@ import estimatedSalary from '../samples/estimated-salary';
 import { BarChart, Button, Heading } from '../components';
 
 const EstimatedSalaries = () => (
-  <main className="py-28 flex flex-col lg:items-center lg:flex-row gap-10">
+  <main className="py-6 flex flex-col lg:items-center lg:flex-row gap-10">
 
     <div className="flex flex-col gap-10 w-full lg:w-1/2">
       <Heading heading="Estimated Salaries" />
