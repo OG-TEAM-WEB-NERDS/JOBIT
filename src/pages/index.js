@@ -1,5 +1,8 @@
-import { LatestJobPosts, RecommendedJobPosts } from '../components';
-import FeaturedJobPosts from '../components/FeaturedCompanies';
+import {
+  LatestJobPosts,
+  RecommendedJobPosts,
+  FeaturedJobPosts,
+} from '../components';
 import { getDate } from '../utils';
 
 const Dashboard = () => (
