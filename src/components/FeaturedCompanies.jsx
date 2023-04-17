@@ -1,12 +1,24 @@
 import React from 'react';
 import { FeaturedCompanyCard } from '.';
 import { appleLogo, mailchimpLogo, gitlabLogo } from '../assets';
+import { FeaturedCompanies } from '../samples/static-data';
 
 const FeaturedJobPosts = () => (
   <div>
     <h5>Featured Companies</h5>
     <div className="flex justify-between">
-      <FeaturedCompanyCard
+      {FeaturedCompanies.map((company, index) => (
+        <FeaturedCompanyCard
+          key={index}
+          logo={company.logo}
+          rating={company.rating}
+          employerName={company.employerName}
+          location={company.location}
+          vacancies={company.vacancies}
+          reviewCount={company.reviewCount}
+        />
+      ))}
+      {/* <FeaturedCompanyCard
         logo={appleLogo}
         rating={4.5}
         employerName="Apple Inc."
@@ -29,7 +41,7 @@ const FeaturedJobPosts = () => (
         location="New York, USA"
         vacancies={0}
         reviewCount={7000}
-      />
+      /> */}
     </div>
   </div>
 );

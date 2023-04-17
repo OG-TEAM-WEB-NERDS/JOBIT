@@ -69,25 +69,14 @@ const Navbar = () => {
         </div>
 
         <div className="flex md:hidden w-full justify-end">
-          {isOpen ? (
-            <Image
-              src={cross}
-              className="object-contain aspect-square cursor-pointer"
-              width={30}
-              height={30}
-              alt="close"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <Image
-              src={hamburger}
-              className="object-contain aspect-square cursor-pointer"
-              width={30}
-              height={30}
-              alt="menu"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
+          <Image
+            src={isOpen ? cross : hamburger}
+            className="object-contain aspect-square cursor-pointer"
+            width={30}
+            height={30}
+            alt={isOpen ? 'Menu' : 'close'}
+            onClick={() => setIsOpen(!isOpen)}
+          />
 
           {isOpen && (
             <div className="fixed inset-0 top-20 z-4 nav-h flex justify-between flex-row">
