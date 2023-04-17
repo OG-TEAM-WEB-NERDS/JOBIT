@@ -8,6 +8,11 @@
   html {
     @apply font-main;
   }
+
+  body {
+    @apply bg-natural-6 dark:bg-black-1
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply text-black-1 dark:text-white;
   }
@@ -33,7 +38,7 @@
   }
 
   .btn {
-    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2;
+    @apply transition duration-300 px-4 py-3 rounded-lg font-semibold flex items-center gap-2;
   }
 
   .btn svg {
@@ -129,4 +134,3 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-
