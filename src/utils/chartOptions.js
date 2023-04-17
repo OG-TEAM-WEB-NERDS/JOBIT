@@ -42,6 +42,7 @@ export const baseOptions = {
   legend: {
     position: 'top',
     horizontalAlign: 'left',
+    offsetX: -30,
     fontWeight: 600,
     onItemClick: {
       toggleDataSeries: false,
@@ -99,6 +100,7 @@ export const baseOptions = {
       options: {
         plotOptions: {
           bar: {
+            borderRadius: 6,
             columnWidth: '40px',
           },
         },
@@ -109,6 +111,7 @@ export const baseOptions = {
       options: {
         plotOptions: {
           bar: {
+            borderRadius: 5,
             columnWidth: '25px',
           },
         },
@@ -149,7 +152,18 @@ export const baseOptions = {
       options: {
         plotOptions: {
           bar: {
+            borderRadius: 4,
             columnWidth: '55px',
+          },
+        },
+        legend: {
+          fontSize: '10px',
+        },
+        xaxis: {
+          labels: {
+            style: {
+              fontSize: '12px',
+            },
           },
         },
       },
