@@ -8,7 +8,7 @@ import Badge from './Badge';
 const JobCard = () => {
   const job = jobs.data[0];
   return (
-    <article className="flex flex-col bg-white my-4  px-6 py-4 w-full md:w-48p">
+    <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-48p">
       {/* card header */}
       <div className="flex justify-between">
         <div className="flex justify-center mt-2 w-14 h-14 bg-natural-6">
@@ -47,7 +47,7 @@ const JobCard = () => {
       {/* footer */}
       <div className="flex justify-between items-center my-4">
         <p>$15/20k/month</p>
-        <button className="bg-primary text-white rounded-md px-2 py-1">
+        <button className="bg-primary text-white rounded-md px-2 py-2 text-sm">
           Apply now
         </button>
       </div>
