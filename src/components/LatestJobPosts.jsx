@@ -1,13 +1,17 @@
 import React from 'react';
 import jobs from '../samples/search';
 import JobCard from './shared/JobCard';
+import SectionTitle from './SectionTitle';
 
 const LatestJobPosts = () => (
   <div>
     {/* title */}
     <div className="flex justify-between mx-4">
-      <h4 className="text-sm">Latest Job Posts</h4>
-      <button className="text-sm">See All</button>
+      <SectionTitle
+        title="Latest Job Posts"
+        button="See All"
+        targetPage="/job-search"
+      />
     </div>
     {/* jobs */}
     <div className="flex flex-wrap justify-between">
