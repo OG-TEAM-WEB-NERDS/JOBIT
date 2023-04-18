@@ -24,10 +24,7 @@ const JobSearch = () => (
         {/* Filters */}
         <div className="hidden md:flex flex-col gap-6">
           {
-            FilterDropdowns.map((filter, i) => (
-              filter?.options
-              && <FilterDropdown key={i} label={filter.name} options={filter.options} />
-            ))
+            FilterDropdowns.map((filter, i) => filter?.options && <FilterDropdown key={i} label={filter.name} options={filter.options} />)
           }
         </div>
 
