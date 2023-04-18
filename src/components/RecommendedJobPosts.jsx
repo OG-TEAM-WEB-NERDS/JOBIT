@@ -8,8 +8,8 @@ const RecommendedJobPosts = () => (
     {/* title */}
     <div className="flex justify-between mx-1">
       <SectionTitle
-        title=""
-        button="Back"
+        title="Recommended Jobs"
+        button="See All"
         targetPage="/job-search"
       />
     </div>
