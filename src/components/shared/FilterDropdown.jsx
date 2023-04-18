@@ -21,8 +21,8 @@ const FilterDropdown = ({ label, options }) => {
                 options?.map((option, i) => (
                   <div key={i} className="flex items-center justify-between">
                     <div className="flex items-center gap-3 select-none">
-                      <input className="filterCheckbox cursor-pointer w-4 h-4 border appearance-none border-natural-1 rounded checked:bg-primary checked:border-primary" type="checkbox" id={option.name} name="full-time" value="" />
-                      <label className="cursor-pointer font-medium dark:text-natural-3" htmlFor={option.name}>{option.name}</label>
+                      <input className="filterCheckbox" type="checkbox" id={option.name} name="full-time" value="" />
+                      <label className="transition cursor-pointer font-medium dark:text-natural-3 hover:text-natural-1 hover:dark:text-natural-2" htmlFor={option.name}>{option.name}</label>
                     </div>
                     <p className="px-2 py-0.5 bg-natural-4 dark:bg-black-3 rounded-md dark:text-natural-3 text-sm font-medium select-none">{option.results}</p>
                   </div>
