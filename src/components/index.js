@@ -7,3 +7,5 @@ export { default as FeaturedJobPosts } from './FeaturedCompanies';
 export { default as Navbar } from './Navbar';
 export { default as Heading } from './Heading';
 export { default as BarChart } from './BarChart';
+
+export { default as FilterDropdown } from './shared/FilterDropdown';
