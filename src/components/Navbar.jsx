@@ -33,7 +33,7 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
             setActive(item);
             setIsOpen(false);
           }}
-          className={`flex flex-row items-center font-semibold text-base mx-3 hover:text-primary
+          className={`flex flex-row items-center font-semibold text-2xl sm:text-xl md:text-base md:px-4 hover:text-primary
           ${isMobile ? 'mb-8' : null}
           
           ${active === item ? 'text-primary' : 'text-natural-2'}
@@ -55,12 +55,12 @@ const Navbar = () => {
     <nav className="fixed w-full z-10 py-6 border-b bg-white dark:bg-black-1 border-natural-6 dark:border-black-3 inset-x-0">
       <div className="flexBetween flex-row container mx-auto px-4">
         <div className="flex flex-row justify-start md:flex">
-          <Link href="/">
+          <Link href="/" onClick={() => setIsOpen(false)}>
             <div className="flexCenter cursor-pointer">
               <Image
                 src={logo}
                 style={{ objectFit: 'contain' }}
-                width={90}
+                width={120}
                 height={22}
                 alt="logo"
               />
@@ -80,14 +80,14 @@ const Navbar = () => {
 
           {isOpen && (
             <div className="fixed inset-0 top-20 z-4 nav-h flex justify-between flex-row">
-              <div className="flex w-full sm:w-2/3 flex-col justify-start items-start p-4 gap-8 bg-white dark:bg-black-1">
+              <div className="flex container mx-auto w-full flex-col justify-start items-start p-4 gap-8 bg-white dark:bg-black-1">
                 <MenuItems
                   active={active}
                   setActive={setActive}
                   isMobile
                   setIsOpen={setIsOpen}
                 />
-                <div className="flex md:hidden items-center p-4 justify-between w-36">
+                <div className="flex md:hidden items-center py-4 justify-between w-28">
                   <Image
                     src={sun}
                     style={{ objectFit: 'contain' }}
@@ -99,9 +99,7 @@ const Navbar = () => {
                     type="checkbox"
                     className="checkbox"
                     id="checkbox"
-                    onChange={() =>
-                      setTheme(theme === 'light' ? 'dark' : 'light')
-                    }
+                    onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                   />
                   <label
                     htmlFor="checkbox"
@@ -118,7 +116,6 @@ const Navbar = () => {
                   />
                 </div>
               </div>
-              <div className="hidden bg-black-1 sm:w-1/3 sm:block opacity-50" />
             </div>
           )}
         </div>

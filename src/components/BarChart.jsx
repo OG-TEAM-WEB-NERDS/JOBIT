@@ -32,7 +32,7 @@ const BarChart = ({ data }) => {
     ...options.xaxis,
     categories: data.map((publisher) => (publisher.publisher_name)),
     axisBorder: {
-      color: theme === 'light' ? '#E2E2EA' : '#13131A',
+      color: theme === 'light' ? '#E2E2EA' : '#21212B',
     },
   };
 

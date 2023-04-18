@@ -37,6 +37,10 @@
     @apply font-semibold text-xl;
   }
 
+  h6 {
+    @apply font-semibold text-lg;
+  }
+
   .btn {
     @apply transition duration-300 px-4 py-3 rounded-lg font-semibold flex items-center gap-2;
   }
@@ -80,6 +84,35 @@
   .btn-outlined.btn-secondary {
     @apply border-natural-3;
   }
+
+  .filterCheckbox {
+    position: relative;
+    @apply transition duration-200 cursor-pointer w-4 h-4 border appearance-none border-natural-1 rounded bg-none checked:bg-primary checked:border-primary;
+  }
+
+  .filterCheckbox::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transform: translate(-50%, -50%);
+    @apply transition duration-200 opacity-0;
+  }
+
+  .filterCheckbox:checked::before {
+    background-image: var(--checkmark);
+    @apply opacity-100;
+  }
+}
+
+:root {
+  --checkmark: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.0591 2.95952C1.66454 2.56044 1.02895 2.56466 0.639475 2.96894C0.249996 3.37321 0.254111 4.02445 0.648667 4.42352L3.19939 7.00345C3.61903 7.42788 4.30362 7.39208 4.6789 6.92608L8.82047 1.78322C9.17333 1.34506 9.11271 0.696777 8.68508 0.335234C8.25746 -0.0263098 7.62476 0.0357993 7.2719 0.473958L3.8288 4.74947L2.0591 2.95952Z' fill='white'/%3E%3C/svg%3E%0A");
 }
 
 .flexStart {

@@ -2,15 +2,13 @@ import {
   LatestJobPosts,
   RecommendedJobPosts,
   FeaturedJobPosts,
+  Heading,
 } from '../components';
 import { getDate } from '../utils';
 
 const Dashboard = () => (
   <section className="py-6 text-center md:text-left">
-    <h3 className="font-bold text-sm md:text-lg">
-      Welcome to the Job Search Platform for Developers
-    </h3>
-    <p className="text-natural-2 text-sm my-2 md:text-lg">{getDate()}</p>
+    <Heading heading="Welcome to the Job Search Platform for Developers" />
     {/* <DesignSystem /> */}
 
     {/* layout */}

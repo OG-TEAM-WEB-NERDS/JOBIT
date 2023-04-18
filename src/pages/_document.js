@@ -5,7 +5,7 @@ import { Navbar } from '../components';
 const Document = () => (
   <Html lang="en">
     <Head />
-    <body className="container mx-auto">
+    <body className="container mx-auto px-4">
       <Main />
       <NextScript />
     </body>

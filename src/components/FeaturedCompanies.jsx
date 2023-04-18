@@ -5,7 +5,7 @@ import { FeaturedCompanies } from '../samples/static-data';
 const FeaturedJobPosts = () => (
   <div>
     <h5>Featured Companies</h5>
-    <div className="flex justify-between flex-col md:flex-row">
+    <div className="flex flex-col md:flex-row justify-between my-4 ">
       {FeaturedCompanies.map((company, index) => (
         <FeaturedCompanyCard
           key={index}

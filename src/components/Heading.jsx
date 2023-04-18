@@ -7,7 +7,7 @@ const Heading = ({ heading }) => (
     <h1 className="font-bold ">
       {heading}
     </h1>
-    <p className="text-natural-2 text-base">{getDate()}</p>
+    <p className="text-natural-2 text-sm my-2 md:text-lg">{getDate()}</p>
   </div>
 );
 

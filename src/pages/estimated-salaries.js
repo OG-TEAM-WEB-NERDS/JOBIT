@@ -4,10 +4,12 @@ import estimatedSalary from '../samples/estimated-salary';
 import { BarChart, Button, Heading } from '../components';
 
 const EstimatedSalaries = () => (
-  <main className="py-28 flex flex-col lg:items-center lg:flex-row gap-10">
+  <main className="py-6 flex flex-col lg:items-center lg:flex-row gap-10">
 
     <div className="flex flex-col gap-10 w-full lg:w-1/2">
       <Heading heading="Estimated Salaries" />
+
+      {/* Form */}
       <form action="" method="post" className="flex flex-col gap-6 w-full">
         <div className="flex flex-col w-full gap-3">
           <label className="text-natural-2 font-semibold" htmlFor="job-title">Job Title</label>
@@ -31,6 +33,7 @@ const EstimatedSalaries = () => (
       </form>
     </div>
 
+    {/* Chart */}
     <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
       <h2>Estimated Salary<span className="font-normal"> for </span>NodeJS Developer<span className="font-normal"> in </span>New York</h2>
       <BarChart data={estimatedSalary.data} />
