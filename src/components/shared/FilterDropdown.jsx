@@ -7,12 +7,12 @@ const FilterDropdown = ({ label, options }) => {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex items-center justify-between cursor-pointer select-none" onClick={() => setIsOpen((prev) => !prev)}>
+      <button type="button" className="flex items-center justify-between cursor-pointer select-none" onClick={() => setIsOpen((prev) => !prev)}>
         <h5>{label}</h5>
         <div className={`p-2 ${isOpen && 'rotate-180'}`}>
           <ChevronIcon />
         </div>
-      </div>
+      </button>
 
       {
         isOpen && (
