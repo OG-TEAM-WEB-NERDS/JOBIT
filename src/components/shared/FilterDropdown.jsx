@@ -31,7 +31,6 @@ const FilterDropdown = ({ label, options }) => {
         </div>
         )
        }
-
     </div>
   );
 };
