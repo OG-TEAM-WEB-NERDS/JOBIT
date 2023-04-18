@@ -9,9 +9,9 @@ export const baseOptions = {
   xaxis: {
     labels: {
       style: {
+        colors: ['#92929D', '#92929D', '#92929D'],
         fontSize: '14px',
         fontWeight: 600,
-        cssClass: 'fill-natural-2',
       },
     },
     axisBorder: {
@@ -32,7 +32,7 @@ export const baseOptions = {
     labels: {
       style: {
         fontWeight: 600,
-        cssClass: 'fill-natural-2',
+        colors: ['#92929D', '#92929D', '#92929D'],
       },
       formatter(val) {
         return `${Math.round(val / 1000)}k USD`;
