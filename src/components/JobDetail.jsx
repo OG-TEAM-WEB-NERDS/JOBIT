@@ -8,13 +8,6 @@ import Button from './Button';
 const JobDetail = () => {
   const job = jobs.data[0];
 
-  //   const jsonParse = (string) =>
-  //     string
-  //       .replace(/\n/g, '\\\\n')
-  //       .replace(/\r/g, '\\\\r')
-  //       .replace(/\t/g, '\\\\t');
-
-  //   const htmlPart = job.job_description;
   return (
     <article className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
       <header>
@@ -83,11 +76,6 @@ const JobDetail = () => {
       <section className="my-5">
         <h2 className="text-sm my-3">About the job</h2>
         <p className="text-sm my-3">{job.job_description}</p>
-
-        {/* <p className="my-3">{ReactHtmlParser(job.job_description)}</p> */}
-        {/* <p className="my-3">{parse(job.job_description)}</p> */}
-        {/* <div dangerouslySetInnerHTML={{ __html: `${htmlPart}` }} /> */}
-        {/* <div dangerouslySetInnerHTML={{ __html: '<h1>Hi there!</h1>' }} /> */}
       </section>
 
       <section>
@@ -114,9 +102,7 @@ const JobDetail = () => {
               Follow
             </Button>
           </div>
-          {/* <p className="text-sm">{`${job.employer_name} is a ${
-            job.employer_company_type
-          } company. To find out more about their work and career progression opportunities, please visit`</p>} */}
+
           <p className="text-sm">
             {`${job.employer_name} is a ${job.employer_company_type} company. To find out more about their work and career progression opportunities, please visit `}
             <a href={job.employer_website} className="underline">
