@@ -20,14 +20,14 @@ const JobDetail = () => {
       <header>
         <Banner logo={job.employer_logo} />
 
-        <div className="flex justify-between mt-10">
+        <div className="flex flex-col items-center md:flex-row md:justify-between mt-10">
           {/* summary */}
           <div className="flex flex-col items-center">
             <div className="flex">
               <h2>{job.job_title}</h2>
               <SavedIcon />
             </div>
-            <div className="flex w-full">
+            <div className="flex w-full px-2">
               <ul className="flex w-full justify-between">
                 <li className="text-xxs">{job.employer_name}</li>
                 <li className="text-xxs">
@@ -38,7 +38,7 @@ const JobDetail = () => {
             </div>
           </div>
           {/* buttons */}
-          <div className="flex justify-between items-center">
+          <div className="flex my-3 justify-between items-center">
             <button className="btn-primary text-white rounded-md px-2 py-2 text-sm mr-2">
               Apply now
             </button>
@@ -52,27 +52,27 @@ const JobDetail = () => {
         </div>
 
         {/* highlights */}
-        <div className="flex w-4/5 mx-auto bg-natural-4 dark:bg-black-3 justify-between items-center my-4 p-4 rounded-lg">
+        <div className="flex flex-col md:flex-row w-full md:w-4/5 mx-auto bg-natural-4 dark:bg-black-3 justify-start items-start md:justify-between md:items-center my-4 p-4 rounded-lg">
           {/* Experience required */}
-          <div className="flex flex-col">
+          <div className="flex flex-col my-2 md:my-0">
             <h4 className="text-xxxs">Experience</h4>
             <p className="text-xxs">Minimum 1 year</p>
           </div>
 
           {/* Experience required */}
-          <div className="flex flex-col">
+          <div className="flex flex-col my-2 md:my-0">
             <h4 className="text-xxxs">Work Level</h4>
             <p className="text-xxs">Senior Level</p>
           </div>
 
           {/* Experience required */}
-          <div className="flex flex-col">
+          <div className="flex flex-col my-2 md:my-0">
             <h4 className="text-xxxs">Employee Type</h4>
             <p className="text-xxs">Full Time Jobs</p>
           </div>
 
           {/* Experience required */}
-          <div className="flex flex-col">
+          <div className="flex flex-col my-2 md:my-0">
             <h4 className="text-xxxs">Offer Salary</h4>
             <p className="text-xxs">$2150/month</p>
           </div>
