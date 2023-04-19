@@ -31,13 +31,20 @@ const JobDetail = () => {
             </div>
           </div>
           {/* buttons */}
-          <div className="flex my-3 justify-between items-center">
-            <button className="bg-primary text-white rounded-md px-2 py-2 text-sm mr-2">
+          <div className="flex my-3 justify-between items-center gap-2">
+            {/* <button className="bg-primary text-white rounded-md px-2 py-2 text-sm mr-2">
               Apply now
             </button>
             <button className="btn-secondary text-white rounded-md px-2 py-2 text-sm">
               Message
-            </button>
+            </button> */}
+
+            <Button primary size="sm">
+              Apply Now
+            </Button>
+            <Button secondary outlined size="sm">
+              Message
+            </Button>
             <button>
               <EllipsisIcon />
             </button>
@@ -82,7 +89,7 @@ const JobDetail = () => {
         <h2 className="text-sm my-3">About the Company</h2>
         <div className="flex flex-col">
           {/* company header */}
-          <div className="flex justify-between py-4">
+          <div className="flex justify-between items-center py-4">
             <div className="flex">
               <Image
                 src={job.employer_logo}
@@ -97,7 +104,7 @@ const JobDetail = () => {
             </div>
 
             {/* follow button */}
-            <Button primary outlined>
+            <Button primary outlined size="sm">
               <PlusIcon />
               Follow
             </Button>

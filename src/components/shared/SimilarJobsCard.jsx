@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import jobs from '../../samples/search';
 import { SavedIcon } from '../icons';
+import Button from '../Button';
 
 const SimilarJobsCard = () => {
   const job = jobs.data[0];
@@ -38,9 +39,10 @@ const SimilarJobsCard = () => {
           <button>
             <SavedIcon />
           </button>
-          <button className="bg-very-light-green text-primary rounded-md px-2 py-1 text-sm mr-2">
+
+          <Button transparent size="sm">
             View
-          </button>
+          </Button>
         </div>
       </div>
       <div />

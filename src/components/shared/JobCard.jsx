@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { MoreIcon } from '../icons';
 import jobs from '../../samples/search';
 import Badge from './Badge';
+import Button from '../Button';
 
 const JobCard = () => {
   const job = jobs.data[0];
@@ -53,12 +54,14 @@ const JobCard = () => {
       {/* footer */}
       <div className="flex justify-between items-center my-4">
         <p>$15/20k/month</p>
-        <button
-          className="bg-primary text-white rounded-md px-2 py-2 text-sm"
-          onClick={() => handleJobClick(job.job_id)}
+
+        <Button
+          primary
+          size="sm"
+          handleClick={() => handleJobClick(job.job_id)}
         >
-          Apply now
-        </button>
+          Apply Now
+        </Button>
       </div>
     </article>
   );
