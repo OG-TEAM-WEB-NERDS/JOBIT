@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'job-detail-bg': "url('/job-detail-bg.png')",
+      },
       spacing: {
         '48p': '48%',
       },
