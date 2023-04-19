@@ -24,6 +24,7 @@ module.exports = {
       colors: {
         primary: '#0BAB7C',
         'primary-hover': '#0B996E',
+        'very-light-green': 'rgba(11, 171, 124, 10%)',
         black: {
           1: '#13131A',
           2: '#1C1C24',

@@ -45,5 +45,6 @@ export { default as TrendingUpIcon } from './TrendingUpIcon';
 export { default as UnderlineIcon } from './UnderlineIcon';
 export { default as ZoomInIcon } from './ZoomInIcon';
 export { default as ZoomOutIcon } from './ZoomOutIcon';
+export { default as EllipsisIcon } from './EllipsisIcon';
 
 export { default as RatingStars } from './RatingStars';
