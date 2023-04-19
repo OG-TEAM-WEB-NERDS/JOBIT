@@ -1,12 +1,12 @@
 import React from 'react';
 import { FeaturedCompanyCard } from '.';
-import { FeaturedCompanies } from '../samples/static-data';
+import { FeaturedCompanyData } from '../samples/static-data';
 
-const FeaturedJobPosts = () => (
+const FeaturedCompanies = () => (
   <div>
     <h5>Featured Companies</h5>
     <div className="flex flex-col md:flex-row justify-between my-4 ">
-      {FeaturedCompanies.map((company, index) => (
+      {FeaturedCompanyData.map((company, index) => (
         <FeaturedCompanyCard
           key={index}
           logo={company.logo}
@@ -21,4 +21,4 @@ const FeaturedJobPosts = () => (
   </div>
 );
 
-export default FeaturedJobPosts;
+export default FeaturedCompanies;

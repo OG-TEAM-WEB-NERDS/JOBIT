@@ -39,7 +39,7 @@ const JobDetail = () => {
           </div>
           {/* buttons */}
           <div className="flex my-3 justify-between items-center">
-            <button className="btn-primary text-white rounded-md px-2 py-2 text-sm mr-2">
+            <button className="bg-primary text-white rounded-md px-2 py-2 text-sm mr-2">
               Apply now
             </button>
             <button className="btn-secondary text-white rounded-md px-2 py-2 text-sm">
