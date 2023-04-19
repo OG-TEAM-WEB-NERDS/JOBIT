@@ -14,7 +14,7 @@ const JobSearch = () => (
           <h6>Create Job Alert</h6>
           <p className="text-base text-natural-1">Increase an opportunity to get chance for new jobs.</p>
           <form className="flex flex-col">
-            <input className="bg-natural-4 dark:bg-black-2 px-4 py-3 w-full rounded-lg font-semibold border border-natural-3 dark:border-natural-1" type="email" id="email" name="email" placeholder="Type your email" />
+            <input type="email" id="email" name="email" placeholder="Type your email" />
             <div className="mt-4">
               <Button primary outlined isSubmit fullWidth>Create Job Alert</Button>
             </div>

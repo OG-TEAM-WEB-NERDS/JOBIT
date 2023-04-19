@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+
 import { BriefcaseIcon, PinIcon, RatingStars } from './icons';
 import Button from './Button';
 
@@ -16,7 +17,7 @@ const FeaturedCompanyCard = ({
   return (
     <div className="bg-white dark:bg-black-2 p-4 rounded-xl flex flex-col space-y-8 w-full mr-2 last:mr-0 mb-8">
       <div className="flex items-center space-x-3">
-        <Image src={logo} width={60} height={60} alt={employerName} />
+        <Image src={logo} width={55} height={55} alt={employerName} />
         <div className="flex flex-col space-y-1">
           <h4>{employerName}</h4>
           <div className="flex items-center space-x-2">
