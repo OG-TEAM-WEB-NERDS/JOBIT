@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
 
-import { SavedIcon, Oval } from '../icons';
-import jobs from '../../samples/search';
-import Badge from './Badge';
+import { SavedIcon, Oval } from './icons';
+import jobs from '../samples/search';
+import Badge from './shared/Badge';
 
 const JobSearchCard = () => {
   const job = jobs.data[0];
+
+  const [saved, setSaved] = useState(false);
+
   // One day Time in ms (milliseconds)
   var one_day = 1000 * 60 * 60 * 24;
 
@@ -37,7 +40,7 @@ const JobSearchCard = () => {
             />
           </div>
           <div className="flex flex-col">
-            <h3 className="text-base mb-2">{job.job_title}</h3>
+            <h6 className="font-semibold text-black-3 mb-1">{job.job_title}</h6>
             <p className="flex text-sm ">
               {job.employer_name}
               <div className="mt-2 mx-2 ">
@@ -52,9 +55,18 @@ const JobSearchCard = () => {
           </div>
         </div>
 
-        <div className="flex pb-10">
-          <Badge text="Save job" />
-          <SavedIcon />
+        <div className="flex rounded-md justify-center items-center pl-2 self-center text-xs bg-natural-4 dark:bg-black-3 ">
+          Save Job
+          <button
+            className="rounded-md px-2 py-2 text-sm"
+            onClick={() => {
+              setSaved(!saved);
+            }}
+          >
+            <div className={`${saved ? 'bg-green-500' : 'bg-gray-300'}`}>
+              <SavedIcon />
+            </div>
+          </button>
         </div>
       </div>
 

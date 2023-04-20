@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, FilterDropdown, Heading } from '../components';
 
-import JobSearchCard from '../components/shared/JobSearchCard';
+import JobSearchPosts from '../components/JobSearchPosts';
 
 import { FilterDropdowns } from '../samples/static-data';
 
@@ -50,8 +50,7 @@ const JobSearch = () => (
 
       {/* JobSearch JobCard */}
       <div className="flex flex-col gap-1 md:col-span-3">
-        <JobSearchCard />
-        <JobSearchCard />
+        <JobSearchPosts />
       </div>
     </div>
   </main>
