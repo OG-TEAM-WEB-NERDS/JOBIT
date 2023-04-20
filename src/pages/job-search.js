@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, FilterDropdown, Heading } from '../components';
 
 import { FilterDropdowns } from '../samples/static-data';
+import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => (
   <main className="py-6 flex flex-col space-y-10">
     <Heading heading="Let's find your dream job" />
+    <Searchbar />
     <div className="grid md:grid-cols-4">
       <div className="flex flex-col gap-6">
 
