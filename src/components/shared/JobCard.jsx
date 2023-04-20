@@ -1,12 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { MoreIcon } from '../icons';
 import jobs from '../../samples/search';
 import Badge from './Badge';
+import Button from '../Button';
 
 const JobCard = () => {
   const job = jobs.data[0];
+  const router = useRouter();
+
+  const handleJobClick = (id) => {
+    router.push(`/job/${id}`);
+  };
   return (
     <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-48p">
       {/* card header */}
@@ -19,9 +26,9 @@ const JobCard = () => {
             height={80}
           />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col ml-2">
           {/* title */}
-          <h3 className="text-base mb-2">{job.job_title}</h3>
+          <h3 className="text-base mb-2 ml-2">{job.job_title}</h3>
           {/* badges */}
           <div className="flex">
             {job.job_required_skills &&
@@ -47,9 +54,14 @@ const JobCard = () => {
       {/* footer */}
       <div className="flex justify-between items-center my-4">
         <p>$15/20k/month</p>
-        <button className="bg-primary text-white rounded-md px-2 py-2 text-sm">
-          Apply now
-        </button>
+
+        <Button
+          primary
+          size="sm"
+          handleClick={() => handleJobClick(job.job_id)}
+        >
+          Apply Now
+        </Button>
       </div>
     </article>
   );
