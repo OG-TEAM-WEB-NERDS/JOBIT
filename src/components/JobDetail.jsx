@@ -13,7 +13,7 @@ const JobDetail = () => {
       <header>
         <Banner logo={job.employer_logo} />
 
-        <div className="flex flex-col items-center md:flex-row md:justify-between mt-10">
+        <div className="flex flex-col items-center md:flex-row md:justify-between">
           {/* summary */}
           <div className="flex flex-col items-center">
             <div className="flex">
