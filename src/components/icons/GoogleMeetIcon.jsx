@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GoogleMeetIcon = () => (
+const GoogleMeetIcon = ({ size = 32 }) => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_d_111_2630)">
       <path d="M5.00003 23.56C5.00003 24.3556 5.65001 25 6.45084 25H6.47169C5.6586 25 5.00003 24.3556 5.00003 23.56Z" fill="#FBBC05" />
