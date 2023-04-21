@@ -6,14 +6,14 @@ const RecommendedJobPosts = () => (
   <div>
 
     {/* title */}
-    <div className="flex justify-between mx-1">
+    <div className="flex justify-between">
       <SectionTitle
         title="Recommended Jobs"
         button="See All"
         targetPage="/job-search"
       />
     </div>
-    <div className="bg-white dark:bg-black-2 p-2 mt-3">
+    <div className="bg-white dark:bg-black-2 py-2 px-4 mt-3 rounded">
       <SuggestedJobsCard />
       <SuggestedJobsCard />
       <SuggestedJobsCard />

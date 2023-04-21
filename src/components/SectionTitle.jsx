@@ -16,7 +16,7 @@ const SectionTitle = ({ title = '', button, targetPage }) => {
   return (
     <div className="flex justify-between w-full align-end">
       <h4 className={`text-lg align-baseline ${hideH4}`}>{title}</h4>
-      <button type="button" onClick={handleClick} className={`text-base border rounded px-2 py-1 ${specialClass}`}>{button}</button>
+      <button type="button" onClick={handleClick} className="text-base border rounded px-2 py-1 text-natural-1 dark:border-natural-1 font-bold">{button}</button>
     </div>
   );
 };

@@ -6,7 +6,7 @@ import SectionTitle from './SectionTitle';
 const LatestJobPosts = () => (
   <div>
     {/* title */}
-    <div className="flex justify-between mx-4">
+    <div className="flex justify-between">
       <SectionTitle
         title="Latest Job Posts"
         button="See All"

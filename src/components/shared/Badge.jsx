@@ -8,7 +8,7 @@ const Badge = ({ text, type = 'feature' }) => (
       type === 'skill' ? 'mx-1' : 'mx-2'
     } p-2 text-xxxs rounded-md`}
   >
-    <span className="natural">{text}</span>
+    <span className="dark:text-natural-1 text-natural-2">{text}</span>
   </span>
 );
 

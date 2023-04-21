@@ -17,7 +17,7 @@ const Dashboard = () => (
         <LatestJobPosts />
         <FeaturedCompanies />
       </div>
-      <div className="md:w-1/3 mx-2 px-2 my-3 md:my-0">
+      <div className="md:w-1/3 mx-2 px-2 my-3 md:my-0 pt-[4px]">
         <RecommendedJobPosts />
       </div>
     </div>
