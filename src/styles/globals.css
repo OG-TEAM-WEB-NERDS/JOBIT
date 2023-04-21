@@ -93,7 +93,7 @@
   }
 
   .btn-secondary.btn-outlined.btn-active {
-    @apply text-natural-2 bg-natural-3 dark:bg-natural-1 dark:text-white;
+    @apply text-white bg-black-3 border-black-3 dark:bg-natural-1 dark:text-white dark:border-natural-1;
   }
 
   .btn-outlined.btn-secondary svg path {
