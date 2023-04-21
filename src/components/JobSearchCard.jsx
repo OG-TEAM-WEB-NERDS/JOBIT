@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { SavedIcon, Oval } from './icons';
 import jobs from '../samples/search';
 import Badge from './shared/Badge';
+import Button from './Button';
 
 const JobSearchCard = () => {
   const job = jobs.data[0];
@@ -43,30 +44,29 @@ const JobSearchCard = () => {
             <h6 className="font-semibold text-black-3 mb-1">{job.job_title}</h6>
             <p className="flex text-sm ">
               {job.employer_name}
-              <div className="mt-2 mx-2 ">
+              <span className="mt-2 mx-2 ">
                 <Oval />
-              </div>
+              </span>
               {job.job_city}, {job.job_country}
-              <div className="mt-2 mx-2 ">
+              <span className="mt-2 mx-2 ">
                 <Oval />
-              </div>
+              </span>
               {Final_Result} days ago
             </p>
           </div>
         </div>
 
-        <div className="flex rounded-md justify-center items-center pl-2 self-center text-xs bg-natural-4 dark:bg-black-3 ">
-          Save Job
-          <button
-            className="rounded-md px-2 py-2 text-sm"
-            onClick={() => {
+        <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
+          <span>Save Job</span>
+          <Button
+            primary={saved}
+            secondary={!saved}
+            handleClick={() => {
               setSaved(!saved);
             }}
           >
-            <div className={`${saved ? 'bg-green-500' : 'bg-gray-300'}`}>
-              <SavedIcon />
-            </div>
-          </button>
+            <SavedIcon />
+          </Button>
         </div>
       </div>
 
@@ -85,18 +85,18 @@ const JobSearchCard = () => {
       </div>
 
       {/* footer */}
-      <div className="flex justify-between items-center mt-4">
-        <div className="flex gap-12">
-          <p>$15/20k/month</p>
-          <p>45 People Applied</p>
+      <div className="flex flex-col justify-between items-center mt-4 sm:flex-row ">
+        <div className="flex gap-20 sm:gap-6">
+          <p>
+            <span className="font-bold">$15/20k</span>/month
+          </p>
+          <p>
+            <span className="font-bold">45 </span> People Applied
+          </p>
         </div>
-        <div className="flex gap-6">
-          <button className="bg-gray-100 text-gray-600 rounded-md px-10 py-4 text-sm">
-            Message
-          </button>
-          <button className="bg-primary text-white rounded-md px-14 py-4 text-sm">
-            Apply now
-          </button>
+        <div className="flex gap-20 sm:gap-6 mt-4 sm:mt-0 ">
+          <Button secondary>Message</Button>
+          <Button primary>Apply now</Button>
         </div>
       </div>
     </article>

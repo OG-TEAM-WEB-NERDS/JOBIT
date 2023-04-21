@@ -6,6 +6,9 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/app/**/*.{js,ts,jsx,tsx}',
   ],
+  variants: {
+    display: ['group-hover'],
+  },
   theme: {
     extend: {
       spacing: {
