@@ -14,7 +14,7 @@ const CompanyPage = () => {
 
     <div className="py-6 flex flex-col items-start gap-8">
 
-      <Button secondary outlined size="sm"><ChevronLeftIcon />Back</Button>
+      <Button secondary size="sm"><ChevronLeftIcon />Back</Button>
 
       <div className="grid xl:grid-cols-3 gap-8">
 

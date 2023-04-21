@@ -77,7 +77,7 @@
   /* Secondary button */
 
   .btn-secondary {
-    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-1 dark:hover:border-black-1;
+    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-2 dark:hover:border-black-2;
   }
 
   .btn-secondary.btn-active {
