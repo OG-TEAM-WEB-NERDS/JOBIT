@@ -4,17 +4,15 @@ import JobCard from './shared/JobCard';
 import SectionTitle from './SectionTitle';
 
 const LatestJobPosts = () => (
-  <div>
+  <div className="flex flex-col gap-4">
     {/* title */}
-    <div className="flex justify-between mx-4">
-      <SectionTitle
-        title="Latest Job Posts"
-        button="See All"
-        targetPage="/job-search"
-      />
-    </div>
+    <SectionTitle
+      title="Latest Job Posts"
+      buttonText="See All"
+      targetPage="/job-search"
+    />
     {/* jobs */}
-    <div className="flex flex-wrap justify-between">
+    <div className="grid lg:grid-cols-2 gap-6 justify-between">
       {jobs.data.map((job, i) => (
         <JobCard key={i} />
       ))}

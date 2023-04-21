@@ -129,7 +129,7 @@
   input[type='text'],
   input[type='email'],
   input[type='number'] {
-    @apply bg-natural-4 dark:bg-black-3;
+    @apply bg-natural-4 dark:bg-black-2;
   }
   
   .filterCheckbox {
