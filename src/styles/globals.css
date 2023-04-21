@@ -61,11 +61,16 @@
     @apply bg-transparent border-2 dark:bg-transparent text-primary border-primary hover:border-primary-hover hover:text-white dark:hover:bg-primary-hover dark:hover:border-primary-hover;
   }
 
+  .btn-outlined.btn-active {
+    @apply border-primary-hover dark:bg-primary-hover text-white;
+  }
+
   .btn-outlined svg path {
     @apply fill-primary;
   }
 
-  .btn-outlined:hover svg path {
+  .btn-outlined:hover svg path,
+  .btn-active svg path {
     @apply fill-white;
   }
 
@@ -73,6 +78,10 @@
 
   .btn-secondary {
     @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-1 dark:hover:border-black-1;
+  }
+
+  .btn-secondary.btn-active {
+    @apply text-natural-2 bg-natural-3 dark:bg-black-1 dark:border-black-1;
   }
 
   .btn-secondary svg path {
@@ -83,11 +92,16 @@
     @apply border-natural-3 bg-transparent hover:bg-natural-3 dark:border-natural-1 dark:hover:bg-natural-1 dark:hover:text-white;
   }
 
+  .btn-secondary.btn-outlined.btn-active {
+    @apply text-natural-2 bg-natural-3 dark:bg-natural-1 dark:text-white;
+  }
+
   .btn-outlined.btn-secondary svg path {
     @apply transition duration-300 fill-natural-2;
   }
 
-  .btn-outlined.btn-secondary:hover svg path {
+  .btn-outlined.btn-secondary:hover svg path,
+  .btn-outlined.btn-secondary.btn-active svg path {
     @apply fill-natural-2 dark:fill-white;
   }
 
@@ -106,16 +120,16 @@
 
   /* FORM ELEMENTS */
 
+  input[type='text'].inputBordered,
+  input[type='email'].inputBordered,
+  input[type='number'].inputBordered {
+    @apply px-4 py-2 rounded-lg font-semibold border-2 border-natural-3 dark:border-natural-1;
+  }
+
   input[type='text'],
   input[type='email'],
   input[type='number'] {
-    @apply bg-natural-4 dark:bg-black-2 px-4 py-2 rounded-lg font-semibold border-2 border-natural-3 dark:border-natural-1;
-  }
-
-  input[type='text'].borderless,
-  input[type='email'].borderless,
-  input[type='number'].borderless {
-    @apply bg-natural-4 dark:bg-black-3 px-4 py-2 rounded-lg font-semibold border-none dark:border-none;
+    @apply bg-natural-4 dark:bg-black-3;
   }
   
   .filterCheckbox {

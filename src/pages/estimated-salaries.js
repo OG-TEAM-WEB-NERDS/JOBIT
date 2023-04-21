@@ -13,17 +13,17 @@ const EstimatedSalaries = () => (
       <form action="" method="post" className="flex flex-col gap-6 w-full">
         <div className="flex flex-col w-full gap-3">
           <label className="text-natural-2 font-semibold" htmlFor="job-title">Job Title</label>
-          <input type="text" id="job-title" name="job-title" />
+          <input className="inputBordered" type="text" id="job-title" name="job-title" />
         </div>
 
         <div className="flex flex-col md:flex-row gap-6">
           <div className="flex flex-col w-full gap-3">
             <label className="text-natural-2 font-semibold" htmlFor="location">Location</label>
-            <input type="text" id="location" name="location" />
+            <input className="inputBordered" type="text" id="location" name="location" />
           </div>
           <div className="flex flex-col w-full gap-3">
             <label className="text-natural-2 font-semibold" htmlFor="radius">Radius</label>
-            <input type="number" id="radius" name="radius" />
+            <input className="inputBordered" type="number" id="radius" name="radius" />
           </div>
         </div>
 

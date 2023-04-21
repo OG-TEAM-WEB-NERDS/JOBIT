@@ -12,3 +12,4 @@ export { default as BarChart } from './BarChart';
 export { default as SimilarCompaniesCard } from './SimilarCompaniesCard';
 
 export { default as FilterDropdown } from './shared/FilterDropdown';
+export { default as Banner } from './shared/Banner';
