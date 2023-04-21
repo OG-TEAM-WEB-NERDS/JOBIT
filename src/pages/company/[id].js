@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import jobs from '../../samples/search';
-import { Button, SimilarCompaniesCard, Banner } from '../../components';
+import { Button, SimilarCompaniesCard, Banner, TabbedInterface } from '../../components';
 import { BellIcon, PlusIcon, SearchIcon } from '../../components/icons';
 import { SimilarCompaniesData } from '../../samples/static-data';
 import { profilePlaceholder1, profilePlaceholder2, profilePlaceholder3 } from '../../assets';
@@ -19,7 +19,7 @@ const CompanyPage = () => {
         <Banner logo={job.employer_logo} />
 
         {/* Company Name */}
-        <div className="xl:px-4 flex flex-col space-y-10 mt-10">
+        <div className="xl:px-4 flex flex-col space-y-10">
 
           <div className="w-full flex flex-col md:flex-row md:justify-between md:items-center gap-6">
             <div className="flex flex-col space-y-3">
@@ -59,42 +59,8 @@ const CompanyPage = () => {
             </div>
           </div>
 
-          <div className="flex gap-2">
-            <Button secondary outlined>About</Button>
-            <Button secondary outlined isActive>Jobs</Button>
-            <Button secondary outlined>Products</Button>
-            <Button secondary outlined>Employees</Button>
-            <Button secondary outlined>Locations</Button>
-            <Button secondary outlined>Reviews</Button>
-          </div>
+          <TabbedInterface />
 
-          <div className="bg-white dark:bg-black-2 w-full rounded-lg p-4 flex flex-col space-y-6">
-            <div className="flex flex-col md:items-center md:flex-row justify-between gap-8">
-
-              <form className="flex flex-col md:flex-row items-center bg-natural-4 dark:dark:bg-black-3 rounded-xl py-3 px-4 h-full justify-between gap-4">
-                <div className="flex ml-2 gap-2 mr-2 pt-2 md:pt-0">
-                  <SearchIcon />
-                  <input
-                    type="text"
-                    placeholder="Search for a job ..."
-                    className="bg-natural-4 text-black-1 outline-none"
-                  />
-                </div>
-                <div className="justify-end pt-4 md:pt-0">
-                  <Button primary isSubmit>Search</Button>
-                </div>
-              </form>
-              <div className="w-full md:w-44">
-                <Button secondary outlined fullWidth><BellIcon />Create job alert</Button>
-              </div>
-            </div>
-            <div>
-              <h6>Recently Posted Jobs</h6>
-              <div className="grid grid-cols-2 gap-4">
-                Job Cards
-              </div>
-            </div>
-          </div>
         </div>
 
       </div>
