@@ -31,7 +31,7 @@ const TabbedInterface = () => {
         ))}
       </div>
 
-      <div className="bg-white dark:bg-black-2 w-full rounded-lg p-4 flex flex-col space-y-6">
+      <div className="bg-white dark:bg-black-3 w-full rounded-lg p-4 flex flex-col space-y-6">
         {activeTab.component}
       </div>
     </div>

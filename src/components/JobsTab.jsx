@@ -1,12 +1,16 @@
 import React from 'react';
+import Image from 'next/image';
+
+import jobs from '../samples/search';
 import { BellIcon, SearchIcon } from './icons';
 import Button from './Button';
+import JobCard from './shared/JobCard';
 
 const JobsTab = () => (
   <>
     <div className="flex flex-col md:items-center md:flex-row justify-between gap-8">
 
-      <form className="flex flex-col md:flex-row items-center bg-natural-4 dark:dark:bg-black-3 rounded-xl py-3 px-4 h-full justify-between gap-4 w-full md:w-1/2">
+      <form className="flex flex-col md:flex-row items-center bg-natural-4 dark:dark:bg-black-2 rounded-xl py-3 px-4 h-full justify-between gap-4 w-full md:w-1/2">
         <div className="flex ml-2 gap-2 mr-2 pt-2 w-full md:pt-0">
           <SearchIcon />
           <input
@@ -23,10 +27,13 @@ const JobsTab = () => (
         <Button secondary outlined fullWidth><BellIcon />Create job alert</Button>
       </div>
     </div>
-    <div>
+    <div className="flex flex-col gap-4">
       <h6>Recently Posted Jobs</h6>
-      <div className="grid grid-cols-2 gap-4">
-        Job Cards
+      <div className="grid lg:grid-cols-2 gap-6">
+        <JobCard transparentBtn />
+        <JobCard transparentBtn />
+        <JobCard transparentBtn />
+        <JobCard transparentBtn />
       </div>
     </div>
   </>
