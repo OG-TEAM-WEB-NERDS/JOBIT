@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductsTab = () => (
-  <div>
+  <div className="h-screen">
     <h6>Products Tab</h6>
   </div>
 );

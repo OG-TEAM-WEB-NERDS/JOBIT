@@ -1,7 +1,7 @@
 import React from 'react';
 
 const LocationsTab = () => (
-  <div>
+  <div className="h-screen">
     <h6>Locations Tab</h6>
   </div>
 );
