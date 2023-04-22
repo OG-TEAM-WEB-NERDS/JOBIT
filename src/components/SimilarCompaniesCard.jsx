@@ -16,7 +16,9 @@ const SimilarCompaniesCard = ({
   return (
     <div className="w-full flex flex-wrap justify-between items-center gap-6 rounded-lg p-4 dark:bg-black-2">
       <div className="flex flex-wrap sm:flex-nowrap gap-4 items-center">
-        <Image src={logo} width={55} height={55} alt={employerName} />
+        <div className="p-1 bg-white rounded-lg">
+          <Image src={logo} width={50} height={0} alt={employerName} />
+        </div>
         <div className="flex flex-col space-y-2">
           <div className="flex gap-2 items-center flex-wrap">
             <p className="font-semibold">{employerName}</p>
