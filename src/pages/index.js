@@ -1,27 +1,24 @@
 import {
   LatestJobPosts,
   RecommendedJobPosts,
-  FeaturedJobPosts,
+  FeaturedCompanies,
   Heading,
 } from '../components';
 import { getDate } from '../utils';
 
 const Dashboard = () => (
-  <section className="py-6 text-center md:text-left">
+  <main className="py-6">
     <Heading heading="Welcome to the Job Search Platform for Developers" />
-    {/* <DesignSystem /> */}
 
     {/* layout */}
-    <div className="flex flex-col justify-between md:flex-row mt-3 ">
-      <div className="flex flex-col md:w-2/3 ">
+    <div className="py-6 grid xl:grid-cols-3 gap-8">
+      <div className="flex flex-col xl:col-span-2 gap-8">
         <LatestJobPosts />
-        <FeaturedJobPosts />
+        <FeaturedCompanies />
       </div>
-      <div className="md:w-1/3 mx-2 px-2 my-3 md:my-0">
-        <RecommendedJobPosts />
-      </div>
+      <RecommendedJobPosts />
     </div>
-  </section>
+  </main>
 );
 
 export default Dashboard;

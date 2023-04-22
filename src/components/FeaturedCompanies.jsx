@@ -1,12 +1,15 @@
 import React from 'react';
 import { FeaturedCompanyCard } from '.';
-import { FeaturedCompanies } from '../samples/static-data';
+import { FeaturedCompanyData } from '../samples/static-data';
+import SectionTitle from './SectionTitle';
 
-const FeaturedJobPosts = () => (
-  <div>
-    <h5>Featured Companies</h5>
-    <div className="flex flex-col md:flex-row justify-between my-4 ">
-      {FeaturedCompanies.map((company, index) => (
+const FeaturedCompanies = () => (
+  <div className="flex flex-col gap-4">
+    <SectionTitle
+      title="Featured Companies"
+    />
+    <div className="flex flex-col md:flex-row gap-4">
+      {FeaturedCompanyData.map((company, index) => (
         <FeaturedCompanyCard
           key={index}
           logo={company.logo}
@@ -21,4 +24,4 @@ const FeaturedJobPosts = () => (
   </div>
 );
 
-export default FeaturedJobPosts;
+export default FeaturedCompanies;

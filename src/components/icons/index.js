@@ -8,6 +8,7 @@ export { default as BriefcaseIcon } from './BriefcaseIcon';
 export { default as CalenderIcon } from './CalenderIcon';
 export { default as ChecklistIcon } from './ChecklistIcon';
 export { default as ChevronIcon } from './ChevronIcon';
+export { default as ChevronLeftIcon } from './ChevronLeftIcon';
 export { default as ClockIcon } from './ClockIcon';
 export { default as CrossIcon } from './CrossIcon';
 export { default as DollarCircleIcon } from './DollarCircleIcon';
@@ -45,6 +46,7 @@ export { default as TrendingUpIcon } from './TrendingUpIcon';
 export { default as UnderlineIcon } from './UnderlineIcon';
 export { default as ZoomInIcon } from './ZoomInIcon';
 export { default as ZoomOutIcon } from './ZoomOutIcon';
+export { default as EllipsisIcon } from './EllipsisIcon';
 
 export { default as RatingStars } from './RatingStars';
 export { default as Oval } from './Oval';

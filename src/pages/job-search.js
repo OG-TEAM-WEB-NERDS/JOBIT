@@ -5,21 +5,23 @@ import { Button, FilterDropdown, Heading } from '../components';
 import JobSearchPosts from '../components/JobSearchPosts';
 
 import { FilterDropdowns } from '../samples/static-data';
+import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => (
   <main className="py-6 flex flex-col space-y-10">
     <Heading heading="Let's find your dream job" />
+    <Searchbar />
     <div className="grid md:grid-cols-4 gap-20">
       <div className="flex flex-col gap-6">
         {/* Job Alert Card */}
-        <div className="flex flex-col gap-2 bg-white dark:bg-black-2 rounded-xl p-4">
+        <div className="flex flex-col gap-4 bg-white dark:bg-black-2 rounded-xl p-4">
           <h6>Create Job Alert</h6>
           <p className="text-base text-natural-1">
             Increase an opportunity to get chance for new jobs.
           </p>
-          <form className="flex flex-col">
+          <form className="flex flex-col gap-1">
             <input
-              className="bg-natural-4 dark:bg-black-2 px-4 py-3 w-full rounded-lg font-semibold border border-natural-3 dark:border-natural-1"
+              className="inputBordered"
               type="email"
               id="email"
               name="email"

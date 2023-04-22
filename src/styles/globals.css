@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-natural-6 dark:bg-black-1
+    @apply bg-natural-5 dark:bg-black-1
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -41,50 +41,102 @@
     @apply font-semibold text-lg;
   }
 
+  /* BUTTONS */
+
+  /* Primary buttons */
+
   .btn {
-    @apply transition duration-300 px-4 py-3 rounded-lg font-semibold flex items-center gap-2;
+    @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2 bg-primary text-white hover:bg-primary-hover whitespace-nowrap;
   }
 
   .btn svg {
     @apply w-4 h-4
   }
 
-  .btn-primary {
-    @apply bg-primary text-white border-2 border-primary hover:bg-primary-hover hover:border-primary-hover;
+  .btn svg path {
+    @apply transition duration-300 fill-white;
   }
 
-  .btn-primary svg path {
+  .btn-outlined {
+    @apply bg-transparent border-2 dark:bg-transparent text-primary border-primary hover:border-primary-hover hover:text-white dark:hover:bg-primary-hover dark:hover:border-primary-hover;
+  }
+
+  .btn-outlined.btn-active {
+    @apply border-primary-hover dark:bg-primary-hover text-white;
+  }
+
+  .btn-outlined svg path {
+    @apply fill-primary;
+  }
+
+  .btn-outlined:hover svg path,
+  .btn-active svg path {
     @apply fill-white;
   }
 
+  /* Secondary button */
+
   .btn-secondary {
-    @apply bg-natural-4 dark:bg-black-3 text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-1 dark:hover:border-black-1;
+    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-natural-2 dark:hover:border-natural-2 dark:hover:text-black-1;
+  }
+
+  .btn-secondary.btn-active {
+    @apply text-natural-2 bg-natural-3 dark:bg-natural-2 dark:border-natural-2 dark:text-black-1;
   }
 
   .btn-secondary svg path {
     @apply fill-natural-2;
   }
 
-  .btn-outlined {
-    @apply bg-transparent;
-  }
-
-  .btn-outlined.btn-primary {
-    @apply text-primary hover:text-white;
-  }
-
-  .btn-outlined.btn-primary svg path {
-    @apply transition duration-300 fill-primary;
-  }
-
-  .btn-outlined.btn-primary:hover svg path {
-    @apply fill-white;
+  .btn-secondary.btn-active svg path,
+  .btn-secondary:hover svg path {
+    @apply dark:fill-black-1;
   }
 
   .btn-outlined.btn-secondary {
-    @apply border-natural-3;
+    @apply border-natural-3 bg-transparent hover:bg-natural-3 dark:border-natural-1 dark:hover:bg-natural-1 dark:hover:text-white;
   }
 
+  .btn-secondary.btn-outlined.btn-active {
+    @apply text-white bg-black-3 border-black-3 dark:bg-natural-1 dark:text-white dark:border-natural-1;
+  }
+
+  .btn-outlined.btn-secondary svg path {
+    @apply transition duration-300 fill-natural-2;
+  }
+
+  .btn-outlined.btn-secondary:hover svg path,
+  .btn-outlined.btn-secondary.btn-active svg path {
+    @apply fill-natural-2 dark:fill-white;
+  }
+
+  /* Transparent button */
+  .btn-transparent {
+    @apply bg-opacity-25 text-primary hover:text-white;
+  }
+
+  .btn-transparent svg path {
+    @apply fill-primary;
+  }
+
+  .btn-transparent:hover svg path {
+    @apply fill-white;
+  }
+
+  /* FORM ELEMENTS */
+
+  input[type='text'].inputBordered,
+  input[type='email'].inputBordered,
+  input[type='number'].inputBordered {
+    @apply px-4 py-2 rounded-lg font-semibold border-2 border-natural-3 dark:border-natural-1;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='number'] {
+    @apply bg-natural-4 dark:bg-black-2;
+  }
+  
   .filterCheckbox {
     position: relative;
     @apply transition duration-200 cursor-pointer w-4 h-4 border appearance-none border-natural-1 rounded bg-none checked:bg-primary checked:border-primary;

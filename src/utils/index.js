@@ -31,3 +31,7 @@ export const getDate = () => {
   const year = today.getFullYear();
   return `${dayOfWeek}, ${dayOfMonth} ${monthOfYear} ${year}`;
 };
+
+export const getJobPostingDate = (timestamp) => {
+  console.log(new Date(timestamp));
+};
