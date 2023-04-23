@@ -1,23 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import jobs from '../samples/search';
 import JobSearchCard from './JobSearchCard';
 import { ChevronIcon } from './icons';
 
 const JobSearchPosts = () => {
+  const [sortOn, setSortOn] = useState('Relevance');
   return (
     <div>
       {/* job post header*/}
       <div className="flex justify-between mx-4 pb-3">
         <div className="flex">
-          <p className="text-base text-natural-1">Showing:</p>{' '}
+          <p className="text-base text-natural-1 dark:text-gray-200">
+            Showing:
+          </p>{' '}
           <h6 className="font-semibold text-black-3 ml-2">5 jobs</h6>
         </div>
         <div className="flex ">
           <p className="opacity-0 md:opacity-100">Sort by:</p>
           <div className="group">
             <div className="flex ">
-              <p className="font-semibold text-black-3 mx-2">Relevance</p>
+              <p className="font-semibold text-black-3 dark:text-gray-200 mx-2">
+                {sortOn}
+              </p>
               <button
                 type="button"
                 className="flex items-center justify-between cursor-pointer select-none"
@@ -40,6 +45,7 @@ const JobSearchPosts = () => {
                       <a
                         href="#"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        onClick={() => setSortOn(items)}
                       >
                         {items}
                       </a>

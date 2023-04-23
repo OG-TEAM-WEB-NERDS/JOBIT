@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SavedIcon = ({ size = 24 }) => (
+const SavedIcon = ({ size = 50 }) => (
   <svg
     width={size}
     height={size}

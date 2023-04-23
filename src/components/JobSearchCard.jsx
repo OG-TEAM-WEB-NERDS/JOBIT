@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Image from 'next/image';
 
-import { SavedIcon, Oval } from './icons';
+import { SavedIcon, SavedIconGreen, Oval } from './icons';
 import jobs from '../samples/search';
 import Badge from './shared/Badge';
 import Button from './Button';
@@ -55,18 +55,16 @@ const JobSearchCard = () => {
             </p>
           </div>
         </div>
-
         <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
           <span>Save Job</span>
-          <Button
-            primary={saved}
-            secondary={!saved}
-            handleClick={() => {
+          <button
+            className="justify-center p-1"
+            onClick={() => {
               setSaved(!saved);
             }}
           >
-            <SavedIcon />
-          </Button>
+            <SavedIconGreen fill={saved ? 'green' : 'gray'} />
+          </button>
         </div>
       </div>
 
