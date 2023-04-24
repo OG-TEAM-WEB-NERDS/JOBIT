@@ -1,9 +1,11 @@
 import React from 'react';
 
 import { SimilarJobPosts, JobDetail } from '../../components';
+import Searchbar from '../../components/Searchbar';
 
 const JobDetailPage = () => (
   <section>
+    <Searchbar />
     <div className="flex flex-col justify-between md:flex-row mt-3 ">
       <div className="flex md:w-2/3">
         <JobDetail />

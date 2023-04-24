@@ -9,7 +9,7 @@ const JobDetail = () => {
   const job = jobs.data[0];
 
   return (
-    <article className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
+    <div className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
       <header>
         <Banner logo={job.employer_logo} />
 
@@ -32,13 +32,6 @@ const JobDetail = () => {
           </div>
           {/* buttons */}
           <div className="flex my-3 justify-between items-center gap-2">
-            {/* <button className="bg-primary text-white rounded-md px-2 py-2 text-sm mr-2">
-              Apply now
-            </button>
-            <button className="btn-secondary text-white rounded-md px-2 py-2 text-sm">
-              Message
-            </button> */}
-
             <Button primary size="sm">
               Apply Now
             </Button>
@@ -119,7 +112,7 @@ const JobDetail = () => {
           </p>
         </div>
       </section>
-    </article>
+    </div>
   );
 };
 
