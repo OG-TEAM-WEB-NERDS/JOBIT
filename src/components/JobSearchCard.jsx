@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-
 import Image from 'next/image';
 
-import { SavedIcon, SavedIconGreen, Oval } from './icons';
-import jobs from '../samples/search';
+import { SavedIconGreen, Oval } from './icons';
 import Badge from './shared/Badge';
 import Button from './Button';
 
-const JobSearchCard = () => {
-  const job = jobs.data[0];
-
+const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
 
   // One day Time in ms (milliseconds)
@@ -19,7 +15,7 @@ const JobSearchCard = () => {
   var present_date = new Date();
 
   // Job Posted Date
-  var jobPosted_day = new Date(job.job_posted_at_datetime_utc);
+  var jobPosted_day = new Date(job?.job_posted_at_datetime_utc);
 
   // To Calculate the result in milliseconds and then converting into days
   var Result =
@@ -33,21 +29,23 @@ const JobSearchCard = () => {
       <div className="flex justify-between">
         <div className="flex gap-4">
           <div className="flex justify-center mt-2 w-14 h-14 bg-gray-500">
-            <Image
-              src={job.employer_logo}
+            <img
+              src={job?.employer_logo}
               alt="Employer Logo"
               width={80}
               height={80}
             />
           </div>
           <div className="flex flex-col">
-            <h6 className="font-semibold text-black-3 mb-1">{job.job_title}</h6>
+            <h6 className="font-semibold text-black-3 mb-1">
+              {job?.job_title}
+            </h6>
             <p className="flex text-sm ">
-              {job.employer_name}
+              {job?.employer_name}
               <span className="mt-2 mx-2 ">
                 <Oval />
               </span>
-              {job.job_city}, {job.job_country}
+              {job?.job_city}, {job?.job_country}
               <span className="mt-2 mx-2 ">
                 <Oval />
               </span>
@@ -76,8 +74,8 @@ const JobSearchCard = () => {
       </div>
 
       <div className="flex">
-        {job.job_required_skills &&
-          job.job_required_skills.map((skill, i) => (
+        {job?.job_required_skills &&
+          job?.job_required_skills.map((skill, i) => (
             <Badge text={skill} key={i} type="skill" />
           ))}
       </div>

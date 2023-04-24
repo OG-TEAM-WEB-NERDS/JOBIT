@@ -1,11 +1,38 @@
 import React, { useState } from 'react';
 
-import jobs from '../samples/search';
 import JobSearchCard from './JobSearchCard';
 import { ChevronIcon } from './icons';
+import { useGetJobsQuery, useGetJobDetailsQuery } from '../services/JSearch';
 
 const JobSearchPosts = () => {
   const [sortOn, setSortOn] = useState('Relevance');
+
+  //const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
+  //const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
+  const { data, isFetching, isError } = useGetJobsQuery();
+
+  if (isFetching) {
+    return (
+      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
+        Wait while data fetching!!!
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div
+        className="
+        font-semibold
+        text-black-3
+        dark:text-gray-200
+        mx-2"
+      >
+        Error while fetching!!!
+      </div>
+    );
+  }
+
   return (
     <div>
       {/* job post header*/}
@@ -60,8 +87,8 @@ const JobSearchPosts = () => {
 
       {/* searched job posts */}
       <div>
-        {jobs.data.map((job, i) => (
-          <JobSearchCard key={i} />
+        {data?.data?.map((job, i) => (
+          <JobSearchCard key={i} job={job} i={i} />
         ))}
       </div>
     </div>
