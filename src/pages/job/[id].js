@@ -1,9 +1,12 @@
 import React from 'react';
-
 import { useRouter } from 'next/router';
-import { SimilarJobPosts, JobDetail } from '../../components';
-import Searchbar from '../../components/Searchbar';
-import Button from '../../components/Button';
+
+import {
+  SimilarJobPosts,
+  JobDetail,
+  SearchBar,
+  Button,
+} from '../../components';
 import { ChevronLeftIcon } from '../../components/icons';
 
 const JobDetailPage = () => {
@@ -11,7 +14,7 @@ const JobDetailPage = () => {
 
   return (
     <section>
-      <Searchbar />
+      <SearchBar />
 
       <Button secondary handleClick={() => router.back()}>
         <ChevronLeftIcon />

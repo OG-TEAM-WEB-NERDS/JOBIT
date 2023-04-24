@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
 import { BriefcaseIcon, ChevronIcon, PinIcon, SearchIcon } from './icons';
-import Button from './Button';
+import Button from './shared/Button';
 
 const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);

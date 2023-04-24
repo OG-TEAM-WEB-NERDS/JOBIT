@@ -1,5 +1,5 @@
 export { default as DesignSystem } from './DesignSystem';
-export { default as Button } from './Button';
+export { default as Button } from './shared/Button';
 export { default as LatestJobPosts } from './LatestJobPosts';
 export { default as RecommendedJobPosts } from './RecommendedJobPosts';
 export { default as SimilarJobPosts } from './SimilarJobPosts';
@@ -17,6 +17,7 @@ export { default as ProductsTab } from './ProductsTab';
 export { default as EmployeesTab } from './EmployeesTab';
 export { default as LocationsTab } from './LocationsTab';
 export { default as ReviewsTab } from './ReviewsTab';
+export { default as SearchBar } from './Searchbar';
 
 export { default as FilterDropdown } from './shared/FilterDropdown';
 export { default as Banner } from './shared/Banner';

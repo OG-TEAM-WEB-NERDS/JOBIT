@@ -3,7 +3,7 @@ import Image from 'next/image';
 import jobs from '../samples/search';
 import { EllipsisIcon, PlusIcon, SavedIcon } from './icons';
 import Banner from './shared/Banner';
-import Button from './Button';
+import Button from './shared/Button';
 
 const JobDetail = () => {
   const job = jobs.data[0];

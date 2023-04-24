@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import jobs from '../../samples/search';
 import { SavedIcon } from '../icons';
-import Button from '../Button';
+import Button from './Button';
 
 const SimilarJobsCard = () => {
   const job = jobs.data[0];
