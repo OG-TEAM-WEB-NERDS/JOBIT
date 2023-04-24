@@ -1,22 +1,29 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-const SectionTitle = ({ title = '', button, targetPage }) => {
+import Button from './Button';
+
+const SectionTitle = ({ title = '', buttonText, targetPage }) => {
   const router = useRouter();
 
-  const specialClass = title === '' && 'ml-0 justify-start';
+  // const specialClass = title === '' && 'ml-0 justify-start';
   const hideH4 = title === '' && 'hidden';
 
   const handleClick = () => {
-    if (button === 'Back' || button === 'See All') {
+    if (buttonText === 'Back' || buttonText === 'See All') {
       router.push(targetPage);
     }
   };
 
   return (
     <div className="flex justify-between w-full align-end">
-      <h4 className={`text-lg align-baseline ${hideH4}`}>{title}</h4>
-      <button type="button" onClick={handleClick} className="text-base border rounded px-2 py-1 text-natural-1 dark:border-natural-1 font-bold">{button}</button>
+      <h2 className={`align-baseline ${hideH4}`}>{title}</h2>
+      {/* <button type="button" onClick={handleClick} className={`text-base border rounded px-2 py-1 ${specialClass}`}>{button}</button> */}
+      {
+        buttonText && (
+          <Button secondary outlined size="sm" handleClick={handleClick}>{buttonText}</Button>
+        )
+      }
     </div>
   );
 };

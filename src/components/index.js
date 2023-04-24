@@ -10,6 +10,13 @@ export { default as Navbar } from './Navbar';
 export { default as Heading } from './Heading';
 export { default as BarChart } from './BarChart';
 export { default as SimilarCompaniesCard } from './SimilarCompaniesCard';
+export { default as TabbedInterface } from './TabbedInterface';
+export { default as AboutTab } from './AboutTab';
+export { default as JobsTab } from './JobsTab';
+export { default as ProductsTab } from './ProductsTab';
+export { default as EmployeesTab } from './EmployeesTab';
+export { default as LocationsTab } from './LocationsTab';
+export { default as ReviewsTab } from './ReviewsTab';
 
 export { default as FilterDropdown } from './shared/FilterDropdown';
 export { default as Banner } from './shared/Banner';

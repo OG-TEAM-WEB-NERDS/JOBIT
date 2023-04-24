@@ -1,9 +1,9 @@
 import React from 'react';
 
-const EllipsisIcon = () => (
+const EllipsisIcon = ({ size = 24 }) => (
   <svg
-    width="46"
-    height="44"
+    width={size}
+    height={size}
     viewBox="0 0 46 44"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MoreIcon = () => (
+const MoreIcon = ({ size = 16 }) => (
   <svg
     width="16"
     height="16"

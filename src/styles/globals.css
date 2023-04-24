@@ -77,15 +77,20 @@
   /* Secondary button */
 
   .btn-secondary {
-    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-black-1 dark:hover:border-black-1;
+    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-natural-2 dark:hover:border-natural-2 dark:hover:text-black-1;
   }
 
   .btn-secondary.btn-active {
-    @apply text-natural-2 bg-natural-3 dark:bg-black-1 dark:border-black-1;
+    @apply text-natural-2 bg-natural-3 dark:bg-natural-2 dark:border-natural-2 dark:text-black-1;
   }
 
   .btn-secondary svg path {
     @apply fill-natural-2;
+  }
+
+  .btn-secondary.btn-active svg path,
+  .btn-secondary:hover svg path {
+    @apply dark:fill-black-1;
   }
 
   .btn-outlined.btn-secondary {
@@ -93,7 +98,7 @@
   }
 
   .btn-secondary.btn-outlined.btn-active {
-    @apply text-natural-2 bg-natural-3 dark:bg-natural-1 dark:text-white;
+    @apply text-white bg-black-3 border-black-3 dark:bg-natural-1 dark:text-white dark:border-natural-1;
   }
 
   .btn-outlined.btn-secondary svg path {

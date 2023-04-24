@@ -12,11 +12,11 @@ const JobSearch = () => (
       <div className="flex flex-col gap-6">
 
         {/* Job Alert Card */}
-        <div className="flex flex-col gap-2 bg-white dark:bg-black-2 rounded-xl p-4">
+        <div className="flex flex-col gap-4 bg-white dark:bg-black-2 rounded-xl p-4">
           <h6>Create Job Alert</h6>
           <p className="text-base text-natural-1">Increase an opportunity to get chance for new jobs.</p>
-          <form className="flex flex-col">
-            <input type="email" id="email" name="email" placeholder="Type your email" />
+          <form className="flex flex-col gap-1">
+            <input className="inputBordered" type="email" id="email" name="email" placeholder="Type your email" />
             <div className="mt-4">
               <Button primary outlined isSubmit fullWidth>Create Job Alert</Button>
             </div>
