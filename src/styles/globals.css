@@ -128,7 +128,7 @@
   input[type='text'].inputBordered,
   input[type='email'].inputBordered,
   input[type='number'].inputBordered {
-    @apply px-4 py-2 rounded-lg font-semibold border-2 border-natural-3 dark:border-natural-1;
+    @apply px-4 py-2 rounded-lg font-semibold border-2 border-natural-3 dark:border-natural-1 dark:text-natural-2;
   }
 
   input[type='text'],

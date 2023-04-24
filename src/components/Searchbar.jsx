@@ -7,13 +7,13 @@ const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   return (
-    <div className="flex flex-col md:flex-row items-center bg-natural-4 rounded-xl py-3 px-4 md:divide-x-2 divide-y-2 md:divide-y-0 h-full justify-between gap-4">
+    <div className="flex flex-col md:flex-row items-center bg-natural-4 dark:bg-black-2 rounded-xl py-3 px-4 md:divide-x-2 divide-y-2 md:divide-y-0 dark:divide-black-3 h-full justify-between gap-4">
       <div className="flex ml-2 gap-2 mr-2 w-full md:w-1/4 pt-2 md:pt-0">
         <SearchIcon />
         <input
           type="text"
           placeholder="Search for a job ..."
-          className="bg-natural-4 text-black-1 outline-none"
+          className="bg-natural-4 dark:bg-black-2 text-black-1 outline-none dark:text-natural-2"
         />
       </div>
       <div className="flex w-full md:w-1/3 justify-between pt-3 md:pt-0">
@@ -33,7 +33,7 @@ const Searchbar = () => {
         </div>
         <p className="text-natural-2">Job Type</p>
       </div>
-      <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0">
+      <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0 md:pl-2">
         <Button primary fullWidth>Find Job</Button>
       </div>
     </div>

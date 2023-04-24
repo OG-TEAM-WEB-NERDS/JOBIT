@@ -61,7 +61,6 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
       {/* footer */}
       <div className="flex justify-between items-center">
         <p className="font-bold text-lg">$15k-20k<span className="font-medium text-natural-1">/month</span></p>
-
         <Button
           primary={primaryBtn}
           secondary={secondaryBtn}
