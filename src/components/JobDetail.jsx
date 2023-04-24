@@ -4,14 +4,12 @@ import jobs from '../samples/search';
 import { EllipsisIcon, PlusIcon, SavedIcon } from './icons';
 import Banner from './shared/Banner';
 import Button from './Button';
-import Searchbar from './Searchbar';
 
 const JobDetail = () => {
   const job = jobs.data[0];
 
   return (
     <article className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
-      <Searchbar />
       <header>
         <Banner logo={job.employer_logo} />
 
