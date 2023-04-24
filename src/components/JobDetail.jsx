@@ -9,8 +9,8 @@ const JobDetail = () => {
   const job = jobs.data[0];
 
   return (
-    <div className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
-      <header>
+    <div className="w-full px-4 pb-2 rounded-md">
+      <header className="mt-3">
         <Banner logo={job.employer_logo} />
 
         <div className="flex flex-col items-center md:flex-row md:justify-between">
