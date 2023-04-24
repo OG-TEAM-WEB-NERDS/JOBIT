@@ -7,7 +7,7 @@ const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme } = useTheme();
   return (
-    <div className="flex flex-col md:flex-row items-center bg-natural-4 dark:bg-black-2 rounded-xl py-3 px-4 md:divide-x-2 divide-y-2 md:divide-y-0 dark:divide-black-3 justify-between gap-4 mb-5">
+    <div className="flex flex-col md:flex-row items-center bg-natural-4 dark:bg-black-2 rounded-xl py-3 px-4 md:divide-x-2 divide-y-2 md:divide-y-0 dark:divide-black-3 justify-between gap-4 my-10">
       <div className="flex  gap-2 mr-2 w-full md:w-1/4 pt-2 md:pt-0">
         <SearchIcon />
         <input
@@ -31,8 +31,8 @@ const Searchbar = () => {
           <ChevronIcon />
         </span>
       </div>
-      <div className="flex md:px-4 w-full md:w-1/5 pt-3 md:pt-0 justify-center items-center">
-        <div className="mr-2">
+      <div className="flex md:px-4 gap-x-2 w-full md:w-1/5 pt-3 md:pt-0 justify-center items-center">
+        <div>
           <BriefcaseIcon />
         </div>
         <p className="text-natural-2">Job Type</p>

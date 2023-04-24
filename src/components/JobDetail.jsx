@@ -9,7 +9,7 @@ const JobDetail = () => {
   const job = jobs.data[0];
 
   return (
-    <article className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
+    <div className="w-full bg-white dark:bg-black-2 px-4 py-2 rounded-md">
       <header>
         <Banner logo={job.employer_logo} />
 
@@ -112,7 +112,7 @@ const JobDetail = () => {
           </p>
         </div>
       </section>
-    </article>
+    </div>
   );
 };
 
