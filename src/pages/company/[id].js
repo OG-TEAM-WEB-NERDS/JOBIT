@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import jobs from '../../samples/search';
 import { Button, SimilarCompaniesCard, Banner, TabbedInterface } from '../../components';
 import { ChevronLeftIcon, PlusIcon } from '../../components/icons';
+import plusIcon from '../../assets/icons/plus-icon.svg';
 import { SimilarCompaniesData } from '../../samples/static-data';
 import { profilePlaceholder1, profilePlaceholder2, profilePlaceholder3 } from '../../assets';
 
@@ -62,7 +63,7 @@ const CompanyPage = () => {
                   </div>
                   <div className="bg-natural-3 w-12 h-12 rounded-full border-2 border-natural-3 dark:border-black-1 text-sm text-black-3 font-bold flex items-center justify-center">+34</div>
                 </div>
-                <Button primary outlined fullWidth><PlusIcon />Follow</Button>
+                <Button primary outlined fullWidth><Image src={plusIcon} />Follow</Button>
               </div>
             </div>
 

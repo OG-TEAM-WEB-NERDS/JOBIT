@@ -49,12 +49,12 @@
     @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2 bg-primary text-white hover:bg-primary-hover whitespace-nowrap;
   }
 
-  .btn svg {
-    @apply w-4 h-4
+  .btn image {
+    @apply w-4 h-4 transition duration-300
   }
 
-  .btn svg path {
-    @apply transition duration-300 fill-white;
+  .btn:hover img {
+    filter: brightness(0) invert(1);
   }
 
   .btn-outlined {
