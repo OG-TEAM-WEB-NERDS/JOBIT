@@ -35,7 +35,7 @@ const SimilarJobsCard = () => {
       {/* bottom section */}
       <div className="flex justify-between py-3 items-center">
         <p className="text-xs text-natural-1">2 days left</p>
-        <div className="flex justify-between items-center w-1/3">
+        <div className="flex justify-between items-center w-1/4">
           <button>
             <SavedIcon />
           </button>
