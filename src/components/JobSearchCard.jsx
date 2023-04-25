@@ -70,7 +70,7 @@ const JobSearchCard = ({ job, i }) => {
               alt="Save Job"
               width={20}
               height={20}
-              className={saved ? 'filter: grayscale-0' : 'filter: grayscale'}
+              className={saved ? 'grayscale-0' : 'grayscale'}
             />
           </button>
         </div>
