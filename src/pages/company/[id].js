@@ -63,7 +63,9 @@ const CompanyPage = () => {
                   </div>
                   <div className="bg-natural-3 w-12 h-12 rounded-full border-2 border-natural-3 dark:border-black-1 text-sm text-black-3 font-bold flex items-center justify-center">+34</div>
                 </div>
-                <Button primary outlined fullWidth><Image src={plusIcon} />Follow</Button>
+                <Button primary outlined fullWidth icon={plusIcon}>
+                  Follow
+                </Button>
               </div>
             </div>
 

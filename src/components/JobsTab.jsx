@@ -1,8 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 
-import jobs from '../samples/search';
-import { BellIcon, SearchIcon } from './icons';
+import { SearchIcon } from './icons';
+import bellIcon from '../assets/icons/bell-icon.svg';
 import Button from './Button';
 import JobCard from './shared/JobCard';
 
@@ -24,7 +23,7 @@ const JobsTab = () => (
         </div>
       </form>
       <div className="w-full md:w-44">
-        <Button secondary outlined fullWidth><BellIcon />Create job alert</Button>
+        <Button secondary outlined fullWidth icon={bellIcon}>Create job alert</Button>
       </div>
     </div>
     <div className="flex flex-col gap-4">
