@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const jobsApiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 export const jobsApi = createApi({
-  resucerPath: 'jobsApi',
+  reducerPath: 'jobsApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://jsearch.p.rapidapi.com/' }),
 
   endpoints: (builder) => ({
@@ -14,7 +14,6 @@ export const jobsApi = createApi({
     //Get Job Details by ID
     getJobDetails: builder.query({
       query: (Id) => {
-        console.log(`job-details?job_id=${Id}&rapidapi-key=${jobsApiKey}`);
         return `job-details?job_id=${Id}&rapidapi-key=${jobsApiKey}`;
       },
     }),

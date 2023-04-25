@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import { SavedIconGreen, Oval } from './icons';
+import { savedIconGreen, oval } from '../assets';
 import Badge from './shared/Badge';
 import Button from './Button';
 
@@ -9,19 +9,18 @@ const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
 
   // One day Time in ms (milliseconds)
-  var one_day = 1000 * 60 * 60 * 24;
+  const ONE_DAY_MS = 86400000;
 
   // today
-  var present_date = new Date();
+  const presentDate = new Date().getTime();
 
   // Job Posted Date
-  var jobPosted_day = new Date(job?.job_posted_at_datetime_utc);
+  const jobPostedDate = new Date(job?.job_posted_at_datetime_utc).getTime();
 
-  // To Calculate the result in milliseconds and then converting into days
-  var Result =
-    Math.round(present_date.getTime() - jobPosted_day.getTime()) / one_day;
-  // To remove the decimals from the (Result) resulting days value
-  var Final_Result = Result.toFixed(0);
+  // calculate result (no of days since job post)
+  const daysElapsed = Math.round(
+    (presentDate - jobPostedDate) / ONE_DAY_MS
+  ).toFixed(0);
 
   return (
     <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
@@ -42,17 +41,22 @@ const JobSearchCard = ({ job, i }) => {
             </h6>
             <p className="flex text-sm ">
               {job?.employer_name}
-              <span className="mt-2 mx-2 ">
-                <Oval />
-              </span>
+              <Image
+                src={oval}
+                alt="seperator"
+                className=" mx-2 dark:invert invert-0"
+              />
               {job?.job_city}, {job?.job_country}
-              <span className="mt-2 mx-2 ">
-                <Oval />
-              </span>
-              {Final_Result} days ago
+              <Image
+                src={oval}
+                alt="seperator"
+                className=" mx-2 dark:invert invert-0"
+              />
+              {daysElapsed} days ago
             </p>
           </div>
         </div>
+
         <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
           <span>Save Job</span>
           <button
@@ -61,23 +65,27 @@ const JobSearchCard = ({ job, i }) => {
               setSaved(!saved);
             }}
           >
-            <SavedIconGreen fill={saved ? 'green' : 'gray'} />
+            <Image
+              src={savedIconGreen}
+              alt="Save Job"
+              width={20}
+              height={20}
+              className={saved ? 'filter: grayscale-0' : 'filter: grayscale'}
+            />
           </button>
         </div>
       </div>
 
       {/* description */}
-      <div>
-        <p className="text-sm my-3">
-          {`${job.job_description.slice(0, 300)}...`}
-        </p>
-      </div>
+
+      <p className="text-sm my-3">
+        {`${job.job_description.slice(0, 300)}...`}
+      </p>
 
       <div className="flex">
-        {job?.job_required_skills &&
-          job?.job_required_skills.map((skill, i) => (
-            <Badge text={skill} key={i} type="skill" />
-          ))}
+        {job?.job_required_skills?.map((skill) => (
+          <Badge text={skill} key={skill} type="skill" />
+        ))}
       </div>
 
       {/* footer */}
