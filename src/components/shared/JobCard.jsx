@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../icons';
 import jobs from '../../samples/search';
 import Badge from './Badge';
-import Button from '../Button';
+import Button from './Button';
 
 const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
   const job = jobs.data[0];
@@ -34,8 +34,8 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
             <h3 className="text-base font-bold">{job.job_title}</h3>
             {/* badges */}
             <div className="flex flex-wrap gap-2">
-              {job.job_required_skills
-                && job.job_required_skills.map((skill, i) => (
+              {job.job_required_skills &&
+                job.job_required_skills.map((skill, i) => (
                   <Badge text={skill} key={i} />
                 ))}
             </div>
@@ -54,13 +54,19 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
       </div>
       {/* badges */}
       <div className="flex gap-2">
-        {[{ text: 'Full Time', icon: <BriefcaseIcon size={18} /> }, { text: '45 Applied', icon: <PeopleIcon size={18} /> }, { text: '3 days left', icon: <ClockIcon size={18} /> }].map((item, i) => (
+        {[
+          { text: 'Full Time', icon: <BriefcaseIcon size={18} /> },
+          { text: '45 Applied', icon: <PeopleIcon size={18} /> },
+          { text: '3 days left', icon: <ClockIcon size={18} /> },
+        ].map((item, i) => (
           <Badge text={item.text} key={i} icon={item.icon} />
         ))}
       </div>
       {/* footer */}
       <div className="flex justify-between items-center">
-        <p className="font-bold text-lg">$15k-20k<span className="font-medium text-natural-1">/month</span></p>
+        <p className="font-bold text-lg">
+          $15k-20k<span className="font-medium text-natural-1">/month</span>
+        </p>
 
         <Button
           primary={primaryBtn}

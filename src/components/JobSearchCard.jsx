@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { savedIconGreen, oval } from '../assets';
 import Badge from './shared/Badge';
-import Button from './Button';
+import Button from './shared/Button';
 
 const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);

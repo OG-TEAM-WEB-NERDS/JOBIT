@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from 'next-themes';
 import { BriefcaseIcon, ChevronIcon, PinIcon, SearchIcon } from './icons';
-import Button from './Button';
+import Button from './shared/Button';
 
 const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,11 @@ const Searchbar = () => {
         />
       </div>
       <div className="flex w-full md:w-1/3 justify-between pt-3 md:pt-0">
-        <button type="button" className="flex cursor-pointer select-none w-full" onClick={() => setIsOpen((prev) => !prev)}>
+        <button
+          type="button"
+          className="flex cursor-pointer select-none w-full"
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
           <p className="flex gap-x-2 text-natural-2 md:px-2">
             <PinIcon />
             Select Location
@@ -34,7 +38,9 @@ const Searchbar = () => {
         <p className="text-natural-2">Job Type</p>
       </div>
       <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0">
-        <Button primary fullWidth>Find Job</Button>
+        <Button primary fullWidth>
+          Find Job
+        </Button>
       </div>
     </div>
   );
