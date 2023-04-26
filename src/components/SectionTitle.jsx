@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import Button from './Button';
+import Button from './shared/Button';
 
 const SectionTitle = ({ title = '', buttonText, targetPage }) => {
   const router = useRouter();
@@ -19,11 +19,11 @@ const SectionTitle = ({ title = '', buttonText, targetPage }) => {
     <div className="flex justify-between w-full align-end">
       <h2 className={`align-baseline ${hideH4}`}>{title}</h2>
       {/* <button type="button" onClick={handleClick} className={`text-base border rounded px-2 py-1 ${specialClass}`}>{button}</button> */}
-      {
-        buttonText && (
-          <Button secondary outlined size="sm" handleClick={handleClick}>{buttonText}</Button>
-        )
-      }
+      {buttonText && (
+        <Button secondary outlined size="sm" handleClick={handleClick}>
+          {buttonText}
+        </Button>
+      )}
     </div>
   );
 };
