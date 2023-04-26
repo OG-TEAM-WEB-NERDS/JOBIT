@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-import { savedIconGreen, oval } from '../assets';
+import { oval, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
 
@@ -19,7 +19,7 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS
+    (presentDate - jobPostedDate) / ONE_DAY_MS,
   ).toFixed(0);
 
   return (
@@ -58,15 +58,16 @@ const JobSearchCard = ({ job, i }) => {
         </div>
 
         <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
-          <span>Save Job</span>
+
           <button
-            className="justify-center p-1"
+            className="flex items-center p-2 text-natural-2 gap-1 font-semibold"
             onClick={() => {
               setSaved(!saved);
             }}
           >
+            Save Job
             <Image
-              src={savedIconGreen}
+              src={SavedFilledIcon}
               alt="Save Job"
               width={20}
               height={20}

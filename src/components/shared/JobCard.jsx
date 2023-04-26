@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../icons';
+import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../../assets';
 import jobs from '../../samples/search';
 import Badge from './Badge';
 import Button from './Button';
@@ -34,8 +34,8 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
             <h3 className="text-base font-bold">{job.job_title}</h3>
             {/* badges */}
             <div className="flex flex-wrap gap-2">
-              {job.job_required_skills &&
-                job.job_required_skills.map((skill, i) => (
+              {job.job_required_skills
+                && job.job_required_skills.map((skill, i) => (
                   <Badge text={skill} key={i} />
                 ))}
             </div>
@@ -43,7 +43,12 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
         </div>
 
         <div className="cursor-pointer self-start">
-          <MoreIcon />
+          <Image
+            src={MoreIcon}
+            alt="More icon"
+            width={20}
+            height={20}
+          />
         </div>
       </div>
       {/* description */}
@@ -55,9 +60,9 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
       {/* badges */}
       <div className="flex gap-2">
         {[
-          { text: 'Full Time', icon: <BriefcaseIcon size={18} /> },
-          { text: '45 Applied', icon: <PeopleIcon size={18} /> },
-          { text: '3 days left', icon: <ClockIcon size={18} /> },
+          { text: 'Full Time', icon: BriefcaseIcon },
+          { text: '45 Applied', icon: PeopleIcon },
+          { text: '3 days left', icon: ClockIcon },
         ].map((item, i) => (
           <Badge text={item.text} key={i} icon={item.icon} />
         ))}

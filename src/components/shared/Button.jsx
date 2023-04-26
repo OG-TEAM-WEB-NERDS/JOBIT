@@ -63,6 +63,8 @@ const Button = ({
           src={icon}
           alt="Icon"
           className={`transition duration-300 ${iconClassNames}`}
+          width={18}
+          height={18}
         />
       )}
       {children}

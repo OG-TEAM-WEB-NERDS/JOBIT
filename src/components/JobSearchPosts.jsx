@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 import JobSearchCard from './JobSearchCard';
-import { ChevronIcon } from './icons';
+import { ChevronDownIcon } from '../assets';
 import { useGetJobsQuery, useGetJobDetailsQuery } from '../services/JSearch';
 
 const JobSearchPosts = () => {
   const [sortOn, setSortOn] = useState('Relevance');
 
-  //const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
-  //const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
+  // const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
+  // const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
   const { data, isFetching, isError } = useGetJobsQuery();
 
   if (isFetching) {
@@ -35,7 +36,7 @@ const JobSearchPosts = () => {
 
   return (
     <div>
-      {/* job post header*/}
+      {/* job post header */}
       <div className="flex justify-between mx-4 pb-3">
         <div className="flex">
           <p className="text-base text-natural-1 dark:text-gray-200">
@@ -54,9 +55,13 @@ const JobSearchPosts = () => {
                 type="button"
                 className="flex items-center justify-between cursor-pointer select-none"
               >
-                <div className="rotate-180">
-                  <ChevronIcon />
-                </div>
+                <Image
+                  src={ChevronDownIcon}
+                  alt="Chevron icon"
+                  width={20}
+                  height={20}
+                  className="grayscale"
+                />
               </button>
             </div>
 
@@ -77,7 +82,7 @@ const JobSearchPosts = () => {
                         {items}
                       </a>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>

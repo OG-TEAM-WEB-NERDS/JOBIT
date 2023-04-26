@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { PlusIcon, RatingStars } from './icons';
+import { RatingStars } from './icons';
+import { PlusIcon } from '../assets';
 import { Button } from '.';
 
 const SimilarCompaniesCard = ({
@@ -31,7 +32,7 @@ const SimilarCompaniesCard = ({
         </div>
       </div>
       <div className="w-full sm:w-auto xl:w-full 2xl:w-auto">
-        <Button outlined fullWidth><PlusIcon />Follow</Button>
+        <Button outlined fullWidth icon={PlusIcon}>Follow</Button>
       </div>
     </div>
   );

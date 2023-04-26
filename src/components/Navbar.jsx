@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
-import { logo, sun, moon, hamburger, cross } from '../assets';
+import { JobItLogo, SunIcon, MoonIcon, HamburgerIcon, CrossIcon } from '../assets';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
@@ -58,7 +58,7 @@ const Navbar = () => {
           <Link href="/" onClick={() => setIsOpen(false)}>
             <div className="flexCenter cursor-pointer">
               <Image
-                src={logo}
+                src={JobItLogo}
                 style={{ objectFit: 'contain' }}
                 width={120}
                 height={22}
@@ -70,8 +70,8 @@ const Navbar = () => {
 
         <div className="flex md:hidden w-full justify-end">
           <Image
-            src={isOpen ? cross : hamburger}
-            className="object-contain aspect-square cursor-pointer"
+            src={isOpen ? CrossIcon : HamburgerIcon}
+            className="object-contain aspect-square cursor-pointer grayscale"
             width={30}
             height={30}
             alt={isOpen ? 'Menu' : 'close'}
@@ -89,11 +89,12 @@ const Navbar = () => {
                 />
                 <div className="flex md:hidden items-center py-4 justify-between w-28">
                   <Image
-                    src={sun}
+                    src={SunIcon}
+                    alt="Sun icon"
                     style={{ objectFit: 'contain' }}
-                    width={20}
-                    height={20}
-                    alt="sun"
+                    width={24}
+                    height={24}
+                    className="grayscale"
                   />
                   <input
                     type="checkbox"
@@ -108,11 +109,12 @@ const Navbar = () => {
                     <div className="w-3 h-3 absolute bg-primary rounded-full ball" />
                   </label>
                   <Image
-                    src={moon}
+                    src={MoonIcon}
+                    alt="Moon icon"
                     style={{ objectFit: 'contain' }}
-                    width={20}
-                    height={20}
-                    alt="moon"
+                    width={24}
+                    height={24}
+                    className="grayscale"
                   />
                 </div>
               </div>
@@ -130,11 +132,12 @@ const Navbar = () => {
           </div>
           <div className="hidden md:flex items-center justify-between w-28">
             <Image
-              src={sun}
+              src={SunIcon}
+              alt="Sun icon"
               style={{ objectFit: 'contain' }}
-              width={20}
-              height={20}
-              alt="sun"
+              width={24}
+              height={24}
+              className="grayscale"
             />
             <input
               type="checkbox"
@@ -149,11 +152,12 @@ const Navbar = () => {
               <div className="w-3 h-3 absolute bg-primary rounded-full ball" />
             </label>
             <Image
-              src={moon}
+              src={MoonIcon}
+              alt="Moon icon"
               style={{ objectFit: 'contain' }}
-              width={20}
-              height={20}
-              alt="moon"
+              width={24}
+              height={24}
+              className="grayscale"
             />
           </div>
         </div>
