@@ -1,7 +1,9 @@
 import Image from 'next/image';
 
 const Banner = ({ logo, bannerBg = 'bg-job-detail-bg' }) => (
-  <div className={`w-full pt-40 mb-16 ${bannerBg} rounded-t-lg relative bg-no-repeat bg-cover`}>
+  <div
+    className={`w-full pt-40 mb-16 ${bannerBg} rounded-t-lg relative bg-no-repeat bg-cover`}
+  >
     <Image
       src={logo}
       alt="Employer Logo"

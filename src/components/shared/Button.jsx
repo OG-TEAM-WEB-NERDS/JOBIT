@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 
 const Button = ({
   isSubmit,
@@ -49,7 +50,7 @@ const Button = ({
     'btn-active': isActive,
   };
 
-  //returns classNames only for props passed
+  // returns classNames only for props passed
   const buttonClassNames = Object.entries(classNames)
     .filter(([key, value]) => Boolean(value))
     .map(([key, value]) => key)
