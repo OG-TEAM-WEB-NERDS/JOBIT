@@ -35,6 +35,7 @@ export { default as PeopleIcon } from './PeopleIcon';
 export { default as PinIcon } from './PinIcon';
 export { default as PlusIcon } from './PlusIcon';
 export { default as SavedIcon } from './SavedIcon';
+export { default as SavedIconGreen } from './SavedIconGreen';
 export { default as SearchIcon } from './SearchIcon';
 export { default as ShareIcon } from './ShareIcon';
 export { default as ShieldIcon } from './ShieldIcon';
@@ -49,3 +50,4 @@ export { default as ZoomOutIcon } from './ZoomOutIcon';
 export { default as EllipsisIcon } from './EllipsisIcon';
 
 export { default as RatingStars } from './RatingStars';
+export { default as Oval } from './Oval';

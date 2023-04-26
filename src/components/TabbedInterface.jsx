@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
-import Button from './Button';
-import { AboutTab, JobsTab, ProductsTab, EmployeesTab, LocationsTab, ReviewsTab } from '.';
+import Button from './shared/Button';
+import {
+  AboutTab,
+  JobsTab,
+  ProductsTab,
+  EmployeesTab,
+  LocationsTab,
+  ReviewsTab,
+} from '.';
 
 const TabbedInterface = () => {
   const tabs = [
@@ -18,15 +25,15 @@ const TabbedInterface = () => {
   return (
     <div className="flex-gap space-y-10">
       <div className="flex gap-2 flex-wrap">
-
-        { tabs.map((tab, index) => (
+        {tabs.map((tab, index) => (
           <Button
             key={index}
             secondary
             outlined
             isActive={index === activeTab.id - 1}
             handleClick={() => setActiveTab(tab)}
-          >{tab.name}
+          >
+            {tab.name}
           </Button>
         ))}
       </div>

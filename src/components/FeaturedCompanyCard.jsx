@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 import { BriefcaseIcon, PinIcon, RatingStars } from './icons';
-import Button from './Button';
+import Button from './shared/Button';
 
 const FeaturedCompanyCard = ({
   logo,
