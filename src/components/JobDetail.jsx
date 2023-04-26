@@ -1,32 +1,76 @@
 import Image from 'next/image';
 
-import jobs from '../samples/search';
+import { useRouter } from 'next/router';
+
 import { EllipsisIcon, PlusIcon, SavedIcon } from './icons';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
+import { useGetJobDetailsQuery } from '../services/JSearch';
 
 const JobDetail = () => {
-  const job = jobs.data[0];
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data, isFetching, isError } = useGetJobDetailsQuery(id);
+
+  if (isFetching) {
+    return (
+      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
+        Wait while data fetching!!!
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div
+        className="
+        font-semibold
+        text-black-3
+        dark:text-gray-200
+        mx-2"
+      >
+        Error while fetching!!!
+      </div>
+    );
+  }
+
+  const job = data.data[0];
 
   return (
     <div className="w-full px-4 pb-2 rounded-md">
       <header className="mt-3">
-        <Banner logo={job.employer_logo} />
+        <Banner
+          logo={job.employer_logo || 'https://via.placeholder.com/60x60'}
+        />
 
         <div className="flex flex-col items-center md:flex-row md:justify-between">
           {/* summary */}
           <div className="flex flex-col items-center">
-            <div className="flex">
+            <div className="flex items-center ">
               <h2>{job.job_title}</h2>
-              <SavedIcon />
+              <SavedIcon size={30} />
             </div>
-            <div className="flex w-full px-2">
-              <ul className="flex w-full justify-between">
-                <li className="text-xxs">{job.employer_name}</li>
+            <div className="flex w-full">
+              <ul className="flex w-full space-x-3">
                 <li className="text-xxs">
-                  {job.job_city},{job.job_country}
+                  Company:
+                  <span className="font-semibold italic">
+                    {job.employer_name}
+                  </span>
                 </li>
-                <li className="text-xxs">3 days </li>
+                <li className="text-xxs">
+                  Location:
+                  <span className="font-semibold italic">
+                    {job.job_city},{job.job_country}
+                  </span>
+                </li>
+                <li className="text-xxs">
+                  Type:
+                  <span className="font-semibold italic">
+                    {job.job_employment_type}
+                  </span>
+                </li>
               </ul>
             </div>
           </div>
@@ -85,7 +129,7 @@ const JobDetail = () => {
           <div className="flex justify-between items-center py-4">
             <div className="flex">
               <Image
-                src={job.employer_logo}
+                src={job.employer_logo || 'https://via.placeholder.com/50x50'}
                 width={50}
                 height={50}
                 className="rounded-md"

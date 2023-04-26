@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronIcon } from './icons';
-import { useGetJobsQuery, useGetJobDetailsQuery } from '../services/JSearch';
+import { useGetJobsQuery } from '../services/JSearch';
 
 const JobSearchPosts = () => {
   const [sortOn, setSortOn] = useState('Relevance');
 
-  //const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
-  //const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
+  // const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
+  // const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
   const { data, isFetching, isError } = useGetJobsQuery();
 
   if (isFetching) {
@@ -35,7 +35,7 @@ const JobSearchPosts = () => {
 
   return (
     <div>
-      {/* job post header*/}
+      {/* job post header */}
       <div className="flex justify-between mx-4 pb-3">
         <div className="flex">
           <p className="text-base text-natural-1 dark:text-gray-200">

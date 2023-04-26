@@ -37,7 +37,7 @@ const SimilarJobsCard = () => {
         <p className="text-xs text-natural-1">2 days left</p>
         <div className="flex justify-between items-center w-1/4">
           <button>
-            <SavedIcon />
+            <SavedIcon size={20} />
           </button>
 
           <Button transparent size="sm">
