@@ -18,3 +18,6 @@ export { default as spotifyLogo } from './SpotifyLogo.svg';
 export { default as profilePlaceholder1 } from './profile-placeholder-1.png';
 export { default as profilePlaceholder2 } from './profile-placeholder-2.png';
 export { default as profilePlaceholder3 } from './profile-placeholder-3.png';
+
+export { default as savedIconGreen } from './SavedIconGreen.svg';
+export { default as oval } from './Oval.svg';

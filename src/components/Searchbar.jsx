@@ -36,12 +36,11 @@ const Searchbar = () => {
       </div>
       <div className="flex md:px-4 w-full md:w-1/5 pt-3 md:pt-0 justify-start items-center">
         <div className="mr-2">
-
           <BriefcaseIcon />
         </div>
         <p className="text-natural-2">Job Type</p>
       </div>
-      <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0 md:pl-2">
+      <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0">
         <Button primary fullWidth>
           Find Job
         </Button>
