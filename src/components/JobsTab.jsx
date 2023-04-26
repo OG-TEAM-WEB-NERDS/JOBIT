@@ -15,6 +15,7 @@ const JobsTab = () => (
             alt="Search icon"
             width={24}
             height={24}
+            className="grayscale"
           />
           <input
             type="text"
