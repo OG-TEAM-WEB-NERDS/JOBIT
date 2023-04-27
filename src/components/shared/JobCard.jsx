@@ -3,12 +3,16 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../../assets';
-import jobs from '../../samples/search';
 import Badge from './Badge';
 import Button from './Button';
 
-const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
-  const job = jobs.data[0];
+const JobCard = ({
+  primaryBtn,
+  secondaryBtn,
+  outlinedBtn,
+  transparentBtn,
+  job,
+}) => {
   const router = useRouter();
 
   const handleJobClick = (id) => {
@@ -21,7 +25,7 @@ const JobCard = ({ primaryBtn, secondaryBtn, outlinedBtn, transparentBtn }) => {
         <div className="flex gap-4 items-center">
           <div className="p-2 bg-natural-4 dark:bg-black-3 rounded-xl">
             <Image
-              src={job.employer_logo}
+              src={job.employer_logo || 'https://via.placeholder.com/50x50'}
               alt="Employer logo"
               width={50}
               height={50}

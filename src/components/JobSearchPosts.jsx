@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
-import { useGetJobsQuery, useGetJobDetailsQuery } from '../services/JSearch';
+import { useGetJobsQuery } from '../services/JSearch';
 
 const JobSearchPosts = () => {
   const [sortOn, setSortOn] = useState('Relevance');
