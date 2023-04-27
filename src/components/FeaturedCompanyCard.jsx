@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { RatingStars } from './icons';
+import { RatingStars } from '.';
 import { BriefcaseIcon, PinIcon } from '../assets';
 import Button from './shared/Button';
 
