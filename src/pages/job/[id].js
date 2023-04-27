@@ -7,7 +7,7 @@ import {
   SearchBar,
   Button,
 } from '../../components';
-import { ChevronLeftIcon } from '../../components/icons';
+import { ChevronLeftIcon } from '../../assets';
 
 const JobDetailPage = () => {
   const router = useRouter();
@@ -16,8 +16,7 @@ const JobDetailPage = () => {
     <section>
       <SearchBar />
 
-      <Button secondary handleClick={() => router.back()}>
-        <ChevronLeftIcon />
+      <Button secondary icon={ChevronLeftIcon} handleClick={() => router.back()}>
         Back
       </Button>
 

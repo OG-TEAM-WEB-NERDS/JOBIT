@@ -21,3 +21,4 @@ export { default as SearchBar } from './Searchbar';
 
 export { default as FilterDropdown } from './shared/FilterDropdown';
 export { default as Banner } from './shared/Banner';
+export { default as RatingStars } from './shared/RatingStars';

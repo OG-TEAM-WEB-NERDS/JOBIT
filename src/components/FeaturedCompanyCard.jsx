@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { BriefcaseIcon, PinIcon, RatingStars } from './icons';
+import { RatingStars } from '.';
+import { BriefcaseIcon, PinIcon } from '../assets';
 import Button from './shared/Button';
 
 const FeaturedCompanyCard = ({
@@ -32,11 +33,23 @@ const FeaturedCompanyCard = ({
       </div>
       <div className="flex flex-col space-y-2">
         <p className="flex gap-2 items-center text-natural-2 font-bold text-sm">
-          <PinIcon />
+          <Image
+            src={PinIcon}
+            alt="Pin icon"
+            width={20}
+            height={20}
+            className="grayscale"
+          />
           {location}
         </p>
         <p className="flex gap-2 items-center text-natural-2 font-bold text-sm">
-          <BriefcaseIcon />
+          <Image
+            src={BriefcaseIcon}
+            alt="Briefcase icon"
+            width={20}
+            height={20}
+            className="grayscale"
+          />
           {vacancies === 0 ? 'No' : vacancies} Job{' '}
           {vacancies === 1 ? 'Vacancy' : 'Vacancies'}
         </p>

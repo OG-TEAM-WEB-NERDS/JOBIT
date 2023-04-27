@@ -1,8 +1,7 @@
 import Image from 'next/image';
-
 import { useRouter } from 'next/router';
 
-import { EllipsisIcon, PlusIcon, SavedIcon } from './icons';
+import { EllipsisIcon, PlusIcon, SavedFilledIcon, SavedOutlinedIcon } from '../assets';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
@@ -41,34 +40,45 @@ const JobDetail = () => {
     <div className="w-full px-4 pb-2 rounded-md">
       <header className="mt-3">
         <Banner
-          logo={job.employer_logo || 'https://via.placeholder.com/60x60'}
+          logo={job?.employer_logo || 'https://via.placeholder.com/60x60'}
         />
 
         <div className="flex flex-col items-center md:flex-row md:justify-between">
           {/* summary */}
           <div className="flex flex-col items-center">
             <div className="flex items-center ">
-              <h2>{job.job_title}</h2>
-              <SavedIcon size={30} />
+
+              <h2>{job?.job_title}</h2>
+
+              <button type="button">
+                <Image
+                  src={SavedOutlinedIcon}
+                  alt="Save icon"
+                  width={20}
+                  height={20}
+                  className="grayscale"
+                />
+              </button>
+
             </div>
             <div className="flex w-full">
               <ul className="flex w-full space-x-3">
                 <li className="text-xxs">
                   Company:
                   <span className="font-semibold italic">
-                    {job.employer_name}
+                    {job?.employer_name}
                   </span>
                 </li>
                 <li className="text-xxs">
                   Location:
                   <span className="font-semibold italic">
-                    {job.job_city},{job.job_country}
+                    {job?.job_city},{job?.job_country}
                   </span>
                 </li>
                 <li className="text-xxs">
                   Type:
                   <span className="font-semibold italic">
-                    {job.job_employment_type}
+                    {job?.job_employment_type}
                   </span>
                 </li>
               </ul>
@@ -82,8 +92,14 @@ const JobDetail = () => {
             <Button secondary outlined size="sm">
               Message
             </Button>
-            <button>
-              <EllipsisIcon />
+            <button type="button" className="rotate-90">
+              <Image
+                src={EllipsisIcon}
+                alt="Ellipsis icon"
+                width={20}
+                height={20}
+                className="grayscale"
+              />
             </button>
           </div>
         </div>
@@ -119,7 +135,7 @@ const JobDetail = () => {
       {/* job details section */}
       <section className="my-5">
         <h2 className="text-sm my-3">About the job</h2>
-        <p className="text-sm my-3">{job.job_description}</p>
+        <p className="text-sm my-3">{job?.job_description}</p>
       </section>
 
       <section>
@@ -127,30 +143,29 @@ const JobDetail = () => {
         <div className="flex flex-col">
           {/* company header */}
           <div className="flex justify-between items-center py-4">
-            <div className="flex">
+            <div className="flex">?
               <Image
-                src={job.employer_logo || 'https://via.placeholder.com/50x50'}
+                src={job?.employer_logo || 'https://via.placeholder.com/50x50'}
                 width={50}
                 height={50}
                 className="rounded-md"
               />
               <div className=" ml-3 flex flex-col justify-center items-center">
-                <h3 className="text-xs">{job.employer_name}</h3>
-                <p className="text-xxs">{job.employer_company_type}</p>
+                <h3 className="text-xs">{job?.employer_name}</h3>
+                <p className="text-xxs">{job?.employer_company_type}</p>
               </div>
             </div>
 
             {/* follow button */}
-            <Button primary outlined size="sm">
-              <PlusIcon />
+            <Button primary outlined size="sm" icon={PlusIcon}>
               Follow
             </Button>
           </div>
 
           <p className="text-sm">
-            {`${job.employer_name} is a ${job.employer_company_type} company. To find out more about their work and career progression opportunities, please visit `}
-            <a href={job.employer_website} className="underline">
-              {job.employer_name}
+            {`${job?.employer_name} is a ${job?.employer_company_type} company. To find out more about their work and career progression opportunities, please visit `}
+            <a href={job?.employer_website} className="underline">
+              {job?.employer_name}
             </a>
             .
           </p>

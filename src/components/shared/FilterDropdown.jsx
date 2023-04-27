@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
-import { ChevronIcon } from '../icons';
+import { ChevronDownIcon } from '../../assets';
 
 const FilterDropdown = ({ label, options }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,13 @@ const FilterDropdown = ({ label, options }) => {
       >
         <h5>{label}</h5>
         <div className={`p-2 ${isOpen && 'rotate-180'}`}>
-          <ChevronIcon />
+          <Image
+            src={ChevronDownIcon}
+            alt="Chevron icon"
+            width={20}
+            height={20}
+            className="grayscale"
+          />
         </div>
       </button>
 

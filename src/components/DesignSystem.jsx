@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Button } from '.';
-import { BellIcon } from './icons';
+import { BellIcon } from '../assets';
 
 const DesignSystem = () => (
   <div className="flex flex-col gap-8">
@@ -37,28 +37,20 @@ const DesignSystem = () => (
       <Button secondary outlined>Outlined secondary button</Button>
     </div>
 
-    <h2>Icon left buttons</h2>
-    <div className="flex flex-wrap gap-4">
-      <Button primary><BellIcon />Primary button</Button>
-      <Button secondary><BellIcon />Secondary button</Button>
-      <Button primary outlined><BellIcon />Outlined primary button</Button>
-      <Button secondary outlined><BellIcon />Outlined secondary button</Button>
-    </div>
-
-    <h2>Icon right buttons</h2>
-    <div className="flex flex-wrap gap-4">
-      <Button primary>Primary button<BellIcon /></Button>
-      <Button secondary>Secondary button<BellIcon /></Button>
-      <Button primary outlined>Outlined primary button<BellIcon /></Button>
-      <Button secondary outlined>Outlined secondary button<BellIcon /></Button>
-    </div>
-
     <h2>Icon buttons</h2>
     <div className="flex flex-wrap gap-4">
-      <Button primary><BellIcon /></Button>
-      <Button secondary><BellIcon /></Button>
-      <Button primary outlined><BellIcon /></Button>
-      <Button secondary outlined><BellIcon /></Button>
+      <Button primary icon={BellIcon}>Primary button</Button>
+      <Button secondary icon={BellIcon}>Secondary button</Button>
+      <Button primary outlined icon={BellIcon}>Outlined primary button</Button>
+      <Button secondary outlined icon={BellIcon}>Outlined secondary button</Button>
+    </div>
+
+    <h2>Standalone icon buttons</h2>
+    <div className="flex flex-wrap gap-4">
+      <Button primary icon={BellIcon} />
+      <Button secondary icon={BellIcon} />
+      <Button primary outlined icon={BellIcon} />
+      <Button secondary outlined icon={BellIcon} />
     </div>
   </div>
 );

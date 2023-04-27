@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 import JobSearchCard from './JobSearchCard';
-import { ChevronIcon } from './icons';
+import { ChevronDownIcon } from '../assets';
 import { useGetJobsQuery } from '../services/JSearch';
 
 const JobSearchPosts = () => {
@@ -54,9 +55,13 @@ const JobSearchPosts = () => {
                 type="button"
                 className="flex items-center justify-between cursor-pointer select-none"
               >
-                <div className="rotate-180">
-                  <ChevronIcon />
-                </div>
+                <Image
+                  src={ChevronDownIcon}
+                  alt="Chevron icon"
+                  width={20}
+                  height={20}
+                  className="grayscale"
+                />
               </button>
             </div>
 
@@ -77,7 +82,7 @@ const JobSearchPosts = () => {
                         {items}
                       </a>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>

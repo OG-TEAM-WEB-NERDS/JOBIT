@@ -18,23 +18,19 @@ const Button = ({
 
   switch (true) {
     case outlined && secondary:
-      iconClassNames =
-        'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
+      iconClassNames = 'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
       break;
     case outlined:
-      iconClassNames =
-        'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
+      iconClassNames = 'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
       break;
     case primary:
       iconClassNames = 'brightness-0 invert';
       break;
     case secondary:
-      iconClassNames =
-        'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
+      iconClassNames = 'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
       break;
     case transparent:
-      iconClassNames =
-        'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
+      iconClassNames = 'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
       break;
     default:
       iconClassNames = 'brightness-0 invert';
@@ -67,6 +63,8 @@ const Button = ({
           src={icon}
           alt="Icon"
           className={`transition duration-300 ${iconClassNames}`}
+          width={18}
+          height={18}
         />
       )}
       {children}

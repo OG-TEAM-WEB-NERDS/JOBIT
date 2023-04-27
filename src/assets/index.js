@@ -1,9 +1,4 @@
-export { default as logo } from './Logo.svg';
-export { default as sun } from './Sun.svg';
-export { default as moon } from './Moon.svg';
-export { default as hamburger } from './Hamburger.svg';
-export { default as plus } from './Plus.svg';
-export { default as cross } from './Cross.svg';
+export { default as JobItLogo } from './JobItLogo.svg';
 
 export { default as appleLogo } from './AppleLogo.svg';
 export { default as mailchimpLogo } from './MailchimpLogo.svg';
@@ -19,5 +14,21 @@ export { default as profilePlaceholder1 } from './profile-placeholder-1.png';
 export { default as profilePlaceholder2 } from './profile-placeholder-2.png';
 export { default as profilePlaceholder3 } from './profile-placeholder-3.png';
 
-export { default as savedIconGreen } from './SavedIconGreen.svg';
 export { default as oval } from './Oval.svg';
+
+export { default as BellIcon } from './icons/BellIcon.svg';
+export { default as BriefcaseIcon } from './icons/BriefcaseIcon.svg';
+export { default as ChevronDownIcon } from './icons/ChevronDownIcon.svg';
+export { default as ChevronLeftIcon } from './icons/ChevronLeftIcon.svg';
+export { default as ClockIcon } from './icons/ClockIcon.svg';
+export { default as CrossIcon } from './icons/CrossIcon.svg';
+export { default as EllipsisIcon } from './icons/EllipsisIcon.svg';
+export { default as HamburgerIcon } from './icons/HamburgerIcon.svg';
+export { default as MoonIcon } from './icons/MoonIcon.svg';
+export { default as PeopleIcon } from './icons/PeopleIcon.svg';
+export { default as PinIcon } from './icons/PinIcon.svg';
+export { default as PlusIcon } from './icons/PlusIcon.svg';
+export { default as SavedFilledIcon } from './icons/SavedFilledIcon.svg';
+export { default as SavedOutlinedIcon } from './icons/SavedOutlinedIcon.svg';
+export { default as SearchIcon } from './icons/SearchIcon.svg';
+export { default as SunIcon } from './icons/SunIcon.svg';

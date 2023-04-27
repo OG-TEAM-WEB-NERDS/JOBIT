@@ -2,8 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../icons';
-
+import { BriefcaseIcon, ClockIcon, EllipsisIcon, PeopleIcon } from '../../assets';
 import Badge from './Badge';
 import Button from './Button';
 
@@ -26,7 +25,7 @@ const JobCard = ({
         <div className="flex gap-4 items-center">
           <div className="p-2 bg-natural-4 dark:bg-black-3 rounded-xl">
             <Image
-              src={job.employer_logo || 'https://via.placeholder.com/50x50'}
+              src={job?.employer_logo || 'https://via.placeholder.com/50x50'}
               alt="Employer logo"
               width={50}
               height={50}
@@ -36,11 +35,11 @@ const JobCard = ({
 
           <div className="flex flex-col gap-2">
             {/* title */}
-            <h3 className="text-base font-bold">{job.job_title}</h3>
+            <h3 className="text-base font-bold">{job?.job_title}</h3>
             {/* badges */}
             <div className="flex flex-wrap gap-2">
-              {job.job_required_skills &&
-                job.job_required_skills.map((skill, i) => (
+              {job?.job_required_skills
+                && job?.job_required_skills.map((skill, i) => (
                   <Badge text={skill} key={i} />
                 ))}
             </div>
@@ -48,21 +47,26 @@ const JobCard = ({
         </div>
 
         <div className="cursor-pointer self-start">
-          <MoreIcon />
+          <Image
+            src={EllipsisIcon}
+            alt="Ellipsis icon"
+            width={20}
+            height={20}
+          />
         </div>
       </div>
       {/* description */}
       <div>
         <p className="text-sm text-natural-1 dark:text-natural-2 font-medium">
-          {`${job.job_description.slice(0, 300)}...`}
+          {`${job?.job_description.slice(0, 300)}...`}
         </p>
       </div>
       {/* badges */}
       <div className="flex gap-2">
         {[
-          { text: 'Full Time', icon: <BriefcaseIcon size={18} /> },
-          { text: '45 Applied', icon: <PeopleIcon size={18} /> },
-          { text: '3 days left', icon: <ClockIcon size={18} /> },
+          { text: 'Full Time', icon: BriefcaseIcon },
+          { text: '45 Applied', icon: PeopleIcon },
+          { text: '3 days left', icon: ClockIcon },
         ].map((item, i) => (
           <Badge text={item.text} key={i} icon={item.icon} />
         ))}
@@ -77,7 +81,7 @@ const JobCard = ({
           secondary={secondaryBtn}
           outlined={outlinedBtn}
           transparent={transparentBtn}
-          handleClick={() => handleJobClick(job.job_id)}
+          handleClick={() => handleJobClick(job?.job_id)}
         >
           Apply Now
         </Button>

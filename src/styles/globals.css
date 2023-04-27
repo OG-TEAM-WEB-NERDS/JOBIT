@@ -49,14 +49,6 @@
     @apply transition duration-300 px-4 py-2 rounded-lg font-semibold flex items-center gap-2 bg-primary text-white hover:bg-primary-hover whitespace-nowrap;
   }
 
-  .btn svg {
-    @apply w-4 h-4
-  }
-
-  .btn svg path {
-    @apply transition duration-300 fill-white;
-  }
-
   .btn-outlined {
     @apply bg-transparent border-2 dark:bg-transparent text-primary border-primary hover:border-primary-hover hover:text-white dark:hover:bg-primary-hover dark:hover:border-primary-hover;
   }
@@ -77,11 +69,11 @@
   /* Secondary button */
 
   .btn-secondary {
-    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-natural-2 dark:hover:border-natural-2 dark:hover:text-black-1;
+    @apply bg-natural-4 dark:bg-black-3 text-natural-2 hover:text-natural-2 border-2 border-natural-4 dark:border-black-3 hover:bg-natural-3 hover:border-natural-3 dark:hover:bg-natural-1 dark:hover:border-natural-1 dark:hover:text-white;
   }
 
   .btn-secondary.btn-active {
-    @apply text-natural-2 bg-natural-3 dark:bg-natural-2 dark:border-natural-2 dark:text-black-1;
+    @apply text-natural-2 bg-natural-3 dark:bg-natural-1 dark:border-natural-1 dark:text-black-1;
   }
 
   .btn-secondary svg path {
