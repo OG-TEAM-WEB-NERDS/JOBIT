@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { EllipsisIcon, PlusIcon, SavedIcon } from './icons';
+import { EllipsisIcon, PlusIcon, SavedFilledIcon, SavedOutlinedIcon } from '../assets';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
@@ -47,8 +47,19 @@ const JobDetail = () => {
           {/* summary */}
           <div className="flex flex-col items-center">
             <div className="flex items-center ">
+
               <h2>{job?.job_title}</h2>
-              <SavedIcon size={30} />
+
+              <button type="button">
+                <Image
+                  src={SavedOutlinedIcon}
+                  alt="Save icon"
+                  width={20}
+                  height={20}
+                  className="grayscale"
+                />
+              </button>
+
             </div>
             <div className="flex w-full">
               <ul className="flex w-full space-x-3">
@@ -81,8 +92,14 @@ const JobDetail = () => {
             <Button secondary outlined size="sm">
               Message
             </Button>
-            <button>
-              <EllipsisIcon />
+            <button type="button" className="rotate-90">
+              <Image
+                src={EllipsisIcon}
+                alt="Ellipsis icon"
+                width={20}
+                height={20}
+                className="grayscale"
+              />
             </button>
           </div>
         </div>
@@ -140,8 +157,7 @@ const JobDetail = () => {
             </div>
 
             {/* follow button */}
-            <Button primary outlined size="sm">
-              <PlusIcon />
+            <Button primary outlined size="sm" icon={PlusIcon}>
               Follow
             </Button>
           </div>

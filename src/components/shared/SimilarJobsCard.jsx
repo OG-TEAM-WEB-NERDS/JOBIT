@@ -1,7 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+
 import jobs from '../../samples/search';
-import { SavedIcon } from '../icons';
+import { SavedFilledIcon } from '../../assets';
 import Button from './Button';
 
 const SimilarJobsCard = () => {
@@ -36,8 +37,14 @@ const SimilarJobsCard = () => {
       <div className="flex justify-between py-3 items-center">
         <p className="text-xs text-natural-1">2 days left</p>
         <div className="flex justify-between items-center w-1/4">
-          <button>
-            <SavedIcon size={20} />
+          <button type="button">
+            <Image
+              src={SavedFilledIcon}
+              alt="Save icon"
+              width={20}
+              height={20}
+              className="grayscale"
+            />
           </button>
 
           <Button transparent size="sm">

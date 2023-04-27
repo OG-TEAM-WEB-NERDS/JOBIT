@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, ClockIcon, MoreIcon, PeopleIcon } from '../../assets';
+import { BriefcaseIcon, ClockIcon, EllipsisIcon, PeopleIcon } from '../../assets';
 import Badge from './Badge';
 import Button from './Button';
 
@@ -48,8 +48,8 @@ const JobCard = ({
 
         <div className="cursor-pointer self-start">
           <Image
-            src={MoreIcon}
-            alt="More icon"
+            src={EllipsisIcon}
+            alt="Ellipsis icon"
             width={20}
             height={20}
           />
