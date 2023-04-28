@@ -31,7 +31,7 @@ const RangeSlider = ({ min, max }) => {
         <span className="text-gray-600">{max}</span>
       </div>
       <div className="mt-2 text-center">
-        <span className="text-lg font-semibold text-gray-600">{value}</span>
+        <span className="text-lg font-semibold text-natural-1 dark:text-natural-2">{value}</span>
       </div>
     </div>
   );

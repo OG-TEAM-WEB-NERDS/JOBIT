@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Button, FilterDropdown, Heading } from '../components';
+import { Button, FilterDropdown, Heading, RangeSlider } from '../components';
 
 import JobSearchPosts from '../components/JobSearchPosts';
 
 import { FilterDropdowns } from '../samples/static-data';
 import Searchbar from '../components/Searchbar';
-import RangeSlider from '../components/RangeSlider';
 
 const JobSearch = () => (
   <main className="py-6 flex flex-col space-y-10">
@@ -48,8 +47,6 @@ const JobSearch = () => (
             ),
           )}
           <RangeSlider min={0} max={300000} />
-          
-          
         </div>
       </div>
 

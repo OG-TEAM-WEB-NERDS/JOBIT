@@ -124,11 +124,11 @@ export const FilterDropdowns = [
     name: 'Experience Level',
     options: [
       {
-        name: '3+ Years Experience',
+        name: 'Over 3 Years Experience',
         results: 103,
       },
       {
-        name: '-3 Years Experience',
+        name: 'Under 3 Years Experience',
         results: 142,
       },
       {
