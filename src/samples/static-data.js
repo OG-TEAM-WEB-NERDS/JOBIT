@@ -142,35 +142,6 @@ export const FilterDropdowns = [
     ],
   },
   {
-    name: 'Salary Range',
-    options: [
-      {
-        name: '$0 - $100',
-        results: 103,
-      },
-      {
-        name: '$101 - $200',
-        results: 142,
-      },
-      {
-        name: '$201 - $500',
-        results: 142,
-      },
-      {
-        name: '$501 - $750',
-        results: 142,
-      },
-      {
-        name: '$751 - $1000',
-        results: 142,
-      },
-      {
-        name: '$1000 Above',
-        results: 142,
-      },
-    ],
-  },
-  {
     name: 'Location',
   },
   {

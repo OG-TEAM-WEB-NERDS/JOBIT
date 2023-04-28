@@ -6,6 +6,7 @@ import JobSearchPosts from '../components/JobSearchPosts';
 
 import { FilterDropdowns } from '../samples/static-data';
 import Searchbar from '../components/Searchbar';
+import RangeSlider from '../components/RangeSlider';
 
 const JobSearch = () => (
   <main className="py-6 flex flex-col space-y-10">
@@ -38,15 +39,17 @@ const JobSearch = () => (
         {/* Filters */}
         <div className="hidden md:flex flex-col gap-6">
           {FilterDropdowns.map(
-            (filter, i) =>
-              filter?.options && (
-                <FilterDropdown
-                  key={i}
-                  label={filter.name}
-                  options={filter.options}
-                />
-              )
+            (filter, i) => filter?.options && (
+            <FilterDropdown
+              key={i}
+              label={filter.name}
+              options={filter.options}
+            />
+            ),
           )}
+          <RangeSlider min={0} max={300000} />
+          
+          
         </div>
       </div>
 
