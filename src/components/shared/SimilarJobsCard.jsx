@@ -15,6 +15,7 @@ const SimilarJobsCard = ({ job }) => {
       {/* upper section */}
       <div className="flex justify-between">
         <div className="flex justify-center items-center max-w-xs">
+          {/* TODO: switch placeholder from URL to placeholder component  */}
           <Image
             src={job.employer_logo ?? 'https://via.placeholder.com/60x60'}
             alt="Employer Logo"
@@ -25,7 +26,8 @@ const SimilarJobsCard = ({ job }) => {
           <div className="flex flex-col ml-2">
             <h4 className="text-sm">{job.job_title}</h4>
             <p className="text-xs">
-              {job.job_city},{job.job_country}
+              {job.job_city && `${job.job_city},`}
+              {job.job_country && job.job_country}
             </p>
           </div>
         </div>
