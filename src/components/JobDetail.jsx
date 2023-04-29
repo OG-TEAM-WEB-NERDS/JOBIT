@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { EllipsisIcon, PlusIcon, SavedFilledIcon, SavedOutlinedIcon } from '../assets';
+import {
+  EllipsisIcon,
+  PlusIcon,
+  SavedFilledIcon,
+  SavedOutlinedIcon,
+} from '../assets';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
@@ -40,14 +45,13 @@ const JobDetail = () => {
     <div className="w-full px-4 pb-2 rounded-md">
       <header className="mt-3">
         <Banner
-          logo={job?.employer_logo || 'https://via.placeholder.com/60x60'}
+          logo={job?.employer_logo ?? 'https://via.placeholder.com/60x60'}
         />
 
         <div className="flex flex-col items-center md:flex-row md:justify-between">
           {/* summary */}
           <div className="flex flex-col items-center">
             <div className="flex items-center ">
-
               <h2>{job?.job_title}</h2>
 
               <button type="button">
@@ -59,7 +63,6 @@ const JobDetail = () => {
                   className="grayscale"
                 />
               </button>
-
             </div>
             <div className="flex w-full">
               <ul className="flex w-full space-x-3">
@@ -143,9 +146,10 @@ const JobDetail = () => {
         <div className="flex flex-col">
           {/* company header */}
           <div className="flex justify-between items-center py-4">
-            <div className="flex">?
+            <div className="flex">
+              ?
               <Image
-                src={job?.employer_logo || 'https://via.placeholder.com/50x50'}
+                src={job?.employer_logo ?? 'https://via.placeholder.com/50x50'}
                 width={50}
                 height={50}
                 className="rounded-md"
