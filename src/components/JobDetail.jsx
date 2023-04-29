@@ -166,13 +166,15 @@ const JobDetail = () => {
             </Button>
           </div>
 
-          <p className="text-sm">
-            {`${job?.employer_name} is a ${job?.employer_company_type} company. To find out more about their work and career progression opportunities, please visit `}
-            <a href={job?.employer_website} className="underline">
-              {job?.employer_name}
-            </a>
-            .
-          </p>
+          {job.employer_name && job.employer_company_type && (
+            <p className="text-sm">
+              {`${job?.employer_name} is a ${job?.employer_company_type} company. To find out more about their work and career progression opportunities, please visit `}
+              <a href={job?.employer_website} className="underline">
+                {job?.employer_name}
+              </a>
+              .
+            </p>
+          )}
         </div>
       </section>
     </div>
