@@ -32,6 +32,16 @@ export const getDate = () => {
   return `${dayOfWeek}, ${dayOfMonth} ${monthOfYear} ${year}`;
 };
 
-export const getJobPostingDate = (timestamp) => {
-  console.log(new Date(timestamp));
+export const calculateDateToJobExpiration = (timestamp) => {
+  const dateToday = new Date();
+  const expiryDate = new Date(timestamp * 1000);
+
+  if (expiryDate < dateToday) {
+    return "The future date cannot be earlier than today's date.";
+  }
+
+  const diffTime = Math.abs(expiryDate - dateToday); // Difference in milliseconds
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Convert to days
+
+  return diffDays;
 };

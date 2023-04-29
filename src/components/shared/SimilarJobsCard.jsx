@@ -1,19 +1,22 @@
 import React from 'react';
 import Image from 'next/image';
 
-import jobs from '../../samples/search';
+import { useRouter } from 'next/router';
+
 import { SavedFilledIcon } from '../../assets';
 import Button from './Button';
+import { calculateDateToJobExpiration } from '../../utils';
 
-const SimilarJobsCard = () => {
-  const job = jobs.data[0];
+const SimilarJobsCard = ({ job }) => {
+  const router = useRouter();
+
   return (
     <article className="flex flex-col bg-white dark:bg-black-2 my-4  px-6 py-4 w-full rounded-xl ">
       {/* upper section */}
       <div className="flex justify-between">
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center max-w-xs">
           <Image
-            src={job.employer_logo}
+            src={job.employer_logo ?? 'https://via.placeholder.com/60x60'}
             alt="Employer Logo"
             width={50}
             height={50}
@@ -27,15 +30,29 @@ const SimilarJobsCard = () => {
           </div>
         </div>
         <div className="flex justify-center pt-3">
-          <p className="text-xs">
-            <span className="font-bold">$19</span>/Hr
-          </p>
+          {job.job_max_salary && job.job_min_salary && job.job_salary_period ? (
+            <p className="text-xs">
+              <span className="font-bold">
+                {job.job_salary_currency}
+                {job.job_max_salary || job.job_min_salary}
+              </span>
+              / {job.job_salary_period}
+            </p>
+          ) : (
+            <p className="text-xs font-bold">No salary info</p>
+          )}
         </div>
       </div>
 
       {/* bottom section */}
       <div className="flex justify-between py-3 items-center">
-        <p className="text-xs text-natural-1">2 days left</p>
+        <p className="text-xs text-natural-1">
+          {job.job_offer_expiration_timestamp
+            ? `${calculateDateToJobExpiration(
+                job.job_offer_expiration_timestamp
+              )} days left`
+            : 'No expiration info'}
+        </p>
         <div className="flex justify-between items-center w-1/4">
           <button type="button">
             <Image
@@ -47,7 +64,13 @@ const SimilarJobsCard = () => {
             />
           </button>
 
-          <Button transparent size="sm">
+          <Button
+            transparent
+            size="sm"
+            handleClick={() => {
+              router.push(`/job/${job.job_id}`);
+            }}
+          >
             View
           </Button>
         </div>
@@ -56,5 +79,4 @@ const SimilarJobsCard = () => {
     </article>
   );
 };
-
 export default SimilarJobsCard;
