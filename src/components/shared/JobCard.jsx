@@ -10,6 +10,7 @@ import {
 } from '../../assets';
 import Badge from './Badge';
 import Button from './Button';
+import { calculateDateToJobExpiration, getSalaryRangeInfo } from '../../utils';
 
 const JobCard = ({
   primaryBtn,
@@ -23,6 +24,21 @@ const JobCard = ({
   const handleJobClick = (id) => {
     router.push(`/job/${id}`);
   };
+
+  const getJobExpirationInfo = () => {
+    const daysLeft = calculateDateToJobExpiration(
+      job.job_offer_expiration_timestamp
+    );
+
+    if (daysLeft === 'Expiry not specified') {
+      return 'Expiry not specified';
+    }
+    if (daysLeft === 'Job expired') {
+      return 'Job Listing expired';
+    }
+    return `${daysLeft} days left`;
+  };
+
   return (
     <div className="flex flex-col gap-6 dark:bg-black-2 bg-white px-6 py-4 w-full rounded-xl">
       {/* card header */}
@@ -69,18 +85,23 @@ const JobCard = ({
       {/* badges */}
       <div className="flex gap-2">
         {[
-          { text: 'Full Time', icon: BriefcaseIcon },
-          { text: '45 Applied', icon: PeopleIcon },
-          { text: '3 days left', icon: ClockIcon },
-        ].map((item, i) => (
-          <Badge text={item.text} key={i} icon={item.icon} />
-        ))}
+          { text: `${job.job_employment_type}`, icon: BriefcaseIcon },
+          { text: `${job.job_publisher}`, icon: PeopleIcon },
+          {
+            text: `${getJobExpirationInfo()}`,
+            icon: ClockIcon,
+          },
+        ].map(
+          (item, i) =>
+            item.text !== 'undefined' && (
+              <Badge text={item.text} key={i} icon={item.icon} />
+            )
+        )}
       </div>
       {/* footer */}
       <div className="flex justify-between items-center">
-        <p className="font-bold text-lg">
-          $15k-20k<span className="font-medium text-natural-1">/month</span>
-        </p>
+        {getSalaryRangeInfo(job)}
+
         <Button
           primary={primaryBtn}
           secondary={secondaryBtn}
