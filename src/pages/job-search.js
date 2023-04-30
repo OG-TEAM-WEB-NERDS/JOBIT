@@ -52,7 +52,12 @@ const JobSearch = () => (
 
       {/* JobSearch JobCard */}
       <div className="flex flex-col gap-1 md:col-span-3">
-        <JobSearchPosts />
+        <JobSearchPosts
+          query="Software Engineer"
+          num_pages="4"
+          employment_types="FULLTIME"
+          company_types="L2J1c2luZXNzL25haWNzMjAwNy80NDpSZXRhaWw="
+        />
       </div>
     </div>
   </main>

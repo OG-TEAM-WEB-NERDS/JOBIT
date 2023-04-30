@@ -1,16 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
 import { useGetJobsQuery } from '../services/JSearch';
 
-const JobSearchPosts = () => {
+const JobSearchPosts = ({
+  query = 'all',
+  num_pages,
+  employment_types,
+  company_types,
+}) => {
   const [sortOn, setSortOn] = useState('Relevance');
+  const [sortedData, setSortedData] = useState([]);
 
+  console.log(query, num_pages, employment_types, company_types);
   // const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
   // const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
-  const { data, isFetching, isError } = useGetJobsQuery();
+  const { data, isFetching, isError, isSuccess } = useGetJobsQuery({
+    query,
+    num_pages,
+    employment_types,
+    company_types,
+  });
 
   if (isFetching) {
     return (
@@ -33,6 +45,50 @@ const JobSearchPosts = () => {
       </div>
     );
   }
+
+  const InitialData = data?.data;
+
+  const handleSort = (e) => {
+    const sortBy = e.target.innerText;
+    setSortOn(sortBy);
+
+    switch (sortBy) {
+      case 'Latest':
+        const latest = InitialData?.slice(0).sort(
+          (a, b) =>
+            new Date(b?.job_posted_at_datetime_utc).getTime() -
+            new Date(a?.job_posted_at_datetime_utc).getTime()
+        );
+
+        setSortedData(latest);
+
+        break;
+      case 'Oldest':
+        const oldest = InitialData?.slice(0).sort(
+          (a, b) =>
+            new Date(a?.job_posted_at_datetime_utc).getTime() -
+            new Date(b?.job_posted_at_datetime_utc).getTime()
+        );
+
+        setSortedData(oldest);
+
+        break;
+      case 'Popular':
+        const popular = InitialData?.slice(0).sort(
+          (a, b) =>
+            Number(b?.job_apply_quality_score) <
+            Number(a?.job_apply_quality_score)
+        );
+
+        setSortedData(popular);
+
+        break;
+      default:
+        setSortedData(InitialData);
+
+        break;
+    }
+  };
 
   return (
     <div>
@@ -77,12 +133,12 @@ const JobSearchPosts = () => {
                       <a
                         href="#"
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                        onClick={() => setSortOn(items)}
+                        onClick={(e) => handleSort(e)}
                       >
                         {items}
                       </a>
                     </li>
-                  ),
+                  )
                 )}
               </ul>
             </div>
@@ -91,8 +147,9 @@ const JobSearchPosts = () => {
       </div>
 
       {/* searched job posts */}
+
       <div>
-        {data?.data?.map((job, i) => (
+        {(sortedData.length === 0 ? InitialData : sortedData)?.map((job, i) => (
           <JobSearchCard key={i} job={job} i={i} />
         ))}
       </div>

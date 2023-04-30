@@ -19,7 +19,7 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS,
+    (presentDate - jobPostedDate) / ONE_DAY_MS
   ).toFixed(0);
 
   return (
@@ -28,8 +28,8 @@ const JobSearchCard = ({ job, i }) => {
       <div className="flex justify-between">
         <div className="flex gap-4">
           <div className="flex justify-center mt-2 w-14 h-14 bg-gray-500">
-            <img
-              src={job?.employer_logo}
+            <Image
+              src={job?.employer_logo ?? oval}
               alt="Employer Logo"
               width={80}
               height={80}
@@ -58,7 +58,6 @@ const JobSearchCard = ({ job, i }) => {
         </div>
 
         <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
-
           <button
             className="flex items-center p-2 text-natural-2 gap-1 font-semibold"
             onClick={() => {
