@@ -5,6 +5,7 @@ import { EllipsisIcon, PlusIcon, SavedFilledIcon, SavedOutlinedIcon } from '../a
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
+import { Loader } from '.';
 
 const JobDetail = () => {
   const router = useRouter();
@@ -14,9 +15,7 @@ const JobDetail = () => {
 
   if (isFetching) {
     return (
-      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
-        Wait while data fetching!!!
-      </div>
+      <Loader />
     );
   }
 
