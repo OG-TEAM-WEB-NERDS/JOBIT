@@ -13,15 +13,15 @@ const BarChart = ({ data }) => {
   const series = [
     {
       name: 'Minimum salary',
-      data: data?.map((publisher) => (publisher?.min_salary)),
+      data: data?.map((publisher) => (publisher?.min_salary || 0)),
     },
     {
       name: 'Maximum salary',
-      data: data?.map((publisher) => (publisher?.max_salary)),
+      data: data?.map((publisher) => (publisher?.max_salary || 0)),
     },
     {
       name: 'Median salary',
-      data: data?.map((publisher) => (publisher?.median_salary)),
+      data: data?.map((publisher) => (publisher?.median_salary || 0)),
     },
   ];
 
@@ -30,7 +30,7 @@ const BarChart = ({ data }) => {
 
   options.xaxis = {
     ...options.xaxis,
-    categories: data.map((publisher) => (publisher?.publisher_name)),
+    categories: data?.map((publisher) => (publisher?.publisher_name)),
     axisBorder: {
       color: theme === 'light' ? '#E2E2EA' : '#21212B',
     },

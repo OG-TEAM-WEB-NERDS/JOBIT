@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { BarChart, Button, Heading } from '../components';
 import { useLazyGetEstimatedSalaryQuery } from '../services/JSearch';
 import { useLazyGetLocationInfoQuery } from '../services/GeocodingAPI';
-import { BriefcaseIcon } from '../assets';
+import { BriefcaseIcon, CrossIcon } from '../assets';
 
 const EstimatedSalaries = () => {
   // Location data API call
@@ -68,6 +68,8 @@ const EstimatedSalaries = () => {
     }
   };
 
+  console.log(estimatedSalaryData);
+
   return (
     <main className="py-6 flex flex-col lg:flex-row lg:items-center gap-10">
 
@@ -99,8 +101,9 @@ const EstimatedSalaries = () => {
       </div>
 
       {/* Chart */}
+
       {
-        estimatedSalaryData ? (
+        estimatedSalaryData?.data.length > 0 ? (
           <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
             <h2>
               Estimated Salary
@@ -114,20 +117,44 @@ const EstimatedSalaries = () => {
             <BarChart data={estimatedSalaryData?.data} />
           </div>
         ) : (
-          <div className="flex flex-col gap-8 w-full lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
-            <div className="flex items-center justify-center bg-primary p-4 w-20 h-20 rounded-xl">
-              <Image
-                src={BriefcaseIcon}
-                alt="Briefcase icon"
-                width={40}
-                height={40}
-                className="grayscale brightness-0 invert"
-              />
-            </div>
-            <div className="flex flex-col gap-5">
-              <h2>Find out estimated salary results in your area</h2>
-              <p>Enter in a job title, your location and a radius you'd like to search within to get the lowest, highest and median salaries based on your added information.</p>
-            </div>
+          <div className="flex flex-col gap-8 w-full self-end lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
+
+            {
+              estimatedSalaryData?.data.length <= 0 ? (
+                <>
+                  <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
+                    <Image
+                      src={CrossIcon}
+                      alt="Cross icon"
+                      width={40}
+                      height={40}
+                      className="grayscale brightness-0 invert"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-5">
+                    <h2>Oops, there appears to be no data for your request</h2>
+                    <p>Please try increasing your radius search area or broadening your location or job title you want to search for and try again.</p>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-center justify-center bg-primary p-4 w-20 h-20 rounded-xl">
+                    <Image
+                      src={BriefcaseIcon}
+                      alt="Briefcase icon"
+                      width={40}
+                      height={40}
+                      className="grayscale brightness-0 invert"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-5">
+                    <h2>Find out estimated salary results in your area</h2>
+                    <p>Enter in a job title, your location and a radius you'd like to search within to get the lowest, highest and median salaries based on your added information.</p>
+                  </div>
+                </>
+              )
+            }
+
           </div>
         )
       }
