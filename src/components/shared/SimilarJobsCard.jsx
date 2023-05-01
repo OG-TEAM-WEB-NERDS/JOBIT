@@ -1,11 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
-
 import { useRouter } from 'next/router';
 
 import { SavedFilledIcon } from '../../assets';
 import Button from './Button';
 import { calculateDateToJobExpiration } from '../../utils';
+import ImageWrapper from './ImageWrapper';
 
 const SimilarJobsCard = ({ job }) => {
   const router = useRouter();
@@ -16,7 +15,7 @@ const SimilarJobsCard = ({ job }) => {
       <div className="flex justify-between">
         <div className="flex justify-center items-center max-w-xs">
           {/* TODO: switch placeholder from URL to placeholder component  */}
-          <Image
+          <ImageWrapper
             src={job.employer_logo ?? 'https://via.placeholder.com/60x60'}
             alt="Employer Logo"
             width={50}
@@ -57,7 +56,7 @@ const SimilarJobsCard = ({ job }) => {
         </p>
         <div className="flex justify-between items-center w-1/4">
           <button type="button">
-            <Image
+            <ImageWrapper
               src={SavedFilledIcon}
               alt="Save icon"
               width={20}

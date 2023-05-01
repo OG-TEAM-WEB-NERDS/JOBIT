@@ -1,15 +1,10 @@
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import {
-  EllipsisIcon,
-  PlusIcon,
-  SavedFilledIcon,
-  SavedOutlinedIcon,
-} from '../assets';
+import { EllipsisIcon, PlusIcon, SavedOutlinedIcon } from '../assets';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
+import ImageWrapper from './shared/ImageWrapper';
 
 const JobDetail = ({ setSelectedJobTitle }) => {
   const router = useRouter();
@@ -61,7 +56,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
                 <h2>{job?.job_title}</h2>
 
                 <button type="button">
-                  <Image
+                  <ImageWrapper
                     src={SavedOutlinedIcon}
                     alt="Save icon"
                     width={20}
@@ -102,7 +97,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
                 Message
               </Button>
               <button type="button" className="rotate-90">
-                <Image
+                <ImageWrapper
                   src={EllipsisIcon}
                   alt="Ellipsis icon"
                   width={20}
@@ -154,7 +149,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
             <div className="flex justify-between items-center py-4">
               <div className="flex">
                 {/* TODO: switch placeholder from URL to placeholder component  */}
-                <Image
+                <ImageWrapper
                   src={
                     job?.employer_logo ?? 'https://via.placeholder.com/50x50'
                   }

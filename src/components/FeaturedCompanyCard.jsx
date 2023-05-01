@@ -1,6 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
-
+import ImageWrapper from './shared/ImageWrapper';
 import { RatingStars } from '.';
 import { BriefcaseIcon, PinIcon } from '../assets';
 import Button from './shared/Button';
@@ -18,7 +17,7 @@ const FeaturedCompanyCard = ({
   return (
     <div className="bg-white dark:bg-black-2 p-4 rounded-xl flex flex-col space-y-8 w-full">
       <div className="flex items-center space-x-3">
-        <Image src={logo} width={55} height={55} alt={employerName} />
+        <ImageWrapper src={logo} width={55} height={55} alt={employerName} />
         <div className="flex flex-col space-y-1">
           <h3 className="text-base">{employerName}</h3>
           <div className="flex items-center space-x-2">
@@ -33,22 +32,22 @@ const FeaturedCompanyCard = ({
       </div>
       <div className="flex flex-col space-y-2">
         <p className="flex gap-2 items-center text-natural-2 font-bold text-sm">
-          <Image
+          <ImageWrapper
             src={PinIcon}
             alt="Pin icon"
             width={20}
             height={20}
-            className="grayscale"
+            styles="grayscale"
           />
           {location}
         </p>
         <p className="flex gap-2 items-center text-natural-2 font-bold text-sm">
-          <Image
+          <ImageWrapper
             src={BriefcaseIcon}
             alt="Briefcase icon"
             width={20}
             height={20}
-            className="grayscale"
+            styles="grayscale"
           />
           {vacancies === 0 ? 'No' : vacancies} Job{' '}
           {vacancies === 1 ? 'Vacancy' : 'Vacancies'}

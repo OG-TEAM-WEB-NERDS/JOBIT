@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
+import ImageWrapper from './shared/ImageWrapper';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
@@ -55,7 +55,7 @@ const JobSearchPosts = () => {
                 type="button"
                 className="flex items-center justify-between cursor-pointer select-none"
               >
-                <Image
+                <ImageWrapper
                   src={ChevronDownIcon}
                   alt="Chevron icon"
                   width={20}
@@ -82,7 +82,7 @@ const JobSearchPosts = () => {
                         {items}
                       </a>
                     </li>
-                  ),
+                  )
                 )}
               </ul>
             </div>

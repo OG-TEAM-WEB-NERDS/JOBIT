@@ -3,7 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
-import { JobItLogo, SunIcon, MoonIcon, HamburgerIcon, CrossIcon } from '../assets';
+import {
+  JobItLogo,
+  SunIcon,
+  MoonIcon,
+  HamburgerIcon,
+  CrossIcon,
+} from '../assets';
+import ImageWrapper from './shared/ImageWrapper';
 
 const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
   const generateLink = (i) => {
@@ -57,7 +64,7 @@ const Navbar = () => {
         <div className="flex flex-row justify-start md:flex">
           <Link href="/" onClick={() => setIsOpen(false)}>
             <div className="flexCenter cursor-pointer">
-              <Image
+              <ImageWrapper
                 src={JobItLogo}
                 style={{ objectFit: 'contain' }}
                 width={120}
@@ -75,7 +82,9 @@ const Navbar = () => {
             width={30}
             height={30}
             alt={isOpen ? 'Menu' : 'close'}
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
           />
 
           {isOpen && (
@@ -88,7 +97,7 @@ const Navbar = () => {
                   setIsOpen={setIsOpen}
                 />
                 <div className="flex md:hidden items-center py-4 justify-between w-28">
-                  <Image
+                  <ImageWrapper
                     src={SunIcon}
                     alt="Sun icon"
                     style={{ objectFit: 'contain' }}
@@ -100,7 +109,9 @@ const Navbar = () => {
                     type="checkbox"
                     className="checkbox"
                     id="checkbox"
-                    onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                    onChange={() =>
+                      setTheme(theme === 'light' ? 'dark' : 'light')
+                    }
                   />
                   <label
                     htmlFor="checkbox"
@@ -108,7 +119,7 @@ const Navbar = () => {
                   >
                     <div className="w-3 h-3 absolute bg-primary rounded-full ball" />
                   </label>
-                  <Image
+                  <ImageWrapper
                     src={MoonIcon}
                     alt="Moon icon"
                     style={{ objectFit: 'contain' }}
@@ -131,7 +142,7 @@ const Navbar = () => {
             />
           </div>
           <div className="hidden md:flex items-center justify-between w-28">
-            <Image
+            <ImageWrapper
               src={SunIcon}
               alt="Sun icon"
               style={{ objectFit: 'contain' }}
@@ -151,7 +162,7 @@ const Navbar = () => {
             >
               <div className="w-3 h-3 absolute bg-primary rounded-full ball" />
             </label>
-            <Image
+            <ImageWrapper
               src={MoonIcon}
               alt="Moon icon"
               style={{ objectFit: 'contain' }}

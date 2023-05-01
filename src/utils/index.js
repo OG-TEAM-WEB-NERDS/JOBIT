@@ -85,3 +85,13 @@ export const getSalaryRangeInfo = (job) => {
   }
   return <p className="font-bold text-lg">Salary range not specified</p>;
 };
+
+// function to check if src is valid URL
+export const isValidUrl = (url) => {
+  try {
+    new URL(url);
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
