@@ -14,9 +14,6 @@ const JobSearchPosts = ({
   const [sortOn, setSortOn] = useState('Relevance');
   const [sortedData, setSortedData] = useState([]);
 
-  console.log(query, num_pages, employment_types, company_types);
-  // const Id = '2HjjWrUgSxoAAAAAAAAAAA==';
-  // const { data, isFetching, isError } = useGetJobDetailsQuery(Id);
   const { data, isFetching, isError, isSuccess } = useGetJobsQuery({
     query,
     num_pages,
@@ -98,7 +95,9 @@ const JobSearchPosts = ({
           <p className="text-base text-natural-1 dark:text-gray-200">
             Showing:
           </p>{' '}
-          <h6 className="font-semibold text-black-3 ml-2">5 jobs</h6>
+          <h6 className="font-semibold text-black-3 ml-2">
+            {InitialData.length} jobs
+          </h6>
         </div>
         <div className="flex ">
           <p className="opacity-0 md:opacity-100">Sort by:</p>

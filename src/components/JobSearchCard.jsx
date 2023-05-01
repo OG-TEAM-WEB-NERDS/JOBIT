@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 import { oval, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
@@ -22,17 +23,23 @@ const JobSearchCard = ({ job, i }) => {
     (presentDate - jobPostedDate) / ONE_DAY_MS
   ).toFixed(0);
 
+  const router = useRouter();
+
+  const handleJobClick = (id) => {
+    router.push(`/job/${id}`);
+  };
+
   return (
     <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
       {/* card header */}
       <div className="flex justify-between">
         <div className="flex gap-4">
-          <div className="flex justify-center mt-2 w-14 h-14 bg-gray-500">
+          <div className="flex items-center justify-center p-1 h-14 w-14 bg-natural-4 dark:bg-black-3 rounded-xl">
             <Image
               src={job?.employer_logo ?? oval}
               alt="Employer Logo"
-              width={80}
-              height={80}
+              width={50}
+              height={50}
             />
           </div>
           <div className="flex flex-col">
@@ -100,7 +107,9 @@ const JobSearchCard = ({ job, i }) => {
         </div>
         <div className="flex gap-20 sm:gap-6 mt-4 sm:mt-0 ">
           <Button secondary>Message</Button>
-          <Button primary>Apply now</Button>
+          <Button primary handleClick={() => handleJobClick(job?.job_id)}>
+            Apply now
+          </Button>
         </div>
       </div>
     </article>

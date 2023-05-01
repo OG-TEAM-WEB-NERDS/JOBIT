@@ -2,7 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, ClockIcon, EllipsisIcon, PeopleIcon } from '../../assets';
+import {
+  BriefcaseIcon,
+  ClockIcon,
+  EllipsisIcon,
+  PeopleIcon,
+} from '../../assets';
 import Badge from './Badge';
 import Button from './Button';
 
@@ -38,8 +43,8 @@ const JobCard = ({
             <h3 className="text-base font-bold">{job?.job_title}</h3>
             {/* badges */}
             <div className="flex flex-wrap gap-2">
-              {job?.job_required_skills
-                && job?.job_required_skills.map((skill, i) => (
+              {job?.job_required_skills &&
+                job?.job_required_skills.map((skill, i) => (
                   <Badge text={skill} key={i} />
                 ))}
             </div>
