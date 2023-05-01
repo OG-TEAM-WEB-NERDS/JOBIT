@@ -12,15 +12,25 @@ export const jobsApi = createApi({
       query: () => `search?query="*"&rapidapi-key=${jobsApiKey}`,
     }),
 
-    // Get Job Details by ID
-    getJobDetails: builder.query({
-      query: (Id) => `job-details?job_id=${Id}&rapidapi-key=${jobsApiKey}`,
-    }),
-
     // Get similar jobs (using current job title)
     getSimilarJobs: builder.query({
       query: (jobTitle) =>
         `search?query="${jobTitle}"&rapidapi-key=${jobsApiKey}`,
+    }),
+
+    // Get job details by ID
+    getJobDetails: builder.query({
+      query: (id) => `job-details?job_id=${id}&rapidapi-key=${jobsApiKey}`,
+    }),
+
+    // Get estimated salary
+    getEstimatedSalary: builder.query({
+      query: ({ jobTitle, location, radius }) =>
+        `estimated-salary?job_title=${encodeURIComponent(
+          jobTitle
+        )}&location=${encodeURIComponent(
+          location
+        )}&radius=${radius}&rapidapi-key=${jobsApiKey}`,
     }),
   }),
 });
@@ -29,4 +39,5 @@ export const {
   useGetJobsQuery,
   useGetJobDetailsQuery,
   useGetSimilarJobsQuery,
+  useLazyGetEstimatedSalaryQuery,
 } = jobsApi;

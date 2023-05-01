@@ -1,4 +1,5 @@
 export { default as JobItLogo } from './JobItLogo.svg';
+export { default as LoaderIcon } from './LoaderIcon.png';
 
 export { default as appleLogo } from './AppleLogo.svg';
 export { default as mailchimpLogo } from './MailchimpLogo.svg';

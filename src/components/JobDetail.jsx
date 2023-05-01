@@ -5,6 +5,7 @@ import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
 import ImageWrapper from './shared/ImageWrapper';
+import { Loader } from '.';
 
 const JobDetail = ({ setSelectedJobTitle }) => {
   const router = useRouter();
@@ -13,11 +14,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
   const { data, isFetching, isError } = useGetJobDetailsQuery(id);
 
   if (isFetching) {
-    return (
-      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
-        Wait while data fetching!!!
-      </div>
-    );
+    return <Loader />;
   }
 
   if (isError) {
