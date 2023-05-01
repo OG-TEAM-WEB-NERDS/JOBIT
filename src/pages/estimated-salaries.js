@@ -76,7 +76,7 @@ const EstimatedSalaries = () => {
       <div className="flex flex-col gap-10 w-full lg:w-1/2">
         <Heading heading="Estimated Salaries" />
 
-        {/* Form */}
+        {/* FORM */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
           <div className="flex flex-col w-full gap-3">
             <label className="text-natural-2 font-semibold" htmlFor="jobTitle">Job Title</label>
@@ -100,8 +100,9 @@ const EstimatedSalaries = () => {
         </form>
       </div>
 
-      {/* Chart */}
+      {/* CHART/INFORMATION */}
 
+      {/* Show chart if data exists */}
       {
         estimatedSalaryData?.data.length > 0 ? (
           <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
@@ -119,6 +120,7 @@ const EstimatedSalaries = () => {
         ) : (
           <div className="flex flex-col gap-8 w-full self-end lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
 
+            {/* Else if data array equals 0, show error message about updating/broading search */}
             {
               estimatedSalaryData?.data.length <= 0 ? (
                 <>
@@ -138,6 +140,7 @@ const EstimatedSalaries = () => {
                 </>
               ) : (
                 <>
+                  {/* Else, show initial information about using the tool */}
                   <div className="flex items-center justify-center bg-primary p-4 w-20 h-20 rounded-xl">
                     <Image
                       src={BriefcaseIcon}
