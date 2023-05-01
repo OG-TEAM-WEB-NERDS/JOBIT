@@ -68,8 +68,6 @@ const EstimatedSalaries = () => {
     }
   };
 
-  console.log(estimatedSalaryData);
-
   return (
     <main className="py-6 flex flex-col lg:flex-row lg:items-center gap-10">
 
@@ -134,7 +132,7 @@ const EstimatedSalaries = () => {
                     />
                   </div>
                   <div className="flex flex-col gap-5">
-                    <h2>Oops, there appears to be no data for your request</h2>
+                    <h2>Oops, there appears to be no data available</h2>
                     <p>Please try increasing your radius search area or broadening your location or job title you want to search for and try again.</p>
                   </div>
                 </>
