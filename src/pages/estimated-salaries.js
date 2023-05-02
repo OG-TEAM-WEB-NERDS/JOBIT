@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-import { BarChart, Button, Heading } from '../components';
+import { BarChart, Button, Heading, ImageWrapper, Loader } from '../components';
 import { useLazyGetEstimatedSalaryQuery } from '../services/JSearch';
 import { useLazyGetLocationInfoQuery } from '../services/GeocodingAPI';
 import { BriefcaseIcon, CrossIcon } from '../assets';
@@ -11,7 +11,7 @@ const EstimatedSalaries = () => {
   const [getLocationInfo] = useLazyGetLocationInfoQuery();
 
   // Estimated salary API call
-  const [getEstimatedSalary] = useLazyGetEstimatedSalaryQuery();
+  const [getEstimatedSalary, { isFetching, error }] = useLazyGetEstimatedSalaryQuery();
 
   // Form data state
   const [formData, setFormData] = useState({
@@ -101,64 +101,8 @@ const EstimatedSalaries = () => {
       {/* CHART/INFORMATION */}
 
       {/* Show chart if data exists */}
-      {
-        estimatedSalaryData?.data.length > 0 ? (
-          <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
-            <h2>
-              Estimated Salary
-              <span className="font-normal"> for a </span>
-              {estimatedSalaryData?.jobTitle}
-              <span className="font-normal"> located in </span>
-              {estimatedSalaryData?.location}
-              <span className="font-normal"> within in a </span>
-              {estimatedSalaryData?.radius}km<span className="font-normal"> radius.</span>
-            </h2>
-            <BarChart data={estimatedSalaryData?.data} />
-          </div>
-        ) : (
-          <div className="flex flex-col gap-8 w-full self-end lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
 
-            {/* Else if data array equals 0, show error message about updating/broading search */}
-            {
-              estimatedSalaryData?.data.length <= 0 ? (
-                <>
-                  <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
-                    <Image
-                      src={CrossIcon}
-                      alt="Cross icon"
-                      width={40}
-                      height={40}
-                      className="grayscale brightness-0 invert"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-5">
-                    <h2>Oops, there appears to be no data available</h2>
-                    <p>Please try increasing your radius search area or broadening your location or job title you want to search for and try again.</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  {/* Else, show initial information about using the tool */}
-                  <div className="flex items-center justify-center bg-primary p-4 w-20 h-20 rounded-xl">
-                    <Image
-                      src={BriefcaseIcon}
-                      alt="Briefcase icon"
-                      width={40}
-                      height={40}
-                      className="grayscale brightness-0 invert"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-5">
-                    <h2>Find out estimated salary results in your area</h2>
-                    <p>Enter in a job title, your location and a radius you'd like to search within to get the lowest, highest and median salaries based on your added information.</p>
-                  </div>
-                </>
-              )
-            }
-
-          </div>
-        )
-      }
+      <BarChart data={estimatedSalaryData?.data} isFetching={isFetching} />
 
     </main>
   );
