@@ -1,18 +1,15 @@
 import React from 'react';
+
 import SimilarJobsCard from './shared/SimilarJobsCard';
 import SectionTitle from './SectionTitle';
 import { useGetSimilarJobsQuery } from '../services/JSearch';
+import { Loader } from '.';
 
 const SimilarJobPosts = ({ selectedJobTitle }) => {
-  const { data, isFetching, isError } =
-    useGetSimilarJobsQuery(selectedJobTitle);
+  const { data, isFetching, isError } = useGetSimilarJobsQuery(selectedJobTitle);
 
   if (isFetching) {
-    return (
-      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
-        Wait while data fetching!!!
-      </div>
-    );
+    return <Loader />;
   }
 
   if (isError) {
