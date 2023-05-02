@@ -56,6 +56,26 @@ const BarChart = ({ data, isFetching }) => {
     );
   }
 
+  if (data?.length <= 0) {
+    return (
+      <div className="flex flex-col gap-5 w-full lg:w-1/2 justify-center bg-white dark:bg-black-2 p-6 rounded-xl">
+        <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
+          <ImageWrapper
+            src={CrossIcon}
+            alt="Cross icon"
+            width={40}
+            height={40}
+            styles="grayscale brightness-0 invert"
+          />
+        </div>
+        <div className="flex flex-col gap-5">
+          <h2>Oops, there appears to be no data available</h2>
+          <p>Please try increasing your radius search area or broadening your location or job title you want to search for and try again.</p>
+        </div>
+      </div>
+    );
+  }
+
   if (data?.length) {
     return (
       <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
@@ -74,26 +94,6 @@ const BarChart = ({ data, isFetching }) => {
           type="bar"
           height={350}
         />
-      </div>
-    );
-  }
-
-  if (data?.length <= 0) {
-    return (
-      <div className="flex flex-col gap-5 w-full lg:w-1/2 justify-center bg-white dark:bg-black-2 p-6 rounded-xl">
-        <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
-          <ImageWrapper
-            src={CrossIcon}
-            alt="Cross icon"
-            width={40}
-            height={40}
-            styles="grayscale brightness-0 invert"
-          />
-        </div>
-        <div className="flex flex-col gap-5">
-          <h2>Oops, there appears to be no data available</h2>
-          <p>Please try increasing your radius search area or broadening your location or job title you want to search for and try again.</p>
-        </div>
       </div>
     );
   }
