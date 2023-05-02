@@ -6,6 +6,12 @@ import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
 import ImageWrapper from './shared/ImageWrapper';
 import { Loader } from '.';
+import {
+  CheckExperienceRequired,
+  CheckWorkLevel,
+  CheckEmploymentType,
+  CheckSalaryInfo,
+} from '../utils';
 
 const JobDetail = ({ setSelectedJobTitle }) => {
   const router = useRouter();
@@ -35,62 +41,6 @@ const JobDetail = ({ setSelectedJobTitle }) => {
   if (job) {
     setSelectedJobTitle(job.job_title);
   }
-
-  const CheckExperienceRequired = (experienceRequired) => {
-    if (experienceRequired.experience_mentioned) {
-      return `${job.job_required_experience.required_experience_in_months} months`;
-    }
-    return 'Not Specified';
-  };
-
-  const CheckWorkLevel = (experienceRequired) => {
-    if (experienceRequired.experience_mentioned) {
-      if (
-        experienceRequired.required_experience_in_months > 0 &&
-        experienceRequired.required_experience_in_months <= 12
-      ) {
-        return 'Entry Level';
-      }
-
-      if (
-        experienceRequired.required_experience_in_months > 12 &&
-        experienceRequired.required_experience_in_months <= 24
-      ) {
-        return 'Junior Level';
-      }
-      return 'Senior Level';
-    }
-    return 'Not Specified';
-  };
-
-  const CheckEmploymentType = (employmentType, isRemote) => {
-    let str = '';
-    if (employmentType && isRemote) {
-      str = `${employmentType} / remote`;
-      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    }
-    if (employmentType && !isRemote) {
-      str = `${employmentType}`;
-      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-    }
-    if (!employmentType && isRemote) {
-      return 'Remote';
-    }
-    return 'Not Specified';
-  };
-
-  const CheckSalaryInfo = (minSalary, maxSalary, currency, salaryPeriod) => {
-    if (minSalary && maxSalary && currency) {
-      return `${currency} ${minSalary} - ${maxSalary}`;
-    }
-    if (minSalary && !maxSalary && currency) {
-      return `From ${currency} ${minSalary} / ${salaryPeriod}`;
-    }
-    if (!minSalary && maxSalary && currency) {
-      return `Upto ${currency} ${maxSalary} / ${salaryPeriod}`;
-    }
-    return 'Not Specified';
-  };
 
   // array of job highlights objects
   const jobHighlights = [

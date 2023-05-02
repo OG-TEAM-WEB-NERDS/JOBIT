@@ -9,13 +9,20 @@ export const jobsApi = createApi({
   endpoints: (builder) => ({
     // Get All Data (can be used for job posts and companies)
     getJobs: builder.query({
-      query: () => `search?query="*"&rapidapi-key=${jobsApiKey}`,
+      query: () =>
+        `search?query="software developer"&date_posted=month&rapidapi-key=${jobsApiKey}`,
     }),
 
     // Get similar jobs (using current job title)
     getSimilarJobs: builder.query({
       query: (jobTitle) =>
         `search?query="${jobTitle}"&rapidapi-key=${jobsApiKey}`,
+    }),
+
+    // Get recommended jobs (currently recommending remote, fulltime web developerjobs posted in the last 3 days)
+    getRecommendedJobs: builder.query({
+      query: () =>
+        `search?query="web developer"&date_posted=3days&remote_jobs_only=true&employment_types=fulltime&rapidapi-key=${jobsApiKey}`,
     }),
 
     // Get job details by ID
@@ -40,4 +47,5 @@ export const {
   useGetJobDetailsQuery,
   useGetSimilarJobsQuery,
   useLazyGetEstimatedSalaryQuery,
+  useGetRecommendedJobsQuery,
 } = jobsApi;
