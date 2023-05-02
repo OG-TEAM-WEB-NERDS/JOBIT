@@ -17,6 +17,7 @@ export { default as EmployeesTab } from './EmployeesTab';
 export { default as LocationsTab } from './LocationsTab';
 export { default as ReviewsTab } from './ReviewsTab';
 export { default as SearchBar } from './Searchbar';
+export { default as RangeSlider } from './RangeSlider';
 
 export { default as FilterDropdown } from './shared/FilterDropdown';
 export { default as Banner } from './shared/Banner';

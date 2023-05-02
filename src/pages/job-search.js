@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, FilterDropdown, Heading } from '../components';
+import { Button, FilterDropdown, Heading, RangeSlider } from '../components';
 
 import JobSearchPosts from '../components/JobSearchPosts';
 
@@ -38,15 +38,15 @@ const JobSearch = () => (
         {/* Filters */}
         <div className="hidden md:flex flex-col gap-6">
           {FilterDropdowns.map(
-            (filter, i) =>
-              filter?.options && (
-                <FilterDropdown
-                  key={i}
-                  label={filter.name}
-                  options={filter.options}
-                />
-              )
+            (filter, i) => filter?.options && (
+            <FilterDropdown
+              key={i}
+              label={filter.name}
+              options={filter.options}
+            />
+            ),
           )}
+          <RangeSlider min={0} max={300000} />
         </div>
       </div>
 
