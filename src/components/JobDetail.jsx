@@ -36,6 +36,84 @@ const JobDetail = ({ setSelectedJobTitle }) => {
     setSelectedJobTitle(job.job_title);
   }
 
+  const CheckExperienceRequired = (experienceRequired) => {
+    if (experienceRequired.experience_mentioned) {
+      return `${job.job_required_experience.required_experience_in_months} months`;
+    }
+    return 'Not Specified';
+  };
+
+  const CheckWorkLevel = (experienceRequired) => {
+    if (experienceRequired.experience_mentioned) {
+      if (
+        experienceRequired.required_experience_in_months > 0 &&
+        experienceRequired.required_experience_in_months <= 12
+      ) {
+        return 'Entry Level';
+      }
+
+      if (
+        experienceRequired.required_experience_in_months > 12 &&
+        experienceRequired.required_experience_in_months <= 24
+      ) {
+        return 'Junior Level';
+      }
+      return 'Senior Level';
+    }
+    return 'Not Specified';
+  };
+
+  const CheckEmploymentType = (employmentType, isRemote) => {
+    let str = '';
+    if (employmentType && isRemote) {
+      str = `${employmentType} / remote`;
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+    if (employmentType && !isRemote) {
+      str = `${employmentType}`;
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+    if (!employmentType && isRemote) {
+      return 'Remote';
+    }
+    return 'Not Specified';
+  };
+
+  const CheckSalaryInfo = (minSalary, maxSalary, currency, salaryPeriod) => {
+    if (minSalary && maxSalary && currency) {
+      return `${currency} ${minSalary} - ${maxSalary}`;
+    }
+    if (minSalary && !maxSalary && currency) {
+      return `From ${currency} ${minSalary} / ${salaryPeriod}`;
+    }
+    if (!minSalary && maxSalary && currency) {
+      return `Upto ${currency} ${maxSalary} / ${salaryPeriod}`;
+    }
+    return 'Not Specified';
+  };
+
+  // array of job highlights objects
+  const jobHighlights = [
+    {
+      label: 'Experience',
+      value: CheckExperienceRequired(job.job_required_experience),
+    },
+    { label: 'Work Level', value: CheckWorkLevel(job.job_required_experience) },
+    {
+      label: 'Employee Type',
+      value: CheckEmploymentType(job.job_employment_type, job.job_is_remote),
+    },
+    {
+      label: 'Offer Salary',
+      value: CheckSalaryInfo(
+        job.job_min_salary,
+        job.job_max_salary,
+        job.job_salary_currency,
+        job.job_salary_period
+      ),
+    },
+  ];
+
   return (
     job && (
       <div className="w-full px-4 pb-2 rounded-md">
@@ -107,29 +185,13 @@ const JobDetail = ({ setSelectedJobTitle }) => {
 
           {/* highlights */}
           <div className="flex flex-col md:flex-row w-full md:w-4/5 mx-auto bg-natural-4 dark:bg-black-3 justify-start items-start md:justify-between md:items-center my-4 p-4 rounded-lg">
-            {/* Experience required */}
-            <div className="flex flex-col my-2 md:my-0">
-              <h4 className="text-xxxs">Experience</h4>
-              <p className="text-xxs">Minimum 1 year</p>
-            </div>
-
-            {/* Experience required */}
-            <div className="flex flex-col my-2 md:my-0">
-              <h4 className="text-xxxs">Work Level</h4>
-              <p className="text-xxs">Senior Level</p>
-            </div>
-
-            {/* Experience required */}
-            <div className="flex flex-col my-2 md:my-0">
-              <h4 className="text-xxxs">Employee Type</h4>
-              <p className="text-xxs">Full Time Jobs</p>
-            </div>
-
-            {/* Experience required */}
-            <div className="flex flex-col my-2 md:my-0">
-              <h4 className="text-xxxs">Offer Salary</h4>
-              <p className="text-xxs">$2150/month</p>
-            </div>
+            {/* job highlights */}
+            {jobHighlights.map((highlight, index) => (
+              <div key={index} className="flex flex-col my-2 md:my-0">
+                <h4 className="text-xxxs">{highlight.label}</h4>
+                <p className="text-xxs">{highlight.value}</p>
+              </div>
+            ))}
           </div>
         </header>
 
