@@ -3,15 +3,14 @@ import React from 'react';
 import JobCard from './shared/JobCard';
 import SectionTitle from './SectionTitle';
 import { useGetJobsQuery } from '../services/JSearch';
+import { Loader } from '.';
 
 const LatestJobPosts = () => {
   const { data, isFetching, isError } = useGetJobsQuery();
 
   if (isFetching) {
     return (
-      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
-        Wait while data fetching!!!
-      </div>
+      <Loader />
     );
   }
 
