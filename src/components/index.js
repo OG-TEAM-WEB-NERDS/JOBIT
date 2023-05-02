@@ -23,3 +23,4 @@ export { default as Banner } from './shared/Banner';
 export { default as RatingStars } from './shared/RatingStars';
 export { default as Button } from './shared/Button';
 export { default as Loader } from './shared/Loader';
+export { default as ImageWrapper } from './shared/ImageWrapper';

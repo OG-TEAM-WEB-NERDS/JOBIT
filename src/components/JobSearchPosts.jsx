@@ -59,7 +59,7 @@ const JobSearchPosts = () => {
                   alt="Chevron icon"
                   width={20}
                   height={20}
-                  className="grayscale"
+                  styles="grayscale"
                 />
               </button>
             </div>
@@ -81,7 +81,7 @@ const JobSearchPosts = () => {
                         {items}
                       </a>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>

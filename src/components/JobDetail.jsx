@@ -58,7 +58,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
                     alt="Save icon"
                     width={20}
                     height={20}
-                    className="grayscale"
+                    styles="grayscale"
                   />
                 </button>
               </div>
@@ -99,7 +99,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
                   alt="Ellipsis icon"
                   width={20}
                   height={20}
-                  className="grayscale"
+                  styles="grayscale"
                 />
               </button>
             </div>

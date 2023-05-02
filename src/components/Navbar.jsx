@@ -100,18 +100,15 @@ const Navbar = () => {
                   <ImageWrapper
                     src={SunIcon}
                     alt="Sun icon"
-                    style={{ objectFit: 'contain' }}
+                    styles="grayscale object-contain"
                     width={24}
                     height={24}
-                    className="grayscale"
                   />
                   <input
                     type="checkbox"
                     className="checkbox"
                     id="checkbox"
-                    onChange={() =>
-                      setTheme(theme === 'light' ? 'dark' : 'light')
-                    }
+                    onChange={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                   />
                   <label
                     htmlFor="checkbox"
@@ -122,10 +119,9 @@ const Navbar = () => {
                   <ImageWrapper
                     src={MoonIcon}
                     alt="Moon icon"
-                    style={{ objectFit: 'contain' }}
+                    styles="grayscale object-contain"
                     width={24}
                     height={24}
-                    className="grayscale"
                   />
                 </div>
               </div>
@@ -145,10 +141,9 @@ const Navbar = () => {
             <ImageWrapper
               src={SunIcon}
               alt="Sun icon"
-              style={{ objectFit: 'contain' }}
+              styles="grayscale object-contain"
               width={24}
               height={24}
-              className="grayscale"
             />
             <input
               type="checkbox"
@@ -165,10 +160,9 @@ const Navbar = () => {
             <ImageWrapper
               src={MoonIcon}
               alt="Moon icon"
-              style={{ objectFit: 'contain' }}
+              styles="grayscale object-contain"
               width={24}
               height={24}
-              className="grayscale"
             />
           </div>
         </div>
