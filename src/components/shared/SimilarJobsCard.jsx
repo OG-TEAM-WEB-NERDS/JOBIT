@@ -20,7 +20,7 @@ const SimilarJobsCard = ({ job }) => {
             alt="Employer Logo"
             width={50}
             height={50}
-            className="rounded-full"
+            styles="rounded-full"
           />
           <div className="flex flex-col ml-2">
             <h4 className="text-sm">{job.job_title}</h4>
@@ -50,8 +50,8 @@ const SimilarJobsCard = ({ job }) => {
         <p className="text-xs text-natural-1">
           {job.job_offer_expiration_timestamp
             ? `${calculateDateToJobExpiration(
-                job.job_offer_expiration_timestamp
-              )} days left`
+              job.job_offer_expiration_timestamp,
+            )} days left`
             : 'No expiration info'}
         </p>
         <div className="flex justify-between items-center w-1/4">
@@ -61,7 +61,7 @@ const SimilarJobsCard = ({ job }) => {
               alt="Save icon"
               width={20}
               height={20}
-              className="grayscale"
+              styles="grayscale"
             />
           </button>
 

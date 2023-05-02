@@ -19,7 +19,7 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS
+    (presentDate - jobPostedDate) / ONE_DAY_MS,
   ).toFixed(0);
 
   return (
@@ -44,13 +44,13 @@ const JobSearchCard = ({ job, i }) => {
               <ImageWrapper
                 src={oval}
                 alt="seperator"
-                className=" mx-2 dark:invert invert-0"
+                styles=" mx-2 dark:invert invert-0"
               />
               {job?.job_city}, {job?.job_country}
               <ImageWrapper
                 src={oval}
                 alt="seperator"
-                className=" mx-2 dark:invert invert-0"
+                styles=" mx-2 dark:invert invert-0"
               />
               {daysElapsed} days ago
             </p>
@@ -70,7 +70,7 @@ const JobSearchCard = ({ job, i }) => {
               alt="Save Job"
               width={20}
               height={20}
-              className={saved ? 'grayscale-0' : 'grayscale'}
+              styles={saved ? 'grayscale-0' : 'grayscale'}
             />
           </button>
         </div>
