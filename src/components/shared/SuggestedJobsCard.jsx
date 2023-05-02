@@ -16,17 +16,19 @@ const SuggestedJobsCard = ({ job }) => {
       className="flex justify-between bg-natural-5 dark:bg-black-3 p-4 w-full rounded-xl cursor-pointer"
       onClick={() => handleJobClick(job.job_id)}
     >
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         {/* image */}
-        <ImageWrapper
-          src={job.employer_logo || 'https://via.placeholder.com/50x50'}
-          alt="Employer Logo"
-          width={50}
-          height={50}
-          styles="object-contain rounded-lg"
-        />
+        <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
+          <ImageWrapper
+            src={job?.employer_logo}
+            alt="Employer Logo"
+            width={50}
+            height={50}
+            styles="object-contain rounded-lg w-full h-full"
+          />
+        </div>
         {/* job details */}
-        <div className="flex flex-col gap-1 justify-center mx-2">
+        <div className="flex flex-col gap-1 justify-center">
           <h5 className="text-sm">{job.job_title}</h5>
           <ul className="flex dark:text-natural-2">
             <li className="text-xs mr-2">{job.employer_name}</li>
@@ -38,8 +40,8 @@ const SuggestedJobsCard = ({ job }) => {
       </div>
 
       {/* terms */}
-      <div className="flex gap-1 flex-col justify-center items-end mx-2">
-        <h5 className="text-sm">
+      <div className="flex gap-1 flex-col justify-center items-end">
+        <h5 className="text-sm text-right">
           <span className="font-bold">
             {job.job_min_salary && job.job_max_salary
               ? `${job.job_salary_currency} ${job.job_min_salary} - ${job.job_max_salary}`

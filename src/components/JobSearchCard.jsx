@@ -23,16 +23,17 @@ const JobSearchCard = ({ job, i }) => {
   ).toFixed(0);
 
   return (
-    <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
+    <article className="flex flex-col rounded-lg dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
       {/* card header */}
       <div className="flex justify-between">
         <div className="flex gap-4">
-          <div className="flex justify-center mt-2 w-14 h-14 bg-gray-500">
+          <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
             <ImageWrapper
-              src={job?.employer_logo ?? 'https://via.placeholder.com/80x80'}
+              src={job?.employer_logo}
               alt="Employer Logo"
-              width={80}
-              height={80}
+              width={50}
+              height={50}
+              styles="object-contain rounded-lg w-full h-full"
             />
           </div>
           <div className="flex flex-col">
@@ -82,10 +83,14 @@ const JobSearchCard = ({ job, i }) => {
         {`${job.job_description.slice(0, 300)}...`}
       </p>
 
-      <div className="flex">
-        {job?.job_required_skills?.map((skill) => (
-          <Badge text={skill} key={skill} type="skill" />
-        ))}
+      <div className="flex gap-2">
+        {
+          job?.job_required_skills?.map((skill, index) => {
+            if (index < 3) {
+              return <Badge text={skill} key={skill} type="skill" />;
+            }
+          })
+}
       </div>
 
       {/* footer */}

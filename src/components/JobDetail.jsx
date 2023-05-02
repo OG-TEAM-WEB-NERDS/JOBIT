@@ -59,7 +59,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
         job.job_min_salary,
         job.job_max_salary,
         job.job_salary_currency,
-        job.job_salary_period
+        job.job_salary_period,
       ),
     },
   ];
@@ -68,10 +68,9 @@ const JobDetail = ({ setSelectedJobTitle }) => {
     job && (
       <div className="w-full px-4 pb-2 rounded-md">
         <header className="mt-3">
-          {/* TODO: switch placeholder from URL to placeholder component  */}
 
           <Banner
-            logo={job?.employer_logo ?? 'https://via.placeholder.com/60x60'}
+            logo={job?.employer_logo}
           />
 
           <div className="flex flex-col items-center md:flex-row md:justify-between">
@@ -157,16 +156,16 @@ const JobDetail = ({ setSelectedJobTitle }) => {
             {/* company header */}
             <div className="flex justify-between items-center py-4">
               <div className="flex">
-                {/* TODO: switch placeholder from URL to placeholder component  */}
-                <ImageWrapper
-                  src={
-                    job?.employer_logo ?? 'https://via.placeholder.com/50x50'
-                  }
-                  width={50}
-                  height={50}
-                  className="rounded-md"
-                />
-                <div className=" ml-3 flex flex-col justify-center items-center">
+                <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
+                  <ImageWrapper
+                    src={job?.employer_logo}
+                    alt={job?.employer_name}
+                    width={50}
+                    height={50}
+                    styles="object-contain rounded-lg w-full h-full"
+                  />
+                </div>
+                <div className="ml-3 flex flex-col justify-center items-center">
                   <h3 className="text-xs">{job?.employer_name}</h3>
                   <p className="text-xxs">{job?.employer_company_type}</p>
                 </div>

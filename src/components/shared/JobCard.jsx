@@ -27,7 +27,7 @@ const JobCard = ({
 
   const getJobExpirationInfo = () => {
     const daysLeft = calculateDateToJobExpiration(
-      job.job_offer_expiration_timestamp
+      job.job_offer_expiration_timestamp,
     );
 
     if (daysLeft === 'Expiry not specified') {
@@ -45,13 +45,13 @@ const JobCard = ({
         {/* card header */}
         <div className="flex justify-between gap-4 items-center">
           <div className="flex gap-4 items-center">
-            <div className="p-2 bg-natural-4 dark:bg-black-3 rounded-xl">
+            <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
               <ImageWrapper
-                src={job?.employer_logo || 'https://via.placeholder.com/50x50'}
+                src={job?.employer_logo}
                 alt="Employer logo"
                 width={50}
                 height={50}
-                className="object-contain rounded-lg"
+                styles="object-contain rounded-lg w-full h-full"
               />
             </div>
 
@@ -60,8 +60,8 @@ const JobCard = ({
               <h3 className="text-base font-bold">{job?.job_title}</h3>
               {/* badges */}
               <div className="flex flex-wrap gap-2">
-                {job?.job_required_skills &&
-                  job?.job_required_skills
+                {job?.job_required_skills
+                  && job?.job_required_skills
                     .slice(0, 3)
                     .map((skill, i) => <Badge text={skill} key={i} />)}
               </div>
@@ -93,10 +93,9 @@ const JobCard = ({
               icon: ClockIcon,
             },
           ].map(
-            (item, i) =>
-              item.text !== 'undefined' && (
-                <Badge text={item.text} key={i} icon={item.icon} />
-              )
+            (item, i) => item.text !== 'undefined' && (
+            <Badge text={item.text} key={i} icon={item.icon} />
+            ),
           )}
         </div>
         {/* footer */}

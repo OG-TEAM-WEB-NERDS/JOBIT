@@ -14,14 +14,15 @@ const SimilarJobsCard = ({ job }) => {
       {/* upper section */}
       <div className="flex justify-between">
         <div className="flex justify-center items-center max-w-xs">
-          {/* TODO: switch placeholder from URL to placeholder component  */}
-          <ImageWrapper
-            src={job.employer_logo ?? 'https://via.placeholder.com/60x60'}
-            alt="Employer Logo"
-            width={50}
-            height={50}
-            styles="rounded-full"
-          />
+          <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
+            <ImageWrapper
+              src={job.employer_logo}
+              alt="Employer logo"
+              width={50}
+              height={50}
+              styles="object-contain rounded-lg w-full h-full"
+            />
+          </div>
           <div className="flex flex-col ml-2">
             <h4 className="text-sm">{job.job_title}</h4>
             <p className="text-xs">
