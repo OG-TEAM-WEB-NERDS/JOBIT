@@ -11,19 +11,21 @@ const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 const BarChart = ({ data, isFetching }) => {
   const { theme } = useTheme();
 
+  const chartData = data?.data;
+
   // Chart Data
   const series = [
     {
       name: 'Minimum salary',
-      data: data?.map((publisher) => (publisher?.min_salary || 0)),
+      data: chartData?.map((publisher) => (publisher?.min_salary || 0)),
     },
     {
       name: 'Maximum salary',
-      data: data?.map((publisher) => (publisher?.max_salary || 0)),
+      data: chartData?.map((publisher) => (publisher?.max_salary || 0)),
     },
     {
       name: 'Median salary',
-      data: data?.map((publisher) => (publisher?.median_salary || 0)),
+      data: chartData?.map((publisher) => (publisher?.median_salary || 0)),
     },
   ];
 
@@ -32,7 +34,7 @@ const BarChart = ({ data, isFetching }) => {
 
   options.xaxis = {
     ...options.xaxis,
-    categories: data?.map((publisher) => (publisher?.publisher_name)),
+    categories: chartData?.map((publisher) => (publisher?.publisher_name)),
     axisBorder: {
       color: theme === 'light' ? '#E2E2EA' : '#21212B',
     },
@@ -56,7 +58,7 @@ const BarChart = ({ data, isFetching }) => {
     );
   }
 
-  if (data?.length <= 0) {
+  if (chartData?.length <= 0) {
     return (
       <div className="flex flex-col gap-5 w-full lg:w-1/2 justify-center bg-white dark:bg-black-2 p-6 rounded-xl">
         <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
@@ -76,7 +78,7 @@ const BarChart = ({ data, isFetching }) => {
     );
   }
 
-  if (data?.length) {
+  if (chartData?.length) {
     return (
       <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
         <h2>

@@ -100,7 +100,7 @@ const EstimatedSalaries = () => {
 
       {/* CHART/INFORMATION */}
 
-      <BarChart data={estimatedSalaryData?.data} isFetching={isFetching} />
+      <BarChart data={estimatedSalaryData} isFetching={isFetching} />
 
     </main>
   );
