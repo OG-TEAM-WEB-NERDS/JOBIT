@@ -33,3 +33,4 @@ export { default as SavedFilledIcon } from './icons/SavedFilledIcon.svg';
 export { default as SavedOutlinedIcon } from './icons/SavedOutlinedIcon.svg';
 export { default as SearchIcon } from './icons/SearchIcon.svg';
 export { default as SunIcon } from './icons/SunIcon.svg';
+export { default as JobItIcon } from './icons/JobItIcon.svg';
