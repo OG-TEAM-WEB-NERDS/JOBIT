@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 
 import { oval, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
+import ImageWrapper from './shared/ImageWrapper';
 
 const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
@@ -19,7 +19,7 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS,
+    (presentDate - jobPostedDate) / ONE_DAY_MS
   ).toFixed(0);
 
   return (
@@ -28,8 +28,8 @@ const JobSearchCard = ({ job, i }) => {
       <div className="flex justify-between">
         <div className="flex gap-4">
           <div className="flex justify-center mt-2 w-14 h-14 bg-gray-500">
-            <img
-              src={job?.employer_logo}
+            <ImageWrapper
+              src={job?.employer_logo ?? 'https://via.placeholder.com/80x80'}
               alt="Employer Logo"
               width={80}
               height={80}
@@ -41,13 +41,13 @@ const JobSearchCard = ({ job, i }) => {
             </h6>
             <p className="flex text-sm ">
               {job?.employer_name}
-              <Image
+              <ImageWrapper
                 src={oval}
                 alt="seperator"
                 className=" mx-2 dark:invert invert-0"
               />
               {job?.job_city}, {job?.job_country}
-              <Image
+              <ImageWrapper
                 src={oval}
                 alt="seperator"
                 className=" mx-2 dark:invert invert-0"
@@ -58,7 +58,6 @@ const JobSearchCard = ({ job, i }) => {
         </div>
 
         <div className="flex rounded-md justify-center items-center pl-2 -mt-6 self-center text-xs bg-natural-4 dark:bg-black-3 ">
-
           <button
             className="flex items-center p-2 text-natural-2 gap-1 font-semibold"
             onClick={() => {
@@ -66,7 +65,7 @@ const JobSearchCard = ({ job, i }) => {
             }}
           >
             Save Job
-            <Image
+            <ImageWrapper
               src={SavedFilledIcon}
               alt="Save Job"
               width={20}
