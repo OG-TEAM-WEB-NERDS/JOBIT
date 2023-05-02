@@ -95,3 +95,66 @@ export const isValidUrl = (url) => {
     return false;
   }
 };
+
+// various utility functions to format and present job insights
+
+export const CheckExperienceRequired = (experienceRequired) => {
+  if (experienceRequired.experience_mentioned) {
+    return `${experienceRequired.required_experience_in_months} months`;
+  }
+  return 'Not Specified';
+};
+
+export const CheckWorkLevel = (experienceRequired) => {
+  if (experienceRequired.experience_mentioned) {
+    if (
+      experienceRequired.required_experience_in_months > 0 &&
+      experienceRequired.required_experience_in_months <= 12
+    ) {
+      return 'Entry Level';
+    }
+
+    if (
+      experienceRequired.required_experience_in_months > 12 &&
+      experienceRequired.required_experience_in_months <= 24
+    ) {
+      return 'Junior Level';
+    }
+    return 'Senior Level';
+  }
+  return 'Not Specified';
+};
+
+export const CheckEmploymentType = (employmentType, isRemote) => {
+  let str = '';
+  if (employmentType && isRemote) {
+    str = `${employmentType} / remote`;
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+  if (employmentType && !isRemote) {
+    str = `${employmentType}`;
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+  if (!employmentType && isRemote) {
+    return 'Remote';
+  }
+  return 'Not Specified';
+};
+
+export const CheckSalaryInfo = (
+  minSalary,
+  maxSalary,
+  currency,
+  salaryPeriod
+) => {
+  if (minSalary && maxSalary && currency) {
+    return `${currency} ${minSalary} - ${maxSalary}`;
+  }
+  if (minSalary && !maxSalary && currency) {
+    return `From ${currency} ${minSalary} / ${salaryPeriod}`;
+  }
+  if (!minSalary && maxSalary && currency) {
+    return `Upto ${currency} ${maxSalary} / ${salaryPeriod}`;
+  }
+  return 'Not Specified';
+};
