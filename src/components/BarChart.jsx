@@ -50,7 +50,7 @@ const BarChart = ({ data, isFetching }) => {
 
   if (isFetching) {
     return (
-      <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
+      <div className="flex flex-col gap-5 w-full lg:w-1/2 justify-center bg-white dark:bg-black-2 p-6 rounded-xl">
         <Loader />
       </div>
     );
@@ -80,7 +80,7 @@ const BarChart = ({ data, isFetching }) => {
 
   if (data?.length <= 0) {
     return (
-      <div className="flex flex-col gap-5 w-full lg:w-1/2 bg-white dark:bg-black-2 p-6 rounded-xl">
+      <div className="flex flex-col gap-5 w-full lg:w-1/2 justify-center bg-white dark:bg-black-2 p-6 rounded-xl">
         <div className="flex items-center justify-center bg-natural-1 p-4 w-20 h-20 rounded-xl">
           <ImageWrapper
             src={CrossIcon}
@@ -100,8 +100,7 @@ const BarChart = ({ data, isFetching }) => {
 
   return (
 
-    <div className="flex flex-col gap-8 w-full self-end lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
-      {/* Else, show initial information about using the tool */}
+    <div className="flex flex-col gap-8 w-full justify-center lg:w-1/2 dark:bg-black-2 p-6 rounded-xl">
       <div className="flex items-center justify-center bg-primary p-4 w-20 h-20 rounded-xl">
         <ImageWrapper
           src={BriefcaseIcon}

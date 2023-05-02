@@ -69,7 +69,7 @@ const EstimatedSalaries = () => {
   };
 
   return (
-    <main className="py-6 flex flex-col lg:flex-row lg:items-center gap-10">
+    <main className="py-6 flex flex-col lg:flex-row lg:items-stretch gap-10">
 
       <div className="flex flex-col gap-10 w-full lg:w-1/2">
         <Heading heading="Estimated Salaries" />
@@ -99,8 +99,6 @@ const EstimatedSalaries = () => {
       </div>
 
       {/* CHART/INFORMATION */}
-
-      {/* Show chart if data exists */}
 
       <BarChart data={estimatedSalaryData?.data} isFetching={isFetching} />
 
