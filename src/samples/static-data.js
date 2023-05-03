@@ -1,4 +1,14 @@
-import { appleLogo, autodeskLogo, behanceLogo, githubLogo, gitlabLogo, invisionLogo, mailchimpLogo, microsoftLogo, spotifyLogo } from '../assets';
+import {
+  appleLogo,
+  autodeskLogo,
+  behanceLogo,
+  githubLogo,
+  gitlabLogo,
+  invisionLogo,
+  mailchimpLogo,
+  microsoftLogo,
+  spotifyLogo,
+} from '../assets';
 
 export const FeaturedCompanyData = [
   {
@@ -101,22 +111,27 @@ export const FilterDropdowns = [
       {
         name: 'Full Time',
         results: 103,
+        value: 'FULLTME',
       },
       {
         name: 'Part Time',
         results: 142,
+        value: 'PARTTIME',
       },
       {
         name: 'Internship',
         results: 142,
+        value: 'INTERN',
       },
       {
         name: 'Remote',
         results: 142,
+        value: 'REMOTE',
       },
       {
         name: 'Contract',
         results: 142,
+        value: 'CONTRACTOR',
       },
     ],
   },
@@ -126,18 +141,22 @@ export const FilterDropdowns = [
       {
         name: 'Over 3 Years Experience',
         results: 103,
+        value: 'more_than_3_years_experience',
       },
       {
         name: 'Under 3 Years Experience',
         results: 142,
+        value: 'under_3_years_experience',
       },
       {
         name: 'No Experience',
         results: 142,
+        value: 'no_experience',
       },
       {
         name: 'No Degree',
         results: 142,
+        value: 'no_degree',
       },
     ],
   },
@@ -150,5 +169,4 @@ export const FilterDropdowns = [
   {
     name: 'Facility',
   },
-
 ];

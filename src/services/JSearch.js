@@ -13,6 +13,19 @@ export const jobsApi = createApi({
         `search?query="software developer"&date_posted=month&rapidapi-key=${jobsApiKey}`,
     }),
 
+    //Get Searched Jobs
+    getSearchedJobs: builder.query({
+      query: ({
+        query,
+        page,
+        employment_types,
+        job_requirements,
+        remote_jobs_only,
+      }) => {
+        return `search?query=${query}&page=${page}&employment_types=${employment_types}&remote_jobs_only=${remote_jobs_only}&job_requirements=${job_requirements}&rapidapi-key=${jobsApiKey}`;
+      },
+    }),
+
     // Get similar jobs (using current job title)
     getSimilarJobs: builder.query({
       query: (jobTitle) =>
@@ -44,6 +57,7 @@ export const jobsApi = createApi({
 
 export const {
   useGetJobsQuery,
+  useGetSearchedJobsQuery,
   useGetJobDetailsQuery,
   useGetSimilarJobsQuery,
   useLazyGetEstimatedSalaryQuery,

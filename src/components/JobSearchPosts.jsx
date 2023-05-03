@@ -3,7 +3,7 @@ import ImageWrapper from './shared/ImageWrapper';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
-import { useGetJobsQuery } from '../services/JSearch';
+import { useGetSearchedJobsQuery } from '../services/JSearch';
 import { Loader } from '.';
 
 const JobSearchPosts = ({
@@ -12,11 +12,12 @@ const JobSearchPosts = ({
   employment_types,
   job_requirements,
   remote_jobs_only,
+  setEndOfPage,
 }) => {
   const [sortOn, setSortOn] = useState('Relevance');
   const [sortedData, setSortedData] = useState([]);
 
-  const { data, isFetching, isError, isSuccess } = useGetJobsQuery({
+  const { data, isFetching, isError, isSuccess } = useGetSearchedJobsQuery({
     query,
     page,
     employment_types,
@@ -44,6 +45,10 @@ const JobSearchPosts = ({
 
   const InitialData = data?.data;
 
+  //Checking end of page for Pagination
+  //data.length === 0 ? setEndOfPage(false) : setEndOfPage(true);
+
+  //Sorting Data
   const handleSort = (e) => {
     const sortBy = e.target.innerText;
     setSortOn(sortBy);

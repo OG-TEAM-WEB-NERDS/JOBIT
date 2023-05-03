@@ -10,16 +10,16 @@ import Searchbar from '../components/Searchbar';
 const JobSearch = () => {
   const [search, setSearch] = useState();
   const [page, setPage] = useState('1');
-  const [filter, setFilter] = useState({
+  const [endOfPage, setEndOfPage] = useState(false);
+  const [selection, setSelection] = useState({
     empType: 'FULLTIME',
     requirementType: 'no_experience',
-    remote_jobs_only: true,
+    remote_jobs_only: false,
   });
-  console.log(search);
   return (
     <main className="py-6 flex flex-col space-y-10">
       <Heading heading="Let's find your dream job" />
-      <Searchbar setSearch={setSearch} />
+      <Searchbar setSearch={setSearch} selection={selection} />
       <div className="grid md:grid-cols-4 gap-20">
         <div className="flex flex-col gap-6">
           {/* Job Alert Card */}
@@ -53,6 +53,8 @@ const JobSearch = () => {
                     key={i}
                     label={filter.name}
                     options={filter.options}
+                    selection={selection}
+                    setSelection={setSelection}
                   />
                 )
             )}
@@ -65,11 +67,15 @@ const JobSearch = () => {
           <JobSearchPosts
             query={search}
             page={page}
-            employment_types={filter.empType}
-            job_requirements={filter.requirementType}
-            remote_jobs_only={filter.remote_jobs_only}
+            employment_types={selection.empType}
+            job_requirements={selection.requirementType}
+            remote_jobs_only={selection.remote_jobs_only}
+            setEndOfPage={setEndOfPage}
           />
         </div>
+        {/* Pagination set page to (page +/- 1) on  right/left click
+        If page = 1 left button disable 
+        If no data right button disable */}
       </div>
     </main>
   );

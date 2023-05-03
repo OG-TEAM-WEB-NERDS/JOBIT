@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { oval, SavedFilledIcon } from '../assets';
+import { BriefcaseIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
+import { getSalaryRangeInfo } from '../utils';
 
 const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
@@ -102,12 +103,20 @@ const JobSearchCard = ({ job, i }) => {
       {/* footer */}
       <div className="flex flex-col justify-between items-center mt-4 sm:flex-row ">
         <div className="flex gap-20 sm:gap-6">
-          <p>
-            <span className="font-bold">$15/20k</span>/month
-          </p>
-          <p>
-            <span className="font-bold">45 </span> People Applied
-          </p>
+          <div className="text-xs">{getSalaryRangeInfo(job)}</div>
+
+          {/* badges */}
+          <div className="flex gap-2">
+            {[
+              { text: `${job.job_employment_type}`, icon: BriefcaseIcon },
+              { text: `${job.employer_company_type}`, icon: PeopleIcon },
+            ].map(
+              (item, i) =>
+                item.text !== null && (
+                  <Badge text={item.text} key={i} icon={item.icon} />
+                )
+            )}
+          </div>
         </div>
         <div className="flex gap-20 sm:gap-6 mt-4 sm:mt-0 ">
           <Button secondary>Message</Button>

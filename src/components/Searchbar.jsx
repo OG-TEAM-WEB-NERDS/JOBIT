@@ -5,7 +5,7 @@ import { BriefcaseIcon, ChevronDownIcon, PinIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
 
-const Searchbar = ({ setSearch }) => {
+const Searchbar = ({ setSearch, selection }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState('hidden');
   const [location, setLocation] = useState('');
@@ -38,14 +38,14 @@ const Searchbar = ({ setSearch }) => {
         />
       </div>
       <div className="relative flex w-full md:w-1/3 justify-between pt-3 md:pt-0">
-        <div className="flex flex-col">
-          <div className="flex flex-row justify-between">
+        <div className="flex flex-col w-full">
+          <div className="flex flex-row w-full justify-between">
             <button
               type="button"
               className="flex cursor-pointer select-none w-full"
               onClick={() => setIsOpen((prev) => !prev)}
             >
-              <div className="flex gap-x-2 justify-center items-center text-natural-2 md:px-2">
+              <div className="flex gap-x-2 justify-center items-center text-natural-2 md:pl-2">
                 <ImageWrapper
                   src={PinIcon}
                   alt="Pin icon"
@@ -58,11 +58,12 @@ const Searchbar = ({ setSearch }) => {
                   className="bg-natural-4 dark:bg-black-2 text-black-1 outline-none dark:text-natural-2"
                   onClick={() => setHide('hidden')}
                   onKeyUp={() => setHide('')}
-                  value={location}
+
+                  //value={location}
                 />
               </div>
             </button>
-            <span className={`self-end ${isOpen && 'rotate-180'}`}>
+            <span className={`${isOpen && 'rotate-180'}`}>
               <ImageWrapper
                 src={ChevronDownIcon}
                 alt="Chevron icon"
@@ -72,28 +73,41 @@ const Searchbar = ({ setSearch }) => {
               />
             </span>
           </div>
-        </div>
-        {/* Dropdown list for Countries */}
-        {/* <div
-          className={`absolute mt-12 h-60 bg-white  dark:bg-gray-700 rounded-md w-full justify-between pt-3 md:pt-0 ${hide}`}
-        >
-          <ul
-            className="py-2 text-sm text-gray-700 dark:text-gray-200"
-            aria-labelledby="dropdownHoverButton"
+          {/* Dropdown list for Countries */}
+          <div
+            className={`absolute mt-12 h-60 overflow-y-auto bg-white  dark:bg-gray-700 rounded-md w-full justify-between pt-3 md:pt-0 ${hide}`}
           >
-            {['USA', 'England', 'Brazil', 'Nepal'].map((items, i) => (
-              <li key={i}>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={(e) => selectedOption(e)}
-                >
-                  {items}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div> */}
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdownHoverButton"
+            >
+              {[
+                'USA',
+                'England',
+                'Brazil',
+                'Nepal',
+                'Thailand',
+                'Poland',
+                'Belgium',
+                'france',
+                'Germany',
+                'Italy',
+                'India',
+                'Pakistan',
+              ].map((items, i) => (
+                <li key={i}>
+                  <a
+                    href="#"
+                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    onClick={(e) => selectedOption(e)}
+                  >
+                    {items}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="flex md:px-4 w-full md:w-1/5 pt-3 md:pt-0 justify-start items-center">
@@ -106,14 +120,14 @@ const Searchbar = ({ setSearch }) => {
             styles="grayscale"
           />
         </div>
-        <p className="text-natural-2">Job Type</p>
+        <p className="text-natural-2">{selection.empType}</p>
       </div>
       <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0">
         <Button
           primary
           fullWidth
           handleClick={() => {
-            setSearch(inputRef.current.value);
+            setSearch(`${inputRef.current.value} in ${location} || 'USA'`);
           }}
         >
           Find Job
