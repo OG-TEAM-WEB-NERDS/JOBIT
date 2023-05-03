@@ -1,3 +1,7 @@
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+
 export const getDate = () => {
   const today = new Date();
   const daysOfWeek = [
@@ -110,38 +114,35 @@ export const CheckExperienceRequired = (experienceRequired) => {
 };
 
 export const CheckWorkLevel = (experienceRequired) => {
-  if (experienceRequired && experienceRequired.experience_mentioned) {
-    if (
-      experienceRequired.required_experience_in_months > 0 &&
-      experienceRequired.required_experience_in_months <= 12
-    ) {
-      return 'Entry Level';
-    }
+  const { experience_mentioned, required_experience_in_months } =
+    experienceRequired || {};
 
-    if (
-      experienceRequired.required_experience_in_months > 12 &&
-      experienceRequired.required_experience_in_months <= 24
-    ) {
-      return 'Junior Level';
-    }
-    return 'Senior Level';
+  if (!experience_mentioned) {
+    return 'Not Specified';
   }
-  return 'Not Specified';
+  switch (true) {
+    case required_experience_in_months > 0 &&
+      required_experience_in_months <= 12:
+      return 'Entry Level';
+    case required_experience_in_months > 12 &&
+      required_experience_in_months <= 24:
+      return 'Junior Level';
+    default:
+      return 'Senior Level';
+  }
 };
 
 export const CheckEmploymentType = (employmentType, isRemote) => {
-  let str = '';
   if (employmentType && isRemote) {
-    str = `${employmentType} / remote`;
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    return `${employmentType} / Remote`;
   }
-  if (employmentType && !isRemote) {
-    str = `${employmentType}`;
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  if (employmentType) {
+    return capitalizeFirstLetter(employmentType);
   }
-  if (!employmentType && isRemote) {
+  if (isRemote) {
     return 'Remote';
   }
+
   return 'Not Specified';
 };
 
@@ -151,14 +152,17 @@ export const CheckSalaryInfo = (
   currency,
   salaryPeriod
 ) => {
-  if (minSalary && maxSalary && currency) {
-    return `${currency} ${minSalary} - ${maxSalary}`;
+  if (currency) {
+    if (minSalary && maxSalary) {
+      return `${currency} ${minSalary} - ${maxSalary}`;
+    }
+    if (minSalary) {
+      return `From ${currency} ${minSalary} / ${salaryPeriod}`;
+    }
+    if (maxSalary) {
+      return `Up to ${currency} ${maxSalary} / ${salaryPeriod}`;
+    }
   }
-  if (minSalary && !maxSalary && currency) {
-    return `From ${currency} ${minSalary} / ${salaryPeriod}`;
-  }
-  if (!minSalary && maxSalary && currency) {
-    return `Upto ${currency} ${maxSalary} / ${salaryPeriod}`;
-  }
+
   return 'Not Specified';
 };
