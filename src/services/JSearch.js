@@ -22,7 +22,7 @@ export const jobsApi = createApi({
     // Get recommended jobs (currently recommending remote, fulltime web developerjobs posted in the last 3 days)
     getRecommendedJobs: builder.query({
       query: () =>
-        `search?query="web developer"&date_posted=3days&remote_jobs_only=true&employment_types=fulltime&rapidapi-key=${jobsApiKey}`,
+        `search?query="software developer"&date_posted=3days&remote_jobs_only=true&employment_types=fulltime&rapidapi-key=${jobsApiKey}`,
     }),
 
     // Get job details by ID
@@ -39,6 +39,18 @@ export const jobsApi = createApi({
           location
         )}&radius=${radius}&rapidapi-key=${jobsApiKey}`,
     }),
+
+    // Get featured companies (top 5 returned by the search filters endpoint)
+    getFeaturedCompanies: builder.query({
+      query: () =>
+        `search-filters?query="software developer"&rapidapi-key=${jobsApiKey}`,
+    }),
+
+    // Get jobs by company
+    getJobsByCompany: builder.query({
+      query: (employerId) =>
+        `search?query="software developer"&employer=${employerId}&rapidapi-key=${jobsApiKey}`,
+    }),
   }),
 });
 
@@ -48,4 +60,6 @@ export const {
   useGetSimilarJobsQuery,
   useLazyGetEstimatedSalaryQuery,
   useGetRecommendedJobsQuery,
+  useGetFeaturedCompaniesQuery,
+  useGetJobsByCompanyQuery,
 } = jobsApi;

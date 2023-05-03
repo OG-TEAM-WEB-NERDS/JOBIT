@@ -1,10 +1,12 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import ImageWrapper from './shared/ImageWrapper';
 import { RatingStars } from '.';
 import { BriefcaseIcon, PinIcon } from '../assets';
 import Button from './shared/Button';
 
 const FeaturedCompanyCard = ({
+  id,
   logo,
   rating = 3,
   employerName = 'Company',
@@ -12,10 +14,22 @@ const FeaturedCompanyCard = ({
   vacancies = 10,
   reviewCount = 10000,
 }) => {
+  const router = useRouter();
   const formattedReviewCount = `${(reviewCount / 1000).toFixed(1)}k`;
 
+  const handleCompanyClick = (companyId) => {
+    // router.push(`/company/${companyId}`);
+    router.push({
+      pathname: `/company/${companyId}`,
+      query: { data: employerName },
+    });
+  };
+
   return (
-    <div className="bg-white dark:bg-black-2 p-4 rounded-xl flex flex-col space-y-8 w-full">
+    <div
+      className="bg-white dark:bg-black-2 p-4 rounded-xl flex flex-col space-y-8 w-full cursor-pointer"
+      onClick={() => handleCompanyClick(id)}
+    >
       <div className="flex items-center space-x-3">
         <ImageWrapper src={logo} width={55} height={55} alt={employerName} />
         <div className="flex flex-col space-y-1">

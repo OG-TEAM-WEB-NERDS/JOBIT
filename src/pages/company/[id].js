@@ -22,6 +22,8 @@ const CompanyPage = () => {
   const job = jobs.data[0];
   const router = useRouter();
 
+  console.log(router.query);
+
   return (
     <div className="py-6 flex flex-col items-start gap-8">
       <Button
@@ -42,7 +44,7 @@ const CompanyPage = () => {
           <div className="xl:px-4 flex flex-col space-y-10">
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-6">
               <div className="flex flex-col space-y-3">
-                <h1>UIHUT</h1>
+                <h1>{router.query.data}</h1>
                 <h6>UIHUT Technologies LLC • Sylhet, BD</h6>
                 <p className="text-natural-1 dark:text-natural-2">
                   Design Resources platform • 203,765 Followers
@@ -84,7 +86,7 @@ const CompanyPage = () => {
               </div>
             </div>
 
-            <TabbedInterface />
+            <TabbedInterface id={router.query} />
           </div>
         </div>
 
