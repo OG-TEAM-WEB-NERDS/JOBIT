@@ -170,3 +170,18 @@ export const FilterDropdowns = [
     name: 'Facility',
   },
 ];
+
+export const Countires = [
+  'USA',
+  'England',
+  'Brazil',
+  'Nepal',
+  'Thailand',
+  'Poland',
+  'Belgium',
+  'France',
+  'Germany',
+  'Italy',
+  'India',
+  'Pakistan',
+];

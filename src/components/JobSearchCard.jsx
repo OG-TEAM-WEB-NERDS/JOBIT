@@ -27,9 +27,9 @@ const JobSearchCard = ({ job, i }) => {
 
   const router = useRouter();
 
-  const handleJobClick = (id) => {
-    router.push(`/job/${id}`);
-  };
+  // const handleJobClick = (id) => {
+  //   router.push(`/job/${id}`);
+  // };
 
   return (
     <article className="flex flex-col rounded-lg dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
@@ -93,11 +93,9 @@ const JobSearchCard = ({ job, i }) => {
       </p>
 
       <div className="flex gap-2">
-        {job?.job_required_skills?.map((skill, index) => {
-          if (index < 3) {
-            return <Badge text={skill} key={skill} type="skill" />;
-          }
-        })}
+        {job?.job_required_skills?.slice(0, 3).map((skill, index) => (
+          <Badge text={skill} key={skill} type="skill" />
+        ))}
       </div>
 
       {/* footer */}
@@ -120,7 +118,10 @@ const JobSearchCard = ({ job, i }) => {
         </div>
         <div className="flex gap-20 sm:gap-6 mt-4 sm:mt-0 ">
           <Button secondary>Message</Button>
-          <Button primary handleClick={() => handleJobClick(job?.job_id)}>
+          <Button
+            primary
+            handleClick={() => router.push(`/job/${job?.job_id}`)}
+          >
             Apply now
           </Button>
         </div>

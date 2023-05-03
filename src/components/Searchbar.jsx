@@ -4,6 +4,7 @@ import { useTheme } from 'next-themes';
 import { BriefcaseIcon, ChevronDownIcon, PinIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
+import { Countires } from '../samples/static-data';
 
 const Searchbar = ({ setSearch, selection }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,20 +82,7 @@ const Searchbar = ({ setSearch, selection }) => {
               className="py-2 text-sm text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownHoverButton"
             >
-              {[
-                'USA',
-                'England',
-                'Brazil',
-                'Nepal',
-                'Thailand',
-                'Poland',
-                'Belgium',
-                'france',
-                'Germany',
-                'Italy',
-                'India',
-                'Pakistan',
-              ].map((items, i) => (
+              {Countires.map((items, i) => (
                 <li key={i}>
                   <a
                     href="#"
@@ -120,7 +108,7 @@ const Searchbar = ({ setSearch, selection }) => {
             styles="grayscale"
           />
         </div>
-        <p className="text-natural-2">{selection.empType}</p>
+        <p className="text-natural-2">{selection?.empType}</p>
       </div>
       <div className="justify-end w-full md:w-1/6 pt-4 md:pt-0">
         <Button
