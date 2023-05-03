@@ -9,7 +9,12 @@ import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => {
   const [search, setSearch] = useState();
-  const [filter, setFilter] = useState({ empType: 'FULLTIME', compType: '' });
+  const [page, setPage] = useState('1');
+  const [filter, setFilter] = useState({
+    empType: 'FULLTIME',
+    requirementType: 'no_experience',
+    remote_jobs_only: true,
+  });
   console.log(search);
   return (
     <main className="py-6 flex flex-col space-y-10">
@@ -58,9 +63,10 @@ const JobSearch = () => {
         <div className="flex flex-col gap-1 md:col-span-3">
           <JobSearchPosts
             query={search}
-            num_pages="4"
+            page={page}
             employment_types={filter.empType}
-            company_types={filter.compType}
+            job_requirements={filter.requirementType}
+            remote_jobs_only={filter.remote_jobs_only}
           />
         </div>
       </div>

@@ -8,11 +8,17 @@ export const jobsApi = createApi({
   endpoints: (builder) => ({
     //Get All Data (can be used for job posts and companies)
     getJobs: builder.query({
-      query: ({ query, num_pages, employment_types, company_types }) => {
+      query: ({
+        query,
+        page,
+        employment_types,
+        job_requirements,
+        remote_jobs_only,
+      }) => {
         console.log(
-          `search?query=${query}&num_pages=${num_pages}&employment_types=${employment_types}&company_types=${company_types}&rapidapi-key=${jobsApiKey}`
+          `search?query=${query}&page=${page}&employment_types=${employment_types}&remote_jobs_only=${remote_jobs_only}&job_requirements=${job_requirements}&rapidapi-key=${jobsApiKey}`
         );
-        return `search?query=${query}&num_pages=${num_pages}&employment_types=${employment_types}&company_types=${company_types}&rapidapi-key=${jobsApiKey}`;
+        return `search?query=${query}&page=${page}&employment_types=${employment_types}&remote_jobs_only=${remote_jobs_only}&job_requirements=${job_requirements}&rapidapi-key=${jobsApiKey}`;
       },
     }),
 

@@ -7,18 +7,20 @@ import { useGetJobsQuery } from '../services/JSearch';
 
 const JobSearchPosts = ({
   query = 'all',
-  num_pages,
+  page,
   employment_types,
-  company_types,
+  job_requirements,
+  remote_jobs_only,
 }) => {
   const [sortOn, setSortOn] = useState('Relevance');
   const [sortedData, setSortedData] = useState([]);
 
   const { data, isFetching, isError, isSuccess } = useGetJobsQuery({
     query,
-    num_pages,
+    page,
     employment_types,
-    company_types,
+    job_requirements,
+    remote_jobs_only,
   });
 
   if (isFetching) {
