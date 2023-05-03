@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
-import { oval, SavedFilledIcon } from '../assets';
+import { BriefcaseIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
+import { getSalaryRangeInfo } from '../utils';
 
 const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
@@ -19,8 +22,14 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS,
+    (presentDate - jobPostedDate) / ONE_DAY_MS
   ).toFixed(0);
+
+  const router = useRouter();
+
+  // const handleJobClick = (id) => {
+  //   router.push(`/job/${id}`);
+  // };
 
   return (
     <article className="flex flex-col rounded-lg dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
@@ -84,28 +93,37 @@ const JobSearchCard = ({ job, i }) => {
       </p>
 
       <div className="flex gap-2">
-        {
-          job?.job_required_skills?.map((skill, index) => {
-            if (index < 3) {
-              return <Badge text={skill} key={skill} type="skill" />;
-            }
-          })
-}
+        {job?.job_required_skills?.slice(0, 3).map((skill, index) => (
+          <Badge text={skill} key={skill} type="skill" />
+        ))}
       </div>
 
       {/* footer */}
       <div className="flex flex-col justify-between items-center mt-4 sm:flex-row ">
         <div className="flex gap-20 sm:gap-6">
-          <p>
-            <span className="font-bold">$15/20k</span>/month
-          </p>
-          <p>
-            <span className="font-bold">45 </span> People Applied
-          </p>
+          <div className="text-xs">{getSalaryRangeInfo(job)}</div>
+
+          {/* badges */}
+          <div className="flex gap-2">
+            {[
+              { text: `${job.job_employment_type}`, icon: BriefcaseIcon },
+              { text: `${job.employer_company_type}`, icon: PeopleIcon },
+            ].map(
+              (item, i) =>
+                item.text !== null && (
+                  <Badge text={item.text} key={i} icon={item.icon} />
+                )
+            )}
+          </div>
         </div>
         <div className="flex gap-20 sm:gap-6 mt-4 sm:mt-0 ">
           <Button secondary>Message</Button>
-          <Button primary>Apply now</Button>
+          <Button
+            primary
+            handleClick={() => router.push(`/job/${job?.job_id}`)}
+          >
+            Apply now
+          </Button>
         </div>
       </div>
     </article>
