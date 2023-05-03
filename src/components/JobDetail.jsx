@@ -43,35 +43,40 @@ const JobDetail = ({ setSelectedJobTitle }) => {
   }
 
   // array of job highlights objects
-  const jobHighlights = [
-    {
-      label: 'Experience',
-      value: CheckExperienceRequired(job.job_required_experience),
-    },
-    { label: 'Work Level', value: CheckWorkLevel(job.job_required_experience) },
-    {
-      label: 'Employee Type',
-      value: CheckEmploymentType(job.job_employment_type, job.job_is_remote),
-    },
-    {
-      label: 'Offer Salary',
-      value: CheckSalaryInfo(
-        job.job_min_salary,
-        job.job_max_salary,
-        job.job_salary_currency,
-        job.job_salary_period,
-      ),
-    },
-  ];
+  const jobHighlights = job
+    ? [
+        {
+          label: 'Experience',
+          value: CheckExperienceRequired(job.job_required_experience),
+        },
+        {
+          label: 'Work Level',
+          value: CheckWorkLevel(job.job_required_experience),
+        },
+        {
+          label: 'Employee Type',
+          value: CheckEmploymentType(
+            job.job_employment_type,
+            job.job_is_remote
+          ),
+        },
+        {
+          label: 'Offer Salary',
+          value: CheckSalaryInfo(
+            job.job_min_salary,
+            job.job_max_salary,
+            job.job_salary_currency,
+            job.job_salary_period
+          ),
+        },
+      ]
+    : null;
 
   return (
     job && (
       <div className="w-full px-4 pb-2 rounded-md">
         <header className="mt-3">
-
-          <Banner
-            logo={job?.employer_logo}
-          />
+          <Banner logo={job?.employer_logo} />
 
           <div className="flex flex-col items-center md:flex-row md:justify-between">
             {/* summary */}

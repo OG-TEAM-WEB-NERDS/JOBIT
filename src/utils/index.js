@@ -99,14 +99,18 @@ export const isValidUrl = (url) => {
 // various utility functions to format and present job insights
 
 export const CheckExperienceRequired = (experienceRequired) => {
-  if (experienceRequired.experience_mentioned) {
+  if (
+    experienceRequired &&
+    experienceRequired.experience_mentioned &&
+    experienceRequired.required_experience_in_months
+  ) {
     return `${experienceRequired.required_experience_in_months} months`;
   }
   return 'Not Specified';
 };
 
 export const CheckWorkLevel = (experienceRequired) => {
-  if (experienceRequired.experience_mentioned) {
+  if (experienceRequired && experienceRequired.experience_mentioned) {
     if (
       experienceRequired.required_experience_in_months > 0 &&
       experienceRequired.required_experience_in_months <= 12
