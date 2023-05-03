@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { oval, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
+import ImageWrapper from './shared/ImageWrapper';
 
 const JobSearchCard = ({ job, i }) => {
   const [saved, setSaved] = useState(false);
@@ -30,16 +31,17 @@ const JobSearchCard = ({ job, i }) => {
   };
 
   return (
-    <article className="flex flex-col dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
+    <article className="flex flex-col rounded-lg dark:bg-black-2 bg-white my-4  px-6 py-4 w-full md:w-120p">
       {/* card header */}
       <div className="flex justify-between">
         <div className="flex gap-4">
-          <div className="flex items-center justify-center p-1 h-14 w-14 bg-natural-4 dark:bg-black-3 rounded-xl">
-            <Image
-              src={job?.employer_logo ?? oval}
+          <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
+            <ImageWrapper
+              src={job?.employer_logo}
               alt="Employer Logo"
               width={50}
               height={50}
+              styles="object-contain rounded-lg w-full h-full"
             />
           </div>
           <div className="flex flex-col">
@@ -48,16 +50,16 @@ const JobSearchCard = ({ job, i }) => {
             </h6>
             <p className="flex text-sm ">
               {job?.employer_name}
-              <Image
+              <ImageWrapper
                 src={oval}
                 alt="seperator"
-                className=" mx-2 dark:invert invert-0"
+                styles=" mx-2 dark:invert invert-0"
               />
               {job?.job_city}, {job?.job_country}
-              <Image
+              <ImageWrapper
                 src={oval}
                 alt="seperator"
-                className=" mx-2 dark:invert invert-0"
+                styles=" mx-2 dark:invert invert-0"
               />
               {daysElapsed} days ago
             </p>
@@ -72,12 +74,12 @@ const JobSearchCard = ({ job, i }) => {
             }}
           >
             Save Job
-            <Image
+            <ImageWrapper
               src={SavedFilledIcon}
               alt="Save Job"
               width={20}
               height={20}
-              className={saved ? 'grayscale-0' : 'grayscale'}
+              styles={saved ? 'grayscale-0' : 'grayscale'}
             />
           </button>
         </div>
@@ -89,10 +91,12 @@ const JobSearchCard = ({ job, i }) => {
         {`${job.job_description.slice(0, 300)}...`}
       </p>
 
-      <div className="flex">
-        {job?.job_required_skills?.map((skill) => (
-          <Badge text={skill} key={skill} type="skill" />
-        ))}
+      <div className="flex gap-2">
+        {job?.job_required_skills?.map((skill, index) => {
+          if (index < 3) {
+            return <Badge text={skill} key={skill} type="skill" />;
+          }
+        })}
       </div>
 
       {/* footer */}

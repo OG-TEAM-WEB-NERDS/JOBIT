@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, FilterDropdown, Heading } from '../components';
+import { Button, FilterDropdown, Heading, RangeSlider } from '../components';
 
 import JobSearchPosts from '../components/JobSearchPosts';
 
@@ -56,6 +56,7 @@ const JobSearch = () => {
                   />
                 )
             )}
+            <RangeSlider min={0} max={300000} />
           </div>
         </div>
 

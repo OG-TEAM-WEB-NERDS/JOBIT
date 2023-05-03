@@ -111,15 +111,7 @@ export const FilterDropdowns = [
         results: 142,
       },
       {
-        name: 'Freelance',
-        results: 142,
-      },
-      {
         name: 'Remote',
-        results: 142,
-      },
-      {
-        name: 'Co-founder',
         results: 142,
       },
       {
@@ -132,60 +124,19 @@ export const FilterDropdowns = [
     name: 'Experience Level',
     options: [
       {
-        name: 'Senior Level',
+        name: 'Over 3 Years Experience',
         results: 103,
       },
       {
-        name: 'Entry Level',
+        name: 'Under 3 Years Experience',
         results: 142,
       },
       {
-        name: 'Mid Level',
+        name: 'No Experience',
         results: 142,
       },
       {
-        name: 'Student Level',
-        results: 142,
-      },
-      {
-        name: 'Directors',
-        results: 142,
-      },
-      {
-        name: 'VP or Above',
-        results: 142,
-      },
-      {
-        name: 'Contract',
-        results: 142,
-      },
-    ],
-  },
-  {
-    name: 'Salary Range',
-    options: [
-      {
-        name: '$0 - $100',
-        results: 103,
-      },
-      {
-        name: '$101 - $200',
-        results: 142,
-      },
-      {
-        name: '$201 - $500',
-        results: 142,
-      },
-      {
-        name: '$501 - $750',
-        results: 142,
-      },
-      {
-        name: '$751 - $1000',
-        results: 142,
-      },
-      {
-        name: '$1000 Above',
+        name: 'No Degree',
         results: 142,
       },
     ],

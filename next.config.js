@@ -5,6 +5,10 @@ const nextConfig = {
     domains: ['sportscollectorsdigest.com'],
     remotePatterns: [
       {
+        protocol: 'http',
+        hostname: '**',
+      },
+      {
         protocol: 'https',
         hostname: '**',
       },

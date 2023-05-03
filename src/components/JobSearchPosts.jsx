@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useMemo } from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react';
+import ImageWrapper from './shared/ImageWrapper';
 
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
 import { useGetJobsQuery } from '../services/JSearch';
+import { Loader } from '.';
 
 const JobSearchPosts = ({
   query = 'all',
@@ -24,11 +25,7 @@ const JobSearchPosts = ({
   });
 
   if (isFetching) {
-    return (
-      <div className="font-semibold text-black-3 dark:text-gray-200 mx-2">
-        Wait while data fetching!!!
-      </div>
-    );
+    return <Loader />;
   }
 
   if (isError) {
@@ -112,12 +109,12 @@ const JobSearchPosts = ({
                 type="button"
                 className="flex items-center justify-between cursor-pointer select-none"
               >
-                <Image
+                <ImageWrapper
                   src={ChevronDownIcon}
                   alt="Chevron icon"
                   width={20}
                   height={20}
-                  className="grayscale"
+                  styles="grayscale"
                 />
               </button>
             </div>

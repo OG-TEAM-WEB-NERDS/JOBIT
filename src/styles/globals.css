@@ -153,6 +153,14 @@
     background-image: var(--checkmark);
     @apply opacity-100;
   }
+
+  input[type='range']::-webkit-slider-thumb {
+    width: 18px;
+    -webkit-appearance: none;
+    height: 18px;
+    @apply bg-primary;
+    border-radius: 100%;
+  }
 }
 
 :root {
@@ -211,3 +219,18 @@
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
+
+.loader {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
