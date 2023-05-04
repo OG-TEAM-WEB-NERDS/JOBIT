@@ -1,19 +1,24 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { BriefcaseIcon, ChevronDownIcon, PinIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
 import { Countires } from '../samples/static-data';
+import { searchJob } from '../features/filterReducer';
 
-const Searchbar = ({ setSearch, selection }) => {
+const Searchbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState('hidden');
   const [location, setLocation] = useState('');
   const [countryList, setCountryList] = useState([]);
   const { theme } = useTheme();
   const inputRef = useRef();
+  const dispatch = useDispatch();
+  const { selection } = useSelector((state) => state.filter);
 
+  console.log(selection);
   //to add a listener to hide Country dropdown on click on window
   useEffect(() => {
     return window.addEventListener('click', () => {
@@ -21,9 +26,8 @@ const Searchbar = ({ setSearch, selection }) => {
     });
   });
   const displayOptions = () => {
-    console.log(location);
     const options = Countires.filter((country) =>
-      country.toLowerCase().includes(location)
+      country.toLowerCase().includes(location.toLowerCase())
     );
     setCountryList(options);
     setHide('');
@@ -132,7 +136,9 @@ const Searchbar = ({ setSearch, selection }) => {
           primary
           fullWidth
           handleClick={() => {
-            setSearch(`${inputRef.current.value} in ${location} || 'USA'`);
+            dispatch(
+              searchJob(`${inputRef.current.value} in ${location} || 'USA'`)
+            );
           }}
         >
           Find Job

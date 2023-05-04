@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import { Button, FilterDropdown, Heading, RangeSlider } from '../components';
 
@@ -8,18 +9,15 @@ import { FilterDropdowns } from '../samples/static-data';
 import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => {
-  const [search, setSearch] = useState();
-  const [page, setPage] = useState('1');
+  const { searchQuery, page, selection } = useSelector((state) => state.filter);
+
+  console.log(searchQuery, page, selection);
+
   const [endOfPage, setEndOfPage] = useState(false);
-  const [selection, setSelection] = useState({
-    empType: 'FULLTIME',
-    requirementType: 'no_experience',
-    remote_jobs_only: false,
-  });
   return (
     <main className="py-6 flex flex-col space-y-10">
       <Heading heading="Let's find your dream job" />
-      <Searchbar setSearch={setSearch} selection={selection} />
+      <Searchbar />
       <div className="grid md:grid-cols-4 gap-20">
         <div className="flex flex-col gap-6">
           {/* Job Alert Card */}
@@ -53,8 +51,6 @@ const JobSearch = () => {
                     key={i}
                     label={filter.name}
                     options={filter.options}
-                    selection={selection}
-                    setSelection={setSelection}
                   />
                 )
             )}
@@ -65,7 +61,7 @@ const JobSearch = () => {
         {/* JobSearch JobCard */}
         <div className="flex flex-col gap-1 md:col-span-3">
           <JobSearchPosts
-            query={search}
+            query={searchQuery}
             page={page}
             employment_types={selection.empType}
             job_requirements={selection.requirementType}

@@ -7,7 +7,7 @@ import { useGetSearchedJobsQuery } from '../services/JSearch';
 import { Loader } from '.';
 
 const JobSearchPosts = ({
-  query = 'all',
+  query,
   page,
   employment_types,
   job_requirements,

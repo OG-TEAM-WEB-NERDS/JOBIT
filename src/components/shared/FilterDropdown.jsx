@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
 
+import { filterSelection } from '../../features/filterReducer';
 import { ChevronDownIcon } from '../../assets';
 
-const FilterDropdown = ({ label, options, selection, setSelection }) => {
+const FilterDropdown = ({ label, options }) => {
+  const { selection } = useSelector((state) => state.filter);
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (event) => {
@@ -18,22 +22,31 @@ const FilterDropdown = ({ label, options, selection, setSelection }) => {
       case 'INTERN':
       case 'CONTRACTOR':
         checked
-          ? setSelection({ ...selection, empType: event.target.value })
-          : setSelection({ ...selection, empType: '' });
+          ? dispatch(
+              filterSelection({ ...selection, empType: event.target.value })
+            )
+          : dispatch(filterSelection({ ...selection, empType: '' }));
 
         break;
       case 'REMOTE':
         checked
-          ? setSelection({ ...selection, remote_jobs_only: true })
-          : setSelection({ ...selection, remote_jobs_only: false });
+          ? dispatch(filterSelection({ ...selection, remote_jobs_only: true }))
+          : dispatch(
+              filterSelection({ ...selection, remote_jobs_only: false })
+            );
         break;
       case 'no_experience':
       case 'no_degree':
       case 'more_than_3_years_experience':
       case 'under_3_years_experience':
         checked
-          ? setSelection({ ...selection, requirementType: event.target.value })
-          : setSelection({ ...selection, requirementType: '' });
+          ? dispatch(
+              filterSelection({
+                ...selection,
+                requirementType: event.target.value,
+              })
+            )
+          : dispatch(filterSelection({ ...selection, requirementType: '' }));
         break;
       default:
         break;
