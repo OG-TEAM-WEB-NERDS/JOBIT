@@ -7,6 +7,7 @@ import JobCard from './shared/JobCard';
 import ImageWrapper from './shared/ImageWrapper';
 import { useGetJobsByCompanyQuery } from '../services/JSearch';
 import { Loader } from '.';
+import RecentlyPostedJobsWrapper from './RecentlyPostedJobsWrapper';
 
 const JobsTab = () => {
   const router = useRouter();
@@ -65,16 +66,7 @@ const JobsTab = () => {
       </div>
       <div className="flex flex-col gap-4">
         <h6>Recently Posted Jobs</h6>
-        <div className="grid lg:grid-cols-2 gap-6">
-          {data.data.map((job, index) => (
-            <JobCard
-              key={index}
-              job={job}
-              transparentBtn
-              onClick={() => router.push(`/job/${job.job_id}`)}
-            />
-          ))}
-        </div>
+        <RecentlyPostedJobsWrapper jobs={data.data} />
       </div>
     </>
   );

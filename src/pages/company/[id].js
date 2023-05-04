@@ -22,8 +22,6 @@ const CompanyPage = () => {
   const job = jobs.data[0];
   const router = useRouter();
 
-  console.log(router.query);
-
   return (
     <div className="py-6 flex flex-col items-start gap-8">
       <Button

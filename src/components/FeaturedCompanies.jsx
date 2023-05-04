@@ -5,6 +5,7 @@ import { FeaturedCompanyCard, Loader } from '.';
 import SectionTitle from './SectionTitle';
 
 import { useGetFeaturedCompaniesQuery } from '../services/JSearch';
+import FeaturedCompaniesWrapper from './FeaturedCompaniesWrapper';
 
 const FeaturedCompanies = () => {
   const { data, isFetching, isError } = useGetFeaturedCompaniesQuery();
@@ -32,20 +33,7 @@ const FeaturedCompanies = () => {
   return (
     <div className="flex flex-col gap-4">
       <SectionTitle title="Featured Companies" />
-      <div className="flex flex-col md:flex-row gap-4">
-        {FeaturedCompaniesData.map((company, index) => (
-          <FeaturedCompanyCard
-            key={index}
-            id={company.value}
-            logo={company.logo}
-            rating={4.5}
-            employerName={company.name}
-            location={company.location || 'New York, USA'}
-            vacancies={company.est_count}
-            reviewCount={19000}
-          />
-        ))}
-      </div>
+      <FeaturedCompaniesWrapper companies={FeaturedCompaniesData} />
     </div>
   );
 };
