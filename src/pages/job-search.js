@@ -9,7 +9,7 @@ import { FilterDropdowns } from '../samples/static-data';
 import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => {
-  const [search, setSearch] = useState('Software Developer in Berlin');
+  const [search, setSearch] = useState();
   const [page, setPage] = useState(1);
   const [endOfPage, setEndOfPage] = useState(false);
 

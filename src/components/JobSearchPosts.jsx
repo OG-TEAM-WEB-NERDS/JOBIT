@@ -22,7 +22,7 @@ const JobSearchPosts = ({
   const [sortedData, setSortedData] = useState([]);
 
   const { data, isFetching, isError, isSuccess } = useGetSearchedJobsQuery({
-    query,
+    query: 'Software Developer',
     page,
     employment_types,
     job_requirements,
