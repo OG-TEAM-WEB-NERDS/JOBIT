@@ -6,6 +6,7 @@ import {
   BriefcaseIcon,
   ClockIcon,
   EllipsisIcon,
+  JobItIcon,
   PeopleIcon,
 } from '../../assets';
 import Badge from './Badge';
@@ -27,7 +28,7 @@ const JobCard = ({
 
   const getJobExpirationInfo = () => {
     const daysLeft = calculateDateToJobExpiration(
-      job.job_offer_expiration_timestamp
+      job.job_offer_expiration_timestamp,
     );
 
     if (daysLeft === 'Expiry not specified') {
@@ -47,7 +48,7 @@ const JobCard = ({
           <div className="flex gap-4 items-center">
             <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
               <ImageWrapper
-                src={job?.employer_logo}
+                src={job?.employer_logo || JobItIcon}
                 alt="Employer logo"
                 width={50}
                 height={50}
@@ -60,8 +61,8 @@ const JobCard = ({
               <h3 className="text-base font-bold">{job?.job_title}</h3>
               {/* badges */}
               <div className="flex flex-wrap gap-2">
-                {job?.job_required_skills &&
-                  job?.job_required_skills
+                {job?.job_required_skills
+                  && job?.job_required_skills
                     .slice(0, 3)
                     .map((skill, i) => <Badge text={skill} key={i} />)}
               </div>
@@ -93,10 +94,9 @@ const JobCard = ({
               icon: ClockIcon,
             },
           ].map(
-            (item, i) =>
-              item.text !== 'undefined' && (
-                <Badge text={item.text} key={i} icon={item.icon} />
-              )
+            (item, i) => item.text !== 'undefined' && (
+            <Badge text={item.text} key={i} icon={item.icon} />
+            ),
           )}
         </div>
         {/* footer */}

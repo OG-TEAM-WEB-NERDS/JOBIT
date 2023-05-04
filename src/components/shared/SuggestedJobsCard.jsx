@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import { ImageWrapper } from '..';
 import { CheckEmploymentType } from '../../utils';
+import { JobItIcon } from '../../assets';
 
 const SuggestedJobsCard = ({ job }) => {
   const router = useRouter();
@@ -20,7 +21,7 @@ const SuggestedJobsCard = ({ job }) => {
         {/* image */}
         <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
           <ImageWrapper
-            src={job?.employer_logo}
+            src={job?.employer_logo || JobItIcon}
             alt="Employer Logo"
             width={50}
             height={50}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { SavedFilledIcon } from '../../assets';
+import { JobItIcon, SavedFilledIcon } from '../../assets';
 import Button from './Button';
 import { calculateDateToJobExpiration } from '../../utils';
 import ImageWrapper from './ImageWrapper';
@@ -16,7 +16,7 @@ const SimilarJobsCard = ({ job }) => {
         <div className="flex justify-center items-center max-w-xs">
           <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
             <ImageWrapper
-              src={job.employer_logo}
+              src={job.employer_logo || JobItIcon}
               alt="Employer logo"
               width={50}
               height={50}

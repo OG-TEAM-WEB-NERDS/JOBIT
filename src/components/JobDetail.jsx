@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-import { EllipsisIcon, PlusIcon, SavedOutlinedIcon } from '../assets';
+import { EllipsisIcon, JobItIcon, PlusIcon, SavedOutlinedIcon } from '../assets';
 import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
@@ -45,38 +45,38 @@ const JobDetail = ({ setSelectedJobTitle }) => {
   // array of job highlights objects
   const jobHighlights = job
     ? [
-        {
-          label: 'Experience',
-          value: CheckExperienceRequired(job.job_required_experience),
-        },
-        {
-          label: 'Work Level',
-          value: CheckWorkLevel(job.job_required_experience),
-        },
-        {
-          label: 'Employee Type',
-          value: CheckEmploymentType(
-            job.job_employment_type,
-            job.job_is_remote
-          ),
-        },
-        {
-          label: 'Offer Salary',
-          value: CheckSalaryInfo(
-            job.job_min_salary,
-            job.job_max_salary,
-            job.job_salary_currency,
-            job.job_salary_period
-          ),
-        },
-      ]
+      {
+        label: 'Experience',
+        value: CheckExperienceRequired(job.job_required_experience),
+      },
+      {
+        label: 'Work Level',
+        value: CheckWorkLevel(job.job_required_experience),
+      },
+      {
+        label: 'Employee Type',
+        value: CheckEmploymentType(
+          job.job_employment_type,
+          job.job_is_remote,
+        ),
+      },
+      {
+        label: 'Offer Salary',
+        value: CheckSalaryInfo(
+          job.job_min_salary,
+          job.job_max_salary,
+          job.job_salary_currency,
+          job.job_salary_period,
+        ),
+      },
+    ]
     : null;
 
   return (
     job && (
       <div className="w-full px-4 pb-2 rounded-md">
         <header className="mt-3">
-          <Banner logo={job?.employer_logo} />
+          <Banner logo={job?.employer_logo || JobItIcon} />
 
           <div className="flex flex-col items-center md:flex-row md:justify-between">
             {/* summary */}
@@ -163,7 +163,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
               <div className="flex">
                 <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
                   <ImageWrapper
-                    src={job?.employer_logo}
+                    src={job?.employer_logo || JobItIcon}
                     alt={job?.employer_name}
                     width={50}
                     height={50}
