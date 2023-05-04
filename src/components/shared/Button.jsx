@@ -12,6 +12,7 @@ const Button = ({
   fullWidth = false,
   size = false,
   icon,
+  onHover,
 }) => {
   let iconClassNames;
 
@@ -60,6 +61,7 @@ const Button = ({
       type={isSubmit ? 'submit' : 'button'}
       onClick={handleClick}
       className={`group btn ${buttonClassNames}`}
+      onMouseEnter={onHover}
     >
       {icon && (
         <ImageWrapper

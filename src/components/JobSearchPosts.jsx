@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import ImageWrapper from './shared/ImageWrapper';
+import React, { useCallback, useEffect, useState } from 'react';
 
+import ImageWrapper from './shared/ImageWrapper';
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
 import { useGetSearchedJobsQuery } from '../services/JSearch';
@@ -13,9 +13,11 @@ const JobSearchPosts = ({
   job_requirements,
   remote_jobs_only,
   setEndOfPage,
+  setPage,
 }) => {
   const [sortOn, setSortOn] = useState('Relevance');
   const [sortedData, setSortedData] = useState([]);
+  
 
   const { data, isFetching, isError, isSuccess } = useGetSearchedJobsQuery({
     query,
@@ -24,6 +26,9 @@ const JobSearchPosts = ({
     job_requirements,
     remote_jobs_only,
   });
+
+  
+
 
   if (isFetching) {
     return <Loader />;
@@ -45,10 +50,10 @@ const JobSearchPosts = ({
 
   const InitialData = data?.data;
 
-  //Checking end of page for Pagination
-  //data.length === 0 ? setEndOfPage(false) : setEndOfPage(true);
+  // Checking end of page for Pagination
+  // data.length === 0 ? setEndOfPage(false) : setEndOfPage(true);
 
-  //Sorting Data
+  // Sorting Data
   const handleSort = (e) => {
     const sortBy = e.target.innerText;
     setSortOn(sortBy);
@@ -56,9 +61,8 @@ const JobSearchPosts = ({
     switch (sortBy) {
       case 'Latest':
         const latest = InitialData?.slice(0).sort(
-          (a, b) =>
-            new Date(b?.job_posted_at_datetime_utc).getTime() -
-            new Date(a?.job_posted_at_datetime_utc).getTime()
+          (a, b) => new Date(b?.job_posted_at_datetime_utc).getTime()
+            - new Date(a?.job_posted_at_datetime_utc).getTime(),
         );
 
         setSortedData(latest);
@@ -66,9 +70,8 @@ const JobSearchPosts = ({
         break;
       case 'Oldest':
         const oldest = InitialData?.slice(0).sort(
-          (a, b) =>
-            new Date(a?.job_posted_at_datetime_utc).getTime() -
-            new Date(b?.job_posted_at_datetime_utc).getTime()
+          (a, b) => new Date(a?.job_posted_at_datetime_utc).getTime()
+            - new Date(b?.job_posted_at_datetime_utc).getTime(),
         );
 
         setSortedData(oldest);
@@ -76,9 +79,8 @@ const JobSearchPosts = ({
         break;
       case 'Popular':
         const popular = InitialData?.slice(0).sort(
-          (a, b) =>
-            Number(b?.job_apply_quality_score) <
-            Number(a?.job_apply_quality_score)
+          (a, b) => Number(b?.job_apply_quality_score)
+            < Number(a?.job_apply_quality_score),
         );
 
         setSortedData(popular);
@@ -141,7 +143,7 @@ const JobSearchPosts = ({
                         {items}
                       </a>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>
