@@ -1,6 +1,6 @@
 import React from 'react';
-
 import { useRouter } from 'next/router';
+
 import { BellIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import JobCard from './shared/JobCard';
@@ -14,10 +14,6 @@ const JobsTab = () => {
   const companyId = router.query.id;
 
   const { data, isFetching, isError } = useGetJobsByCompanyQuery(companyId);
-
-  const handleJobClick = (id) => {
-    router.push(`/job/${id}`);
-  };
 
   if (isFetching) {
     return <Loader />;
@@ -75,7 +71,7 @@ const JobsTab = () => {
               key={index}
               job={job}
               transparentBtn
-              onClick={() => handleJobClick(job.job_id)}
+              onClick={() => router.push(`/job/${job.job_id}`)}
             />
           ))}
         </div>

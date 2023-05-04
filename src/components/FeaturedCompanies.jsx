@@ -1,14 +1,13 @@
 import React from 'react';
 
 import { FeaturedCompanyCard, Loader } from '.';
-// import { FeaturedCompanyData } from '../samples/static-data';
+
 import SectionTitle from './SectionTitle';
 
 import { useGetFeaturedCompaniesQuery } from '../services/JSearch';
 
 const FeaturedCompanies = () => {
   const { data, isFetching, isError } = useGetFeaturedCompaniesQuery();
-  console.log(data);
 
   if (isFetching) {
     return <Loader />;
