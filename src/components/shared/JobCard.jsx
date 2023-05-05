@@ -31,13 +31,14 @@ const JobCard = ({
       job.job_offer_expiration_timestamp,
     );
 
-    if (daysLeft === 'Expiry not specified') {
-      return 'Expiry not specified';
+    switch (daysLeft) {
+      case 'Expiry not specified':
+        return 'Expiry not specified';
+      case 'Job expired':
+        return 'Job Listing expired';
+      default:
+        return `${daysLeft} days left`;
     }
-    if (daysLeft === 'Job expired') {
-      return 'Job Listing expired';
-    }
-    return `${daysLeft} days left`;
   };
 
   if (job) {
