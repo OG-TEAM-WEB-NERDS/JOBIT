@@ -11,8 +11,6 @@ import Searchbar from '../components/Searchbar';
 const JobSearch = () => {
   const { searchQuery, page, selection } = useSelector((state) => state.filter);
 
-  console.log(searchQuery, page, selection);
-
   const [endOfPage, setEndOfPage] = useState(false);
   return (
     <main className="py-6 flex flex-col space-y-10">

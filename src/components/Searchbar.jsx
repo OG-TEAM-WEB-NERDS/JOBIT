@@ -1,30 +1,57 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import { BriefcaseIcon, ChevronDownIcon, PinIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
-import { Countires } from '../samples/static-data';
+import { useGetCountriesInfoQuery } from '../services/CountriesAPI';
 import { searchJob } from '../features/filterReducer';
 
-const Searchbar = () => {
+const Searchbar = ({ path }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hide, setHide] = useState('hidden');
+  const [hide, setHide] = useState(true);
   const [location, setLocation] = useState('');
   const [countryList, setCountryList] = useState([]);
   const { theme } = useTheme();
   const inputRef = useRef();
+  const toggleRef = useRef(null);
   const dispatch = useDispatch();
+  const router = useRouter();
   const { selection } = useSelector((state) => state.filter);
+  const { data, isFetching, isError } = useGetCountriesInfoQuery();
 
-  console.log(selection);
+  if (isError) {
+    return (
+      <div
+        className="
+        font-semibold
+        text-black-3
+        dark:text-gray-200
+        mx-2"
+      >
+        Error while fetching!!!
+      </div>
+    );
+  }
+
+  const Countires = data?.map((country) => country.name.common);
+
   //to add a listener to hide Country dropdown on click on window
   useEffect(() => {
-    return window.addEventListener('click', () => {
-      setHide('hidden');
-    });
-  });
+    const handleClickOutside = () => {
+      if (toggleRef.current && !toggleRef.current.contains(event.target)) {
+        setHide(true);
+      }
+    };
+
+    window.addEventListener('click', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
   const displayOptions = () => {
     const options = Countires.filter((country) =>
       country.toLowerCase().includes(location.toLowerCase())
@@ -55,7 +82,7 @@ const Searchbar = () => {
       </div>
       <div
         className="relative flex w-full md:w-1/3 justify-between pt-3 md:pt-0"
-        onClick={() => event.stopImmediatePropagation()}
+        //onClick={() => event.stopImmediatePropagation()}
       >
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full justify-between">
@@ -79,6 +106,7 @@ const Searchbar = () => {
                   onChange={(e) => setLocation(e.target.value)}
                   onKeyUp={() => displayOptions()}
                   value={location}
+                  ref={toggleRef}
                 />
               </div>
             </button>
@@ -94,7 +122,9 @@ const Searchbar = () => {
           </div>
           {/* Dropdown list for Countries */}
           <div
-            className={`absolute mt-12 h-40 overflow-y-auto bg-white  dark:bg-gray-700 rounded-md w-full justify-between pt-3 md:pt-0 ${hide}`}
+            className={`absolute mt-12 h-40 overflow-y-auto bg-white  dark:bg-gray-700 rounded-md w-full justify-between pt-3 md:pt-0 ${
+              hide ? 'hidden' : ''
+            }`}
           >
             <ul
               className="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -107,7 +137,7 @@ const Searchbar = () => {
                     className="block px-4 py-2  hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     onClick={() => {
                       setLocation(items);
-                      setHide('hidden');
+                      setHide(true);
                     }}
                   >
                     {items}
@@ -136,9 +166,10 @@ const Searchbar = () => {
           primary
           fullWidth
           handleClick={() => {
-            dispatch(
-              searchJob(`${inputRef.current.value} in ${location} || 'USA'`)
-            );
+            dispatch(searchJob(`${inputRef.current.value} in ${location}`));
+            {
+              path && router.push(`/job-search`);
+            }
           }}
         >
           Find Job

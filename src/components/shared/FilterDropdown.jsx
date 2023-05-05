@@ -11,42 +11,30 @@ const FilterDropdown = ({ label, options }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (event) => {
-    //Checkbox cheked
-    const checked = event.target.checked;
-    //Checkbox value
-    const optionValue = event.target.value;
+    const { checked, value: optionValue } = event.target;
 
     switch (optionValue) {
       case 'FULLTIME':
       case 'PARTTIME':
       case 'INTERN':
       case 'CONTRACTOR':
-        checked
-          ? dispatch(
-              filterSelection({ ...selection, empType: event.target.value })
-            )
-          : dispatch(filterSelection({ ...selection, empType: '' }));
-
+        dispatch(
+          filterSelection({ ...selection, empType: checked ? optionValue : '' })
+        );
         break;
       case 'REMOTE':
-        checked
-          ? dispatch(filterSelection({ ...selection, remote_jobs_only: true }))
-          : dispatch(
-              filterSelection({ ...selection, remote_jobs_only: false })
-            );
+        dispatch(filterSelection({ ...selection, remote_jobs_only: checked }));
         break;
       case 'no_experience':
       case 'no_degree':
       case 'more_than_3_years_experience':
       case 'under_3_years_experience':
-        checked
-          ? dispatch(
-              filterSelection({
-                ...selection,
-                requirementType: event.target.value,
-              })
-            )
-          : dispatch(filterSelection({ ...selection, requirementType: '' }));
+        dispatch(
+          filterSelection({
+            ...selection,
+            requirementType: checked ? optionValue : '',
+          })
+        );
         break;
       default:
         break;

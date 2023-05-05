@@ -110,7 +110,7 @@ const JobSearchCard = ({ job, i }) => {
               { text: `${job.employer_company_type}`, icon: PeopleIcon },
             ].map(
               (item, i) =>
-                item.text !== null && (
+                item.text !== undefined && (
                   <Badge text={item.text} key={i} icon={item.icon} />
                 )
             )}

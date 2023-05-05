@@ -8,6 +8,7 @@ const filterJobs = createSlice({
     selection: {
       empType: 'FULLTIME',
       requirementType: 'no_experience',
+
       remote_jobs_only: false,
     },
   },
