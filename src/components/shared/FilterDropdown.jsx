@@ -3,9 +3,42 @@ import Image from 'next/image';
 
 import { ChevronDownIcon } from '../../assets';
 
-const FilterDropdown = ({ label, options }) => {
+const FilterDropdown = ({ label, options, selection, setSelection }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleChange = (event) => {
+    //Checkbox cheked
+    const checked = event.target.checked;
+    //Checkbox value
+    const optionValue = event.target.value;
+
+    switch (optionValue) {
+      case 'FULLTIME':
+      case 'PARTTIME':
+      case 'INTERN':
+      case 'CONTRACTOR':
+        checked
+          ? setSelection({ ...selection, empType: event.target.value })
+          : setSelection({ ...selection, empType: '' });
+
+        break;
+      case 'REMOTE':
+        checked
+          ? setSelection({ ...selection, remote_jobs_only: true })
+          : setSelection({ ...selection, remote_jobs_only: false });
+        break;
+      case 'no_experience':
+      case 'no_degree':
+      case 'more_than_3_years_experience':
+      case 'under_3_years_experience':
+        checked
+          ? setSelection({ ...selection, requirementType: event.target.value })
+          : setSelection({ ...selection, requirementType: '' });
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div className="flex flex-col gap-3">
       <button
@@ -35,7 +68,8 @@ const FilterDropdown = ({ label, options }) => {
                   type="checkbox"
                   id={option.name}
                   name="full-time"
-                  value=""
+                  value={option.value}
+                  onChange={handleChange}
                 />
                 <label
                   className="transition cursor-pointer font-medium dark:text-natural-3 hover:text-natural-1 hover:dark:text-natural-2"
