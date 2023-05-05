@@ -16,7 +16,7 @@ const JobDetailPage = () => {
 
   return (
     <section>
-      <SearchBar />
+      <SearchBar path={router.pathname} />
 
       <Button
         secondary

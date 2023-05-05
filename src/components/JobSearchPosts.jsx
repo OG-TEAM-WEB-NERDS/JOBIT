@@ -10,19 +10,18 @@ import { useGetSearchedJobsQuery } from '../services/JSearch';
 import { Loader } from '.';
 
 const JobSearchPosts = ({
-  query = 'all',
+  query,
   page,
   employment_types,
   job_requirements,
   remote_jobs_only,
   setEndOfPage,
-  setPage,
 }) => {
   const [sortOn, setSortOn] = useState('Relevance');
   const [sortedData, setSortedData] = useState([]);
 
   const { data, isFetching, isError, isSuccess } = useGetSearchedJobsQuery({
-    query: 'Software Developer',
+    query,
     page,
     employment_types,
     job_requirements,
@@ -35,9 +34,7 @@ const JobSearchPosts = ({
 
   if (isError) {
     return (
-      <div
-        className="mx-2 font-semibold text-black-3 dark:text-gray-200"
-      >
+      <div className="mx-2 font-semibold text-black-3 dark:text-gray-200">
         Error while fetching!!!
       </div>
     );
@@ -55,8 +52,9 @@ const JobSearchPosts = ({
     switch (sortBy) {
       case 'Latest':
         const latest = InitialData?.slice(0).sort(
-          (a, b) => new Date(b?.job_posted_at_datetime_utc).getTime()
-            - new Date(a?.job_posted_at_datetime_utc).getTime(),
+          (a, b) =>
+            new Date(b?.job_posted_at_datetime_utc).getTime() -
+            new Date(a?.job_posted_at_datetime_utc).getTime()
         );
 
         setSortedData(latest);
@@ -64,8 +62,9 @@ const JobSearchPosts = ({
         break;
       case 'Oldest':
         const oldest = InitialData?.slice(0).sort(
-          (a, b) => new Date(a?.job_posted_at_datetime_utc).getTime()
-            - new Date(b?.job_posted_at_datetime_utc).getTime(),
+          (a, b) =>
+            new Date(a?.job_posted_at_datetime_utc).getTime() -
+            new Date(b?.job_posted_at_datetime_utc).getTime()
         );
 
         setSortedData(oldest);
@@ -73,8 +72,9 @@ const JobSearchPosts = ({
         break;
       case 'Popular':
         const popular = InitialData?.slice(0).sort(
-          (a, b) => Number(b?.job_apply_quality_score)
-            < Number(a?.job_apply_quality_score),
+          (a, b) =>
+            Number(b?.job_apply_quality_score) <
+            Number(a?.job_apply_quality_score)
         );
 
         setSortedData(popular);
@@ -136,7 +136,7 @@ const JobSearchPosts = ({
                         {items}
                       </span>
                     </li>
-                  ),
+                  )
                 )}
               </ul>
             </div>
