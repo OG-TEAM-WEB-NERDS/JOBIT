@@ -38,7 +38,7 @@ const JobSearchCard = ({ job, i }) => {
         <div className="flex gap-4">
           <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
             <ImageWrapper
-              src={job?.employer_logo || JobItIcon}
+              src={job?.employer_logo}
               alt="Employer Logo"
               width={50}
               height={50}

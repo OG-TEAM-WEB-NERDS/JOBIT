@@ -163,7 +163,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
               <div className="flex">
                 <div className="flex items-center p-2 bg-natural-4 rounded-xl aspect-square w-16 h-16">
                   <ImageWrapper
-                    src={job?.employer_logo || JobItIcon}
+                    src={job?.employer_logo}
                     alt={job?.employer_name}
                     width={50}
                     height={50}
