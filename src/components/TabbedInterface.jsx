@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 
 import Button from './shared/Button';
-import {
-  AboutTab,
-  JobsTab,
-  ProductsTab,
-  EmployeesTab,
-  LocationsTab,
-  ReviewsTab,
-} from '.';
+import AboutTab from './AboutTab';
+// eslint-disable-next-line import/no-cycle
+import JobsTab from './JobsTab';
+import ProductsTab from './ProductsTab';
+import EmployeesTab from './EmployeesTab';
+import LocationsTab from './LocationsTab';
+import ReviewsTab from './ReviewsTab';
 
-const TabbedInterface = (companyId) => {
+const TabbedInterface = () => {
   const tabs = [
     { id: 1, name: 'About', component: <AboutTab /> },
     { id: 2, name: 'Jobs', component: <JobsTab /> },

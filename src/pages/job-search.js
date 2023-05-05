@@ -1,4 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useSelector, useDispatch } from 'react-redux';
 
 import { Button, FilterDropdown, Heading, RangeSlider } from '../components';
@@ -11,7 +12,7 @@ import Searchbar from '../components/Searchbar';
 
 const JobSearch = () => {
   const { searchQuery, page, selection } = useSelector((state) => state.filter);
-  //const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   const [endOfPage, setEndOfPage] = useState(false);
   const dispatch = useDispatch();
   const prefetchData = usePrefetch('getSearchedJobs');
@@ -25,7 +26,7 @@ const JobSearch = () => {
         job_requirements: selection.requirementType,
         remote_jobs_only: selection.remote_jobs_only,
       },
-      { force: true }
+      { force: true },
     );
   }, [page]);
 
@@ -60,14 +61,13 @@ const JobSearch = () => {
           {/* Filters */}
           <div className="hidden flex-col gap-6 md:flex">
             {FilterDropdowns.map(
-              (filter, i) =>
-                filter?.options && (
-                  <FilterDropdown
-                    key={i}
-                    label={filter.name}
-                    options={filter.options}
-                  />
-                )
+              (filter, i) => filter?.options && (
+              <FilterDropdown
+                key={i}
+                label={filter.name}
+                options={filter.options}
+              />
+              ),
             )}
             <RangeSlider min={0} max={300000} />
           </div>

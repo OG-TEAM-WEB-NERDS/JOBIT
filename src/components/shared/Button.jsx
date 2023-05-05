@@ -18,23 +18,19 @@ const Button = ({
 
   switch (true) {
     case outlined && secondary:
-      iconClassNames =
-        'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
+      iconClassNames = 'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
       break;
     case outlined:
-      iconClassNames =
-        'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
+      iconClassNames = 'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
       break;
     case primary:
       iconClassNames = 'brightness-0 invert';
       break;
     case secondary:
-      iconClassNames =
-        'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
+      iconClassNames = 'dark:group-hover:brightness-0 dark:group-hover:invert brightness-40 invert-0 grayscale';
       break;
     case transparent:
-      iconClassNames =
-        'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
+      iconClassNames = 'group-hover:brightness-0 group-hover:invert brightness-100 invert-0';
       break;
     default:
       iconClassNames = 'brightness-0 invert';
@@ -52,8 +48,8 @@ const Button = ({
 
   // returns classNames only for props passed
   const buttonClassNames = Object.entries(classNames)
-    .filter(([key, value]) => Boolean(value))
-    .map(([key, value]) => key)
+    .filter(([value]) => Boolean(value))
+    .map(([key]) => key)
     .join(' ');
 
   return (

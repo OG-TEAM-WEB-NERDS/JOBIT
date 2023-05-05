@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const countriesApi = createApi({
@@ -6,7 +7,7 @@ export const countriesApi = createApi({
   endpoints: (builder) => ({
     // Get location by country and city
     getCountriesInfo: builder.query({
-      query: () => `independent?status=true&fields=name`,
+      query: () => 'independent?status=true&fields=name',
     }),
   }),
 });

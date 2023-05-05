@@ -6,7 +6,6 @@ import {
   BriefcaseIcon,
   ClockIcon,
   EllipsisIcon,
-  JobItIcon,
   PeopleIcon,
 } from '../../assets';
 import Badge from './Badge';
@@ -117,6 +116,7 @@ const JobCard = ({
       </div>
     );
   }
+  return null;
 };
 
 export default JobCard;

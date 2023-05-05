@@ -3,10 +3,9 @@ import { useRouter } from 'next/router';
 
 import { BellIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
-import JobCard from './shared/JobCard';
 import ImageWrapper from './shared/ImageWrapper';
 import { useGetJobsByCompanyQuery } from '../services/JSearch';
-import { Loader } from '.';
+import { Loader } from './shared';
 import RecentlyPostedJobsWrapper from './RecentlyPostedJobsWrapper';
 
 const JobsTab = () => {

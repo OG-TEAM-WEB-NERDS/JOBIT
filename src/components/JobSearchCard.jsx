@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, JobItIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
+import { BriefcaseIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
 import { getSalaryRangeInfo } from '../utils';
 
-const JobSearchCard = ({ job, i }) => {
+const JobSearchCard = ({ job }) => {
   const [saved, setSaved] = useState(false);
 
   // One day Time in ms (milliseconds)
@@ -73,6 +72,7 @@ const JobSearchCard = ({ job, i }) => {
             onClick={() => {
               setSaved(!saved);
             }}
+            type="button"
           >
             Save Job
             <ImageWrapper
@@ -93,7 +93,7 @@ const JobSearchCard = ({ job, i }) => {
       </p>
 
       <div className="flex gap-2">
-        {job?.job_required_skills?.slice(0, 3).map((skill, index) => (
+        {job?.job_required_skills?.slice(0, 3).map((skill) => (
           <Badge text={skill} key={skill} type="skill" />
         ))}
       </div>

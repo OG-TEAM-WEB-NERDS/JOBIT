@@ -8,14 +8,15 @@ const RangeSlider = ({ min, max }) => {
   };
 
   function handleInput(event) {
-    const newValue = (event.target.value - event.target.min) / (event.target.max - event.target.min) * 100;
+    const newValue = (((event.target.value - event.target.min) / (event.target.max - event.target.min)) * 100);
     setValue(newValue);
+    // eslint-disable-next-line no-param-reassign
     event.target.style.background = `linear-gradient(to right, #0BAB7C 0%, #0BAB7C ${newValue}%, #fff ${newValue}%, white 100%)`;
   }
 
   return (
     <div className="w-full">
-    <h5 className='transition font-semibold dark:text-natural-3 pb-3'>Salary Range</h5>
+      <h5 className="transition font-semibold dark:text-natural-3 pb-3">Salary Range</h5>
       <input
         id="myinput"
         type="range"

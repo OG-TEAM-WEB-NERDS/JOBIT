@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 
 import ImageWrapper from './shared/ImageWrapper';
-import { RatingStars } from '.';
+import { RatingStars } from './shared';
 import { BriefcaseIcon, PinIcon } from '../assets';
 import Button from './shared/Button';
 

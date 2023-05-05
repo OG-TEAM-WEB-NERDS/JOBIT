@@ -3,7 +3,7 @@ import React from 'react';
 import JobCard from './shared/JobCard';
 import SectionTitle from './SectionTitle';
 import { useGetJobsQuery } from '../services/JSearch';
-import { Loader } from '.';
+import { Loader } from './shared';
 
 const LatestJobPosts = () => {
   const { data, isFetching, isError } = useGetJobsQuery();

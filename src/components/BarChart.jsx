@@ -3,9 +3,10 @@ import dynamic from 'next/dynamic';
 import { useTheme } from 'next-themes';
 
 import { baseOptions } from '../utils/chartOptions';
-import { ImageWrapper, Loader } from '.';
+import { ImageWrapper, Loader } from './shared';
 import { BriefcaseIcon, CrossIcon } from '../assets';
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BarChart = ({ data, isFetching }) => {
@@ -114,7 +115,7 @@ const BarChart = ({ data, isFetching }) => {
       </div>
       <div className="flex flex-col gap-5">
         <h2>Find out estimated salary results in your area</h2>
-        <p>Enter in a job title, your location and a radius you'd like to search within to get the lowest, highest and median salaries based on your added information.</p>
+        <p>Enter in a job title, your location and a radius you&apos;d like to search within to get the lowest, highest and median salaries based on your added information.</p>
       </div>
     </div>
   );

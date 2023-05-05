@@ -1,17 +1,16 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
-import { BarChart, Button, Heading, ImageWrapper, Loader } from '../components';
+import { BarChart, Button, Heading } from '../components';
 import { useLazyGetEstimatedSalaryQuery } from '../services/JSearch';
 import { useLazyGetLocationInfoQuery } from '../services/GeocodingAPI';
-import { BriefcaseIcon, CrossIcon } from '../assets';
 
 const EstimatedSalaries = () => {
   // Location data API call
   const [getLocationInfo] = useLazyGetLocationInfoQuery();
 
   // Estimated salary API call
-  const [getEstimatedSalary, { isFetching, error }] = useLazyGetEstimatedSalaryQuery();
+  const [getEstimatedSalary, { isFetching }] = useLazyGetEstimatedSalaryQuery();
 
   // Form data state
   const [formData, setFormData] = useState({
@@ -44,6 +43,7 @@ const EstimatedSalaries = () => {
 
   // Unsuccessful location API call
   const errorCallback = (error) => {
+    // eslint-disable-next-line no-console
     console.error(error);
   };
 
