@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import { BriefcaseIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
+import { BriefcaseIcon, JobItIcon, oval, PeopleIcon, SavedFilledIcon } from '../assets';
 import Badge from './shared/Badge';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
@@ -22,7 +22,7 @@ const JobSearchCard = ({ job, i }) => {
 
   // calculate result (no of days since job post)
   const daysElapsed = Math.round(
-    (presentDate - jobPostedDate) / ONE_DAY_MS
+    (presentDate - jobPostedDate) / ONE_DAY_MS,
   ).toFixed(0);
 
   const router = useRouter();
@@ -109,10 +109,9 @@ const JobSearchCard = ({ job, i }) => {
               { text: `${job.job_employment_type}`, icon: BriefcaseIcon },
               { text: `${job.employer_company_type}`, icon: PeopleIcon },
             ].map(
-              (item, i) =>
-                item.text !== undefined && (
-                  <Badge text={item.text} key={i} icon={item.icon} />
-                )
+              (item, i) => item.text !== undefined && (
+              <Badge text={item.text} key={i} icon={item.icon} />
+              ),
             )}
           </div>
         </div>

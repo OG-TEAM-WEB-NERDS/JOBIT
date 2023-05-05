@@ -6,6 +6,7 @@ import {
   BriefcaseIcon,
   ClockIcon,
   EllipsisIcon,
+  JobItIcon,
   PeopleIcon,
 } from '../../assets';
 import Badge from './Badge';
@@ -27,16 +28,17 @@ const JobCard = ({
 
   const getJobExpirationInfo = () => {
     const daysLeft = calculateDateToJobExpiration(
-      job.job_offer_expiration_timestamp
+      job.job_offer_expiration_timestamp,
     );
 
-    if (daysLeft === 'Expiry not specified') {
-      return 'Expiry not specified';
+    switch (daysLeft) {
+      case 'Expiry not specified':
+        return 'Expiry not specified';
+      case 'Job expired':
+        return 'Job Listing expired';
+      default:
+        return `${daysLeft} days left`;
     }
-    if (daysLeft === 'Job expired') {
-      return 'Job Listing expired';
-    }
-    return `${daysLeft} days left`;
   };
 
   if (job) {
@@ -60,8 +62,8 @@ const JobCard = ({
               <h3 className="text-base font-bold">{job?.job_title}</h3>
               {/* badges */}
               <div className="flex flex-wrap gap-2">
-                {job?.job_required_skills &&
-                  job?.job_required_skills
+                {job?.job_required_skills
+                  && job?.job_required_skills
                     .slice(0, 3)
                     .map((skill, i) => <Badge text={skill} key={i} />)}
               </div>
@@ -93,10 +95,9 @@ const JobCard = ({
               icon: ClockIcon,
             },
           ].map(
-            (item, i) =>
-              item.text !== 'undefined' && (
-                <Badge text={item.text} key={i} icon={item.icon} />
-              )
+            (item, i) => item.text !== 'undefined' && (
+            <Badge text={item.text} key={i} icon={item.icon} />
+            ),
           )}
         </div>
         {/* footer */}

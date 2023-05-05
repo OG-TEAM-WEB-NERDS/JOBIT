@@ -10,6 +10,7 @@ import {
 } from '../../components';
 import {
   ChevronLeftIcon,
+  JobItIcon,
   PlusIcon,
   profilePlaceholder1,
   profilePlaceholder2,
@@ -36,7 +37,7 @@ const CompanyPage = () => {
       <div className="w-full grid xl:grid-cols-3 gap-8">
         {/* Company Details */}
         <div className="flex flex-col xl:col-span-2">
-          <Banner logo={job.employer_logo} />
+          <Banner logo={job.employer_logo || JobItIcon} />
 
           {/* Company Name */}
           <div className="xl:px-4 flex flex-col space-y-10">

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 import { ImageWrapper } from '..';
 import { CheckEmploymentType } from '../../utils';
+import { JobItIcon } from '../../assets';
 
 const SuggestedJobsCard = ({ job }) => {
   const router = useRouter();
