@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-import ImageWrapper from './shared/ImageWrapper';
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+/* eslint-disable no-case-declarations */
+import React, { useCallback, useEffect, useState } from 'react';
 
+import ImageWrapper from './shared/ImageWrapper';
 import JobSearchCard from './JobSearchCard';
 import { ChevronDownIcon } from '../assets';
 import { useGetSearchedJobsQuery } from '../services/JSearch';
 import { Loader } from '.';
 
 const JobSearchPosts = ({
-  query = 'all',
+  query,
   page,
   employment_types,
   job_requirements,
@@ -31,24 +34,17 @@ const JobSearchPosts = ({
 
   if (isError) {
     return (
-      <div
-        className="
-        font-semibold
-        text-black-3
-        dark:text-gray-200
-        mx-2"
-      >
+      <div className="mx-2 font-semibold text-black-3 dark:text-gray-200">
         Error while fetching!!!
       </div>
     );
   }
 
   const InitialData = data?.data;
+  const disabled = data?.data?.length < 10;
+  setEndOfPage(disabled);
 
-  //Checking end of page for Pagination
-  //data.length === 0 ? setEndOfPage(false) : setEndOfPage(true);
-
-  //Sorting Data
+  // Sorting Data
   const handleSort = (e) => {
     const sortBy = e.target.innerText;
     setSortOn(sortBy);
@@ -94,25 +90,25 @@ const JobSearchPosts = ({
   return (
     <div>
       {/* job post header */}
-      <div className="flex justify-between mx-4 pb-3">
+      <div className="flex justify-between pb-3 mx-4">
         <div className="flex">
           <p className="text-base text-natural-1 dark:text-gray-200">
             Showing:
           </p>{' '}
-          <h6 className="font-semibold text-black-3 ml-2">
+          <h6 className="ml-2 font-semibold text-black-3">
             {InitialData.length} jobs
           </h6>
         </div>
-        <div className="flex ">
+        <div className="flex">
           <p className="opacity-0 md:opacity-100">Sort by:</p>
           <div className="group">
-            <div className="flex ">
-              <p className="font-semibold text-black-3 dark:text-gray-200 mx-2">
+            <div className="flex">
+              <p className="mx-2 font-semibold text-black-3 dark:text-gray-200">
                 {sortOn}
               </p>
               <button
                 type="button"
-                className="flex items-center justify-between cursor-pointer select-none"
+                className="flex justify-between items-center cursor-pointer select-none"
               >
                 <ImageWrapper
                   src={ChevronDownIcon}
@@ -125,7 +121,7 @@ const JobSearchPosts = ({
             </div>
 
             {/* Sort Dropdown Menu  */}
-            <div className="absolute z-10  hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 group-hover:block">
+            <div className="hidden absolute z-10 w-44 bg-white rounded-lg divide-y divide-gray-100 shadow dark:bg-gray-700 group-hover:block">
               <ul
                 className="py-2 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownHoverButton"
@@ -133,13 +129,12 @@ const JobSearchPosts = ({
                 {['Relevance', 'Latest', 'Oldest', 'Popular'].map(
                   (items, i) => (
                     <li key={i}>
-                      <a
-                        href="#"
+                      <span
                         className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                         onClick={(e) => handleSort(e)}
                       >
                         {items}
-                      </a>
+                      </span>
                     </li>
                   )
                 )}
