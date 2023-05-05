@@ -10,7 +10,7 @@ import {
   ReviewsTab,
 } from '.';
 
-const TabbedInterface = () => {
+const TabbedInterface = (companyId) => {
   const tabs = [
     { id: 1, name: 'About', component: <AboutTab /> },
     { id: 2, name: 'Jobs', component: <JobsTab /> },

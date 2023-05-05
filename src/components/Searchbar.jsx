@@ -7,7 +7,7 @@ import { BriefcaseIcon, ChevronDownIcon, PinIcon, SearchIcon } from '../assets';
 import Button from './shared/Button';
 import ImageWrapper from './shared/ImageWrapper';
 import { useGetCountriesInfoQuery } from '../services/CountriesAPI';
-import { searchJob } from '../features/filterReducer';
+import { searchJob, changePage } from '../features/filterReducer';
 
 const Searchbar = ({ path }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -167,6 +167,7 @@ const Searchbar = ({ path }) => {
           fullWidth
           handleClick={() => {
             dispatch(searchJob(`${inputRef.current.value} in ${location}`));
+            dispatch(changePage(1));
             {
               path && router.push(`/job-search`);
             }

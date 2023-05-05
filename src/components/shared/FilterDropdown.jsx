@@ -2,16 +2,18 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { filterSelection } from '../../features/filterReducer';
+import { filterSelection, changePage } from '../../features/filterReducer';
 import { ChevronDownIcon } from '../../assets';
 
 const FilterDropdown = ({ label, options }) => {
-  const { selection } = useSelector((state) => state.filter);
+  const { page, selection } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (event) => {
     const { checked, value: optionValue } = event.target;
+    //seting page to 1 as every filter click will fetch new page
+    dispatch(changePage(1));
 
     switch (optionValue) {
       case 'FULLTIME':
@@ -21,6 +23,7 @@ const FilterDropdown = ({ label, options }) => {
         dispatch(
           filterSelection({ ...selection, empType: checked ? optionValue : '' })
         );
+
         break;
       case 'REMOTE':
         dispatch(filterSelection({ ...selection, remote_jobs_only: checked }));

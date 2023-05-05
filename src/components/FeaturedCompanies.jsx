@@ -1,27 +1,41 @@
 import React from 'react';
-import { FeaturedCompanyCard } from '.';
-import { FeaturedCompanyData } from '../samples/static-data';
+
+import { FeaturedCompanyCard, Loader } from '.';
+
 import SectionTitle from './SectionTitle';
 
-const FeaturedCompanies = () => (
-  <div className="flex flex-col gap-4">
-    <SectionTitle
-      title="Featured Companies"
-    />
-    <div className="flex flex-col md:flex-row gap-4">
-      {FeaturedCompanyData.map((company, index) => (
-        <FeaturedCompanyCard
-          key={index}
-          logo={company.logo}
-          rating={company.rating}
-          employerName={company.employerName}
-          location={company.location}
-          vacancies={company.vacancies}
-          reviewCount={company.reviewCount}
-        />
-      ))}
+import { useGetFeaturedCompaniesQuery } from '../services/JSearch';
+import FeaturedCompaniesWrapper from './FeaturedCompaniesWrapper';
+
+const FeaturedCompanies = () => {
+  const { data, isFetching, isError } = useGetFeaturedCompaniesQuery();
+
+  if (isFetching) {
+    return <Loader />;
+  }
+
+  if (isError) {
+    return (
+      <div
+        className="
+        font-semibold
+        text-black-3
+        dark:text-gray-200
+        mx-2"
+      >
+        Error while fetching!!!
+      </div>
+    );
+  }
+
+  const FeaturedCompaniesData = data.data.employers.slice(0, 3); // choose the first three employers
+
+  return (
+    <div className="flex flex-col gap-4">
+      <SectionTitle title="Featured Companies" />
+      <FeaturedCompaniesWrapper companies={FeaturedCompaniesData} />
     </div>
-  </div>
-);
+  );
+};
 
 export default FeaturedCompanies;
