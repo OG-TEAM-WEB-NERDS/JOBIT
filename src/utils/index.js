@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 function capitalizeFirstLetter(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
@@ -60,10 +61,10 @@ export const getSalaryRangeInfo = (job) => {
   if (job.job_min_salary && job.job_max_salary && job.job_salary_currency) {
     return (
       <p className="font-bold text-lg">
-        {job.job_min_salary &&
-          job.job_max_salary &&
-          job.job_salary_currency &&
-          `${job.job_salary_currency} ${job.job_min_salary} - ${job.job_max_salary} `}
+        {job.job_min_salary
+          && job.job_max_salary
+          && job.job_salary_currency
+          && `${job.job_salary_currency} ${job.job_min_salary} - ${job.job_max_salary} `}
         <span className="font-medium text-natural-1">{`/ ${job.job_salary_period}`}</span>
       </p>
     );
@@ -93,7 +94,8 @@ export const getSalaryRangeInfo = (job) => {
 // function to check if src is valid URL
 export const isValidUrl = (url) => {
   try {
-    new URL(url);
+    const Url = new URL(url);
+    Url();
     return true;
   } catch (error) {
     return false;
@@ -104,9 +106,9 @@ export const isValidUrl = (url) => {
 
 export const CheckExperienceRequired = (experienceRequired) => {
   if (
-    experienceRequired &&
-    experienceRequired.experience_mentioned &&
-    experienceRequired.required_experience_in_months
+    experienceRequired
+    && experienceRequired.experience_mentioned
+    && experienceRequired.required_experience_in_months
   ) {
     return `${experienceRequired.required_experience_in_months} months`;
   }
@@ -114,18 +116,17 @@ export const CheckExperienceRequired = (experienceRequired) => {
 };
 
 export const CheckWorkLevel = (experienceRequired) => {
-  const { experience_mentioned, required_experience_in_months } =
-    experienceRequired || {};
+  const { experience_mentioned, required_experience_in_months } = experienceRequired || {};
 
   if (!experience_mentioned) {
     return 'Not Specified';
   }
   switch (true) {
-    case required_experience_in_months > 0 &&
-      required_experience_in_months <= 12:
+    case required_experience_in_months > 0
+      && required_experience_in_months <= 12:
       return 'Entry Level';
-    case required_experience_in_months > 12 &&
-      required_experience_in_months <= 24:
+    case required_experience_in_months > 12
+      && required_experience_in_months <= 24:
       return 'Junior Level';
     default:
       return 'Senior Level';
@@ -150,7 +151,7 @@ export const CheckSalaryInfo = (
   minSalary,
   maxSalary,
   currency,
-  salaryPeriod
+  salaryPeriod,
 ) => {
   if (currency) {
     if (minSalary && maxSalary) {

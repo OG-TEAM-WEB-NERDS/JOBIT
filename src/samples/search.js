@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const jobs = {
   status: 'OK',
   request_id: '3ffbb8af-3cb9-4160-87b6-b1c7069ea192',

@@ -5,7 +5,7 @@ import Banner from './shared/Banner';
 import Button from './shared/Button';
 import { useGetJobDetailsQuery } from '../services/JSearch';
 import ImageWrapper from './shared/ImageWrapper';
-import { Loader } from '.';
+import { Loader } from './shared';
 import {
   CheckExperienceRequired,
   CheckWorkLevel,

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,6 +46,8 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen }) => {
           
           ${active === item ? 'text-primary' : 'text-natural-2'}
           `}
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+          role="button"
         >
           <Link href={generateLink(i)}>{item}</Link>
         </li>

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { configureStore } from '@reduxjs/toolkit';
 
 import { jobsApi } from '../services/JSearch';
@@ -12,9 +13,8 @@ export default configureStore({
     [geoLocationApi.reducerPath]: geoLocationApi.reducer,
     [countriesApi.reducerPath]: countriesApi.reducer,
   },
-  middleware: (getDefaulMiddleware) =>
-    getDefaulMiddleware()
-      .concat(jobsApi.middleware)
-      .concat(geoLocationApi.middleware)
-      .concat(countriesApi.middleware),
+  middleware: (getDefaulMiddleware) => getDefaulMiddleware()
+    .concat(jobsApi.middleware)
+    .concat(geoLocationApi.middleware)
+    .concat(countriesApi.middleware),
 });

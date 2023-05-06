@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FeaturedCompanyCard } from '.';
+import FeaturedCompanyCard from './FeaturedCompanyCard';
 
 const FeaturedCompaniesWrapper = ({ companies }) => (
   <div className="flex flex-col md:flex-row gap-4">

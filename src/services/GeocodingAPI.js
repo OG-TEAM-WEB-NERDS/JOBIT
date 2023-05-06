@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const geoLocationApiKey = process.env.NEXT_PUBLIC_GEOCODING_API_KEY;

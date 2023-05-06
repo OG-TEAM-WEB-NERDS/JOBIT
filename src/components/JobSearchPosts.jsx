@@ -52,9 +52,8 @@ const JobSearchPosts = ({
     switch (sortBy) {
       case 'Latest':
         const latest = InitialData?.slice(0).sort(
-          (a, b) =>
-            new Date(b?.job_posted_at_datetime_utc).getTime() -
-            new Date(a?.job_posted_at_datetime_utc).getTime()
+          (a, b) => new Date(b?.job_posted_at_datetime_utc).getTime()
+            - new Date(a?.job_posted_at_datetime_utc).getTime(),
         );
 
         setSortedData(latest);
@@ -62,9 +61,8 @@ const JobSearchPosts = ({
         break;
       case 'Oldest':
         const oldest = InitialData?.slice(0).sort(
-          (a, b) =>
-            new Date(a?.job_posted_at_datetime_utc).getTime() -
-            new Date(b?.job_posted_at_datetime_utc).getTime()
+          (a, b) => new Date(a?.job_posted_at_datetime_utc).getTime()
+            - new Date(b?.job_posted_at_datetime_utc).getTime(),
         );
 
         setSortedData(oldest);
@@ -72,9 +70,8 @@ const JobSearchPosts = ({
         break;
       case 'Popular':
         const popular = InitialData?.slice(0).sort(
-          (a, b) =>
-            Number(b?.job_apply_quality_score) <
-            Number(a?.job_apply_quality_score)
+          (a, b) => Number(b?.job_apply_quality_score)
+            < Number(a?.job_apply_quality_score),
         );
 
         setSortedData(popular);
@@ -136,7 +133,7 @@ const JobSearchPosts = ({
                         {items}
                       </span>
                     </li>
-                  )
+                  ),
                 )}
               </ul>
             </div>

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { default as DesignSystem } from './DesignSystem';
 export { default as LatestJobPosts } from './LatestJobPosts';
 export { default as RecommendedJobPosts } from './RecommendedJobPosts';
@@ -25,3 +26,4 @@ export { default as RatingStars } from './shared/RatingStars';
 export { default as Button } from './shared/Button';
 export { default as Loader } from './shared/Loader';
 export { default as ImageWrapper } from './shared/ImageWrapper';
+export { default as SuggestedJobsCard } from './shared/SuggestedJobsCard';
