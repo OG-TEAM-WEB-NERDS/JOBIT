@@ -72,6 +72,10 @@ const JobDetail = ({ setSelectedJobTitle }) => {
     ]
     : null;
 
+  const redirectToJobLink = (link) => {
+    window.open(link, '_blank');
+  };
+
   return (
     job && (
       <div className="w-full px-4 pb-2 rounded-md">
@@ -119,7 +123,7 @@ const JobDetail = ({ setSelectedJobTitle }) => {
             </div>
             {/* buttons */}
             <div className="flex my-3 justify-between items-center gap-2">
-              <Button primary size="sm">
+              <Button primary size="sm" handleClick={() => redirectToJobLink(job.job_apply_link)}>
                 Apply Now
               </Button>
               <Button secondary outlined size="sm">
