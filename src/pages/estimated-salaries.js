@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+
 import { useState, useEffect } from 'react';
 
 import { BarChart, Button, Heading } from '../components';
@@ -77,18 +77,24 @@ const EstimatedSalaries = () => {
         {/* FORM */}
         <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
           <div className="flex flex-col w-full gap-3">
-            <label className="text-natural-2 font-semibold" htmlFor="jobTitle">Job Title</label>
-            <input required className="inputBordered" type="text" id="jobTitle" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Enter job title" />
+            <label className="text-natural-2 font-semibold flex flex-col gap-2" htmlFor="jobTitle">
+              <span>Job Title</span>
+              <input required className="inputBordered" type="text" id="jobTitle" name="jobTitle" value={formData.jobTitle} onChange={handleChange} placeholder="Enter job title" />
+            </label>
           </div>
 
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex flex-col w-full gap-3">
-              <label className="text-natural-2 font-semibold" htmlFor="location">Location</label>
-              <input required className="inputBordered" type="text" id="location" name="location" value={formData.location} onChange={handleChange} placeholder="Enter location" />
+              <label className="text-natural-2 font-semibold flex flex-col gap-2" htmlFor="location">
+                <span>Location</span>
+                <input required className="inputBordered" type="text" id="location" name="location" value={formData.location} onChange={handleChange} placeholder="Enter location" />
+              </label>
             </div>
             <div className="flex flex-col w-full gap-3">
-              <label className="text-natural-2 font-semibold" htmlFor="radius">Radius (km)</label>
-              <input required className="inputBordered" type="number" id="radius" name="radius" min={1} value={formData.radius} onChange={handleChange} placeholder="Enter radius" />
+              <label className="text-natural-2 font-semibold flex flex-col gap-2" htmlFor="radius">
+                <span>Radius (km)</span>
+                <input required className="inputBordered" type="number" id="radius" name="radius" min={1} value={formData.radius} onChange={handleChange} placeholder="Enter radius" />
+              </label>
             </div>
           </div>
 

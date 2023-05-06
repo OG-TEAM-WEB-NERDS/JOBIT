@@ -3,8 +3,9 @@ import dynamic from 'next/dynamic';
 import { useTheme } from 'next-themes';
 
 import { baseOptions } from '../utils/chartOptions';
-import { ImageWrapper, Loader } from './shared';
+import { Loader } from './shared';
 import { BriefcaseIcon, CrossIcon } from '../assets';
+import ImageWrapper from './shared/ImageWrapper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });

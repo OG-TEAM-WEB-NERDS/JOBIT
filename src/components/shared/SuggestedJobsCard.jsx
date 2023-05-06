@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-import { ImageWrapper } from '.';
+import ImageWrapper from './ImageWrapper';
 import { CheckEmploymentType } from '../../utils';
 
 const SuggestedJobsCard = ({ job }) => {

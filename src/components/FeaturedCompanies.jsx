@@ -5,7 +5,7 @@ import { Loader } from './shared';
 import SectionTitle from './SectionTitle';
 
 import { useGetFeaturedCompaniesQuery } from '../services/JSearch';
-// eslint-disable-next-line import/no-cycle
+
 import FeaturedCompaniesWrapper from './FeaturedCompaniesWrapper';
 
 const FeaturedCompanies = () => {

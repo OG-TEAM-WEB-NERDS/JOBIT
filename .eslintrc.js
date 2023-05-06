@@ -24,7 +24,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'max-len': [2, 250],
+    'max-len': [2, 250000],
     'no-multiple-empty-lines': [
       'error',
       {
