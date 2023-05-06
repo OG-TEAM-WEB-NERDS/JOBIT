@@ -9,6 +9,7 @@ const RecentlyPostedJobsWrapper = ({ jobs }) => (
         key={index}
         job={job}
         transparentBtn
+        // eslint-disable-next-line no-undef
         onClick={() => router.push(`/job/${job.job_id}`)}
       />
     ))}

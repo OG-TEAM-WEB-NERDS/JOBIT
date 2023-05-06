@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useDispatch, useSelector } from 'react-redux';
 
 import { filterSelection, changePage } from '../../features/filterReducer';
 import { ChevronDownIcon } from '../../assets';
 
 const FilterDropdown = ({ label, options }) => {
-  const { page, selection } = useSelector((state) => state.filter);
+  const { selection } = useSelector((state) => state.filter);
   const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleChange = (event) => {
     const { checked, value: optionValue } = event.target;
-    //seting page to 1 as every filter click will fetch new page
+    // seting page to 1 as every filter click will fetch new page
     dispatch(changePage(1));
 
     switch (optionValue) {
@@ -21,7 +22,7 @@ const FilterDropdown = ({ label, options }) => {
       case 'INTERN':
       case 'CONTRACTOR':
         dispatch(
-          filterSelection({ ...selection, empType: checked ? optionValue : '' })
+          filterSelection({ ...selection, empType: checked ? optionValue : '' }),
         );
 
         break;
@@ -36,7 +37,7 @@ const FilterDropdown = ({ label, options }) => {
           filterSelection({
             ...selection,
             requirementType: checked ? optionValue : '',
-          })
+          }),
         );
         break;
       default:

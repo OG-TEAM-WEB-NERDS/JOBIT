@@ -1,7 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-import { Navbar } from '../components';
-
 const Document = () => (
   <Html lang="en">
     <Head />

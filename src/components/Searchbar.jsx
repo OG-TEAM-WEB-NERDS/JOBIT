@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useRef, useEffect } from 'react';
-import { useTheme } from 'next-themes';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 
@@ -14,13 +15,12 @@ const Searchbar = ({ path }) => {
   const [hide, setHide] = useState(true);
   const [location, setLocation] = useState('');
   const [countryList, setCountryList] = useState([]);
-  const { theme } = useTheme();
   const inputRef = useRef();
   const toggleRef = useRef(null);
   const dispatch = useDispatch();
   const router = useRouter();
   const { selection } = useSelector((state) => state.filter);
-  const { data, isFetching, isError } = useGetCountriesInfoQuery();
+  const { data, isError } = useGetCountriesInfoQuery();
 
   if (isError) {
     return (
@@ -38,9 +38,10 @@ const Searchbar = ({ path }) => {
 
   const Countires = data?.map((country) => country.name.common);
 
-  //to add a listener to hide Country dropdown on click on window
+  // to add a listener to hide Country dropdown on click on window
   useEffect(() => {
     const handleClickOutside = () => {
+      // eslint-disable-next-line no-restricted-globals
       if (toggleRef.current && !toggleRef.current.contains(event.target)) {
         setHide(true);
       }
@@ -53,9 +54,7 @@ const Searchbar = ({ path }) => {
     };
   }, []);
   const displayOptions = () => {
-    const options = Countires.filter((country) =>
-      country.toLowerCase().includes(location.toLowerCase())
-    );
+    const options = Countires.filter((country) => country.toLowerCase().includes(location.toLowerCase()));
     setCountryList(options);
     setHide('');
   };
@@ -82,7 +81,7 @@ const Searchbar = ({ path }) => {
       </div>
       <div
         className="relative flex w-full md:w-1/3 justify-between pt-3 md:pt-0"
-        //onClick={() => event.stopImmediatePropagation()}
+        // onClick={() => event.stopImmediatePropagation()}
       >
         <div className="flex flex-col w-full">
           <div className="flex flex-row w-full justify-between">
@@ -102,7 +101,7 @@ const Searchbar = ({ path }) => {
                 <input
                   placeholder="Select country name..."
                   className="bg-natural-4 dark:bg-black-2 text-black-1 outline-none dark:text-natural-2"
-                  //onClick={() => setHide('hidden')}
+                  // onClick={() => setHide('hidden')}
                   onChange={(e) => setLocation(e.target.value)}
                   onKeyUp={() => displayOptions()}
                   value={location}
@@ -168,9 +167,9 @@ const Searchbar = ({ path }) => {
           handleClick={() => {
             dispatch(searchJob(`${inputRef.current.value} in ${location}`));
             dispatch(changePage(1));
-            {
-              path && router.push(`/job-search`);
-            }
+
+            // eslint-disable-next-line no-unused-expressions
+            path && router.push('/job-search');
           }}
         >
           Find Job

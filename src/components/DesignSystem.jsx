@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '.';
+import { Button } from './shared';
 import { BellIcon } from '../assets';
 
 const DesignSystem = () => (

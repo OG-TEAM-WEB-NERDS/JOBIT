@@ -2,7 +2,7 @@ import React from 'react';
 import ImageWrapper from './shared/ImageWrapper';
 
 import { PlusIcon } from '../assets';
-import { Button, RatingStars } from '.';
+import { Button, RatingStars } from './shared';
 
 const SimilarCompaniesCard = ({
   logo,

@@ -3,7 +3,7 @@ import React from 'react';
 import SimilarJobsCard from './shared/SimilarJobsCard';
 import SectionTitle from './SectionTitle';
 import { useGetSimilarJobsQuery } from '../services/JSearch';
-import { Loader } from '.';
+import { Loader } from './shared';
 
 const SimilarJobPosts = ({ selectedJobTitle }) => {
   const { data, isFetching, isError } = useGetSimilarJobsQuery(selectedJobTitle);

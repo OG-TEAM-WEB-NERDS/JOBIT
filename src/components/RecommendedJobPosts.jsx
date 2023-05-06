@@ -1,7 +1,7 @@
 import React from 'react';
 import SuggestedJobsCard from './shared/SuggestedJobsCard';
 import SectionTitle from './SectionTitle';
-import { Loader } from '.';
+import { Loader } from './shared';
 import { useGetRecommendedJobsQuery } from '../services/JSearch';
 
 const RecommendedJobPosts = () => {

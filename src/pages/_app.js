@@ -1,5 +1,6 @@
 import { ThemeProvider } from 'next-themes';
 import Script from 'next/script';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { Provider } from 'react-redux';
 
 import store from '../store/index';

@@ -4,7 +4,6 @@ import {
   FeaturedCompanies,
   Heading,
 } from '../components';
-import { getDate } from '../utils';
 
 const Dashboard = () => (
   <main className="py-6">
