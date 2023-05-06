@@ -44,6 +44,7 @@ const EstimatedSalaries = () => {
   // Unsuccessful location API call
   const errorCallback = (error) => {
     // eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.error(error);
   };
 

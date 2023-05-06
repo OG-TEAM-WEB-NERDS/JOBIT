@@ -8,6 +8,7 @@ import { BriefcaseIcon, CrossIcon } from '../assets';
 import ImageWrapper from './shared/ImageWrapper';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const BarChart = ({ data, isFetching }) => {

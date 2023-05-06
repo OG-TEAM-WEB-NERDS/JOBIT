@@ -49,8 +49,8 @@ const Button = ({
 
   // returns classNames only for props passed
   const buttonClassNames = Object.entries(classNames)
-    .filter(([key, value]) => Boolean(value))
-    .map(([key, value]) => key)
+    .filter(([value]) => Boolean(value))
+    .map(([key]) => key)
     .join(' ');
 
   return (
